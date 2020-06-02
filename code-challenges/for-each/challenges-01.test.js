@@ -46,7 +46,7 @@ If the item is available, add it to your list. Return the final list.
 const createList = (availableItems) => {
   // Solution code here...
   let list = [];
-  availableItems.forEach(function (value) {
+  availableItems.forEach(value => {
     if (value.available === true) {
       list.push(value.name);
     }
@@ -67,7 +67,7 @@ Return the resulting output array.
 const fizzbuzz = (arr) => {
   // Solution code here...
   let arr2 = [];
-  arr.forEach(function (value) {
+  arr.forEach(value => {
     if ((value % 3 === 0) && (value % 5 === 0)) { arr2.push('Fizz Buzz'); }
     else if (value % 5 === 0) { arr2.push('Buzz'); }
     else if (value % 3 === 0) { arr2.push('Fizz'); }
