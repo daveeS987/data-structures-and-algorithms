@@ -1,7 +1,7 @@
 'use strict';
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
-Write a function named raisedToTheThird that takes in an array of numbers and returns a new array of 
+Write a function named raisedToTheThird that takes in an array of numbers and returns a new array of
 each of those numbers raised to the 3rd power (hint: look up Math.pow()). Use forEach to solve this problem.
 ------------------------------------------------------------------------------------------------ */
 const raisedToTheThird = (arr) => {
@@ -14,7 +14,7 @@ const raisedToTheThird = (arr) => {
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
-Write a function that appends ' The end.' to a string, and returns the modified string. 
+Write a function that appends ' The end.' to a string, and returns the modified string.
 The original source string should not be modified.
 ------------------------------------------------------------------------------------------------ */
 const appendTheEnd = (str) => {
@@ -24,11 +24,11 @@ const appendTheEnd = (str) => {
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
-Write a function that accepts an array and 
-copies the first element to the end of the array. 
-The change should be reflected in the source 
-array that was passed in to the function. 
-That is, the function should modify the array 
+Write a function that accepts an array and
+copies the first element to the end of the array.
+The change should be reflected in the source
+array that was passed in to the function.
+That is, the function should modify the array
 'in place'.
 Do not use a return statement.
 For example:
@@ -45,12 +45,12 @@ const appendFirstToLast = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 Write a function that accepts an object and an integer
- as arguments and adds a new property to the object 
- called yearBorn. The value of the yearBorn property 
+ as arguments and adds a new property to the object
+ called yearBorn. The value of the yearBorn property
  should be the integer that was passed in.
-The change should be reflected in the source 
-object that was passed in to the function. 
-That is, the function should modify the object 
+The change should be reflected in the source
+object that was passed in to the function.
+That is, the function should modify the object
 'in place'.
 Do not use a return statement.
 For example:
@@ -65,7 +65,7 @@ const addBirthYearProperty = (obj, year) => {
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
-Write a function that accepts an array of people objects and adds a new property 
+Write a function that accepts an array of people objects and adds a new property
 called isAuthor to each object in the list. Set the value of the new property to true.
 The function should modify the object in place. Do not use a return statement.
 For example:
