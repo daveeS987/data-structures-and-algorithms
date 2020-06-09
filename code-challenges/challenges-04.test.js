@@ -24,7 +24,9 @@ let $ = createSnippetWithJQuery(`
 
 const generateSubmitButton = () => {
   // Solution code here...
-}
+  let $button = $(`<button>submit</button>`);
+  $('section').append($button);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -40,6 +42,8 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
+  let anything = /[0-9]/g;
+  return anything.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,6 +56,8 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
+  let regex = /[A-Z]\b/g;
+  return str.match(regex);
 };
 
 /* ------------------------------------------------------------------------------------------------
