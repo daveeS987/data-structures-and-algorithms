@@ -57,7 +57,11 @@ Return an array containing all the matches.
 const isCapitalized = (str) => {
   // Solution code here...
   let regex = /\b[A-Z][a-zA-Z]*\b/g;
-  return str.match(regex);
+  if (!str.match(regex)) {
+    return [];
+  } else {
+    return str.match(regex);
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,7 +150,7 @@ describe('Testing challenge 1', () => {
   test('It should add a submit button to the DOM', () => {
     generateSubmitButton();
     expect($('button').text()).toStrictEqual('submit');
-  })
+  });
 });
 
 describe('Testing challenge 2', () => {
