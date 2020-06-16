@@ -46,8 +46,9 @@ const templateWithJQuery = () => {
     $clone.find('h2').text(person.name);
     $clone.find('h3').text(person.height);
     $clone.find('p').text(person.eye_color);
-    $clone.removeClass('template');
+    $clone.removeAttr('id');
   });
+  console.log($('main').html());
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -262,7 +263,7 @@ describe('Testing challenge 1', () => {
     expect($('section:nth-child(2) h2').text()).toStrictEqual('Luke Skywalker');
     expect($('section:nth-child(3) h3').text()).toStrictEqual('167');
     expect($('section:nth-child(4) p').text()).toStrictEqual('red');
-  })
+  });
 });
 
 describe('Testing challenge 2', () => {
