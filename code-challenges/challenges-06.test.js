@@ -72,8 +72,12 @@ let $ = createSnippetWithJQuery(`
 const templatingWithMustache = () => {
   // Solution code here...
   let array = [];
-  let $template = $('#template').html();
-  for (var )
+  Object.values(characters).forEach(person => {
+    let $template = $('#template').html();
+    let rendered = Mustache.render($template, person);
+    array.push(rendered);
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
