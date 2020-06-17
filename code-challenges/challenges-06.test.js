@@ -182,6 +182,16 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 const houseSize = (arr) => {
   const sizes = [];
   // Solution code here...
+  arr.forEach(person => {
+    let family = {
+      house: person.house,
+      members: 1 + person.children.length
+    };
+    if (person.spouse) {
+      family.members++;
+    }
+    sizes.push(family);
+  });
   return sizes;
 };
 
@@ -205,7 +215,16 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  arr.forEach(person => {
+    let family = {
+      house: person.house,
+      members: 1 + person.children.length
+    };
+    if (deceasedSpouses.includes(person.spouse) === false && (person.spouse)) {
+      family.members++;
+    }
+    survivors.push(family);
+  });
   return survivors;
 };
 
