@@ -71,6 +71,13 @@ let $ = createSnippetWithJQuery(`
 
 const templatingWithMustache = () => {
   // Solution code here...
+  let array = [];
+  Object.values(characters).forEach(person => {
+    let $template = $('#template').html();
+    let rendered = Mustache.render($template, person);
+    array.push(rendered);
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -88,6 +95,7 @@ const courseInfo = {
 
 const getCourseKeys = (obj) => {
   // Solution code here...
+  return Object.keys(obj);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -99,6 +107,9 @@ Write a function named getHouses that returns a new array containing the names o
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
+  arr.forEach(obj => {
+    houses.push(obj.house);
+  });
   return houses;
 };
 
@@ -116,9 +127,12 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-
+  for (let i = 0; i < arr.length; i++) {
+    if (Object.values(arr[i]).includes(character)) {
+      return arr[i].children.length !== 0;
+    }
+  }
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
@@ -129,6 +143,11 @@ The input and output of this function are the same as the input and output from 
 
 const hasChildrenEntries = (arr, character) => {
   // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    if (Object.entries(arr[i])[0][1] === character) {
+      return arr[i].children.length !== 0;
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -139,6 +158,15 @@ Write a function named totalCharacters that takes in an array and returns the nu
 
 const totalCharacters = (arr) => {
   // Solution code here...
+  let total = 0;
+  arr.forEach(person => {
+    total++;
+    if (person.spouse) {
+      total++;
+    }
+    total += person.children.length;
+  });
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -154,6 +182,16 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 const houseSize = (arr) => {
   const sizes = [];
   // Solution code here...
+  arr.forEach(person => {
+    let family = {
+      house: person.house,
+      members: 1 + person.children.length
+    };
+    if (person.spouse) {
+      family.members++;
+    }
+    sizes.push(family);
+  });
   return sizes;
 };
 
@@ -177,7 +215,16 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  arr.forEach(person => {
+    let family = {
+      house: person.house,
+      members: 1 + person.children.length
+    };
+    if (deceasedSpouses.includes(person.spouse) === false && (person.spouse)) {
+      family.members++;
+    }
+    survivors.push(family);
+  });
   return survivors;
 };
 
