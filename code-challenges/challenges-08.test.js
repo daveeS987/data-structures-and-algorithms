@@ -22,6 +22,7 @@ const createServer = () => {
 
 function sayHello(request, response) {
   // Solution code here...
+  response.send("Hello from the back-end");
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,6 +35,10 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
+  let odds = arr.filter((value) => {
+    return value % 2;
+  });
+  return odds;
 };
 
 /* ------------------------------------------------------------------------------------------------
