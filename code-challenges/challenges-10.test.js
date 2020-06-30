@@ -8,6 +8,26 @@ Build a simple express server. Connect a '/hello' route that sends a greeting of
 
 const createServer = () => {
   // Solution code here...
+  const express = require('express');
+  const app = express();
+
+  app.get('/hello', (request, response) => {
+    response.status(200).send('Davee - pronoun bro');
+  });
+
+  app.get('/aboutme', (request, response) => {
+    response.status(200).send('hello');
+  });
+
+  app.get('/favoritefoods', (request, response) => {
+    let foods = ['sushi', 'pizza'];
+    response.status(200).send(foods);
+  });
+
+  app.get('*', (request, response) => {
+    response.status(404).send('Route not found');
+  });
+
 
   var server = app.listen(3301, function () {
     var port = server.address().port;
@@ -28,6 +48,7 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
+  return input.map(array => array.filter(value => value === target)).reduce((acc, arr) => acc += arr.length, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -42,6 +63,7 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+  return input.map(arr => arr.reduce((acc, val) => acc += val), 0).reduce((acc, val) => acc += val, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,6 +80,7 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  return input.map(arr => arr.filter(value => (typeof value === 'number' && value % 5 === 0))).map(arr => arr.map(value => Math.pow(2, value)));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -124,6 +147,12 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  return data.reduce((acc, val) => {
+    if (val.gender === 'male' || val.gender === 'female') {
+      acc.push(val.name);
+    }
+    return acc;
+  }, []).join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -220,7 +249,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return only characters that are male or female', () => {
     expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
     expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
