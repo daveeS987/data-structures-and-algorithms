@@ -8,6 +8,26 @@ Build a simple express server. Connect a '/hello' route that sends a greeting of
 
 const createServer = () => {
   // Solution code here...
+  const express = require('express');
+  const app = express();
+
+  app.get('/hello', (request, response) => {
+    response.status(200).send('Davee - pronoun bro');
+  });
+
+  app.get('/aboutme', (request, response) => {
+    response.status(200).send('hello');
+  });
+
+  app.get('/favoritefoods', (request, response) => {
+    let foods = ['sushi', 'pizza'];
+    response.status(200).send(foods);
+  });
+
+  app.get('*', (request, response) => {
+    response.status(404).send('Route not found');
+  });
+
 
   var server = app.listen(3301, function () {
     var port = server.address().port;
