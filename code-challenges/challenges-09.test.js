@@ -26,6 +26,7 @@ const createServer = () => {
   const app = express();
 
   // Routes go here
+  app.get('/events', getCurrentEvents);
   // Solution code here...
 
   var server = app.listen(3301, function () {
@@ -161,14 +162,24 @@ const currentEvents = {
 
 function getCurrentEvents(request, response) {
   // Solution code here...
+  let result = mapCurrentEvents();
+  response.status(200).json(result);
 }
 
 const mapCurrentEvents = () => {
   // Solution code here...
-}
+  let results = currentEvents.news.map(value => new Event(value));
+  return results;
+};
 
 function Event(obj) {
   // Solution code here...
+  this.author = obj.author;
+  this.categories = obj.category;
+  this.summary = obj.description;
+  this.img_url = obj.url;
+  this.date = obj.published;
+  this.title = obj.title;
 }
 
 /* ------------------------------------------------------------------------------------------------
