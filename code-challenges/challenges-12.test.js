@@ -43,10 +43,7 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
-  return stores.map((val, idx) => {
-    return firstPike[idx] + seaTac[idx] + seattleCenter[idx] + capHill[idx] + alkiBeach[idx];
-  });
-
+  return stores[0].map((val, idx) => firstPike[idx] + seaTac[idx] + seattleCenter[idx] + capHill[idx] + alkiBeach[idx]);
 };
 
 /* ------------------------------------------------------------------------------------------------
