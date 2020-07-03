@@ -10,13 +10,12 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
-  let max = arr.reduce((acc, val, idx) => {
+  return arr.reduce((acc, val, idx) => {
     if (val > acc) {
       acc = val;
     }
     return acc;
   }, 0);
-  return max;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -123,6 +122,7 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 
 const calculateProduct = (numbers) => {
   // Solution code here...
+  return numbers.reduce((acc, arr) => acc *= arr.reduce((acc, val) => acc *= val, 1), 1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -143,6 +143,13 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
+  let days = 0;
+  let tempTotal = 0;
+  weather.forEach(arr => arr.forEach(temp => {
+    tempTotal += temp;
+    days += 1;
+  }));
+  return tempTotal / days;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -254,7 +261,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
@@ -267,7 +274,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should calculate and return the average temperature of the data set', () => {
     expect(averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25);
   });
