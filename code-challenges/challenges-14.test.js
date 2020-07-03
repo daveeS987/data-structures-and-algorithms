@@ -20,6 +20,10 @@ const createServer = () => {
     res.sendStatus(405);
   });
 
+  app.use('*', (req, res) => {
+    res.status(404).send('route not found');
+  });
+
   var server = app.listen(3000, function () {
     var port = server.address().port;
     console.log('Example app listening at port', port);
@@ -37,6 +41,7 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   // Solution code here...
+  return arr.map(str => str.charAt(0).toUpperCase() + str.substring(1));
 };
 
 /* ------------------------------------------------------------------------------------------------
