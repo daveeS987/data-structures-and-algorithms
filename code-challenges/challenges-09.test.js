@@ -177,7 +177,7 @@ function Event(obj) {
   this.author = obj.author;
   this.categories = obj.category;
   this.summary = obj.description;
-  this.img_url = obj.url;
+  this.img_url = obj.image;
   this.date = obj.published;
   this.title = obj.title;
 }
