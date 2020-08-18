@@ -4,4 +4,5 @@
 
 ### Table of Contents
 
-- [arrayShift](/code-challenges/arrayShift/array-shift.js)
+- [Code Challenge 1 - ArrayReverse](/code-challenges/arrayReverse/array-reverse.js)
+- [Code Challenge 2 - ArrayShift](/code-challenges/arrayShift/array-shift.js)
