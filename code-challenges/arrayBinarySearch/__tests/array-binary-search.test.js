@@ -15,6 +15,12 @@ describe('Test binary search', () => {
     expect(search(array, target)).toStrictEqual(5);
   });
 
+  it('Should return the target index given a target thats present within the array', () => {
+    let array = [1, 3, 5, 7, 11, 13, 17, 19];
+    let target = 3;
+    expect(search(array, target)).toStrictEqual(1);
+  });
+
   it('Should return -1 if target is not within the array', () => {
     let array = [1,2,3,4,5,6,7,8,9,10];
     let target = 12;
