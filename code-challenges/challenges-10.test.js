@@ -29,7 +29,7 @@ const createServer = () => {
   });
 
 
-  var server = app.listen(3301, function () {
+  var server = app.listen(3302, function () {
     var port = server.address().port;
     console.log('Example app listening at port', port);
   });
