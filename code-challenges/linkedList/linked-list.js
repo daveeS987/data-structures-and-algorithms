@@ -9,7 +9,6 @@ class LinkedList {
 
   append(value) {
     let node = new Node(value);
-
     if (!this.head) {
       this.head = node;
     } else {
@@ -73,6 +72,7 @@ class LinkedList {
       previous = current;
       current = current.next;
     }
+    console.error('target value is not within the list');
   }
 
   insertAfter(value, newVal) {
@@ -87,10 +87,12 @@ class LinkedList {
       }
       current = current.next;
     }
+    console.error('target value is not within the list');
   }
 
+  kthFromEnd(k) {
 
-
+  }
 }
 
 

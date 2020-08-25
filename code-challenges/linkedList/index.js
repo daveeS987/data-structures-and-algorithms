@@ -11,7 +11,7 @@ list.insert('fourth');
 list.insert('fifth');
 list.append('last');
 // list.insertBefore('second', 'insertThis');
-list.insertAfter('fourth', '4.5');
+list.insertAfter('fourth', '3.5');
 
 
 list.toString();
