@@ -13,7 +13,7 @@ class LinkedList {
       this.head = node;
     } else {
       let current = this.head;
-      while(current.next) {
+      while (current.next) {
         current = current.next;
       }
       current.next = node;
@@ -22,40 +22,34 @@ class LinkedList {
   }
 
   insert(value) {
-    let current = this.head;
     let node = new Node(value);
+    let current = this.head;
     node.next = current;
     this.head = node;
-    current = this.head;
+    return this;
   }
 
   includes(searchVal) {
     let current = this.head;
-    let result = searchVal;
-    while (current !== null) {
+    while (current.next) {
       if (current.value === searchVal) {
-        console.log(result, 'IS in your list');
         return true;
       }
       current = current.next;
     }
-    console.log(result, 'IS NOT in your list');
     return false;
   }
 
   toString() {
     let current = this.head;
     let string = '';
-    while (current) {
-      if (current !== null) {
-        string = `${string} { ${current.value} } ->`;
-        current = current.next;
-      }
-      if (current === null) {
-        string = `${string} ${null}`;
-      }
+    while (current.next) {
+      string = `${string} { ${current.value} } ->`;
+      current = current.next;
     }
+    string = `${string} ${null}`;
     console.log(string);
+    return this;
   }
 
   insertBefore(value, newVal) {
@@ -64,21 +58,21 @@ class LinkedList {
     while (current.next) {
       if (current.value === value) {
         let node = new Node(newVal);
-        node.next = previous.next;
+        node.next = current;
         previous.next = node;
-        console.log('previous: ', previous);
         return this;
       }
       previous = current;
       current = current.next;
     }
     console.error('target value is not within the list');
+    return this;
   }
 
   insertAfter(value, newVal) {
     let current = this.head;
-    while(current.next) {
-      if(current.value ===value) {
+    while (current.next) {
+      if (current.value === value) {
         let node = new Node(newVal);
         let nextNode = current.next;
         current.next = node;
@@ -90,9 +84,7 @@ class LinkedList {
     console.error('target value is not within the list');
   }
 
-  kthFromEnd(k) {
-
-  }
+  kthFromEnd(k) {}
 }
 
 
