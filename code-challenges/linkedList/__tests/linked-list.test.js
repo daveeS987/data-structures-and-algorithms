@@ -22,12 +22,8 @@ describe('Test if Linked List works', () => {
   });
 
   it('should Insert new node at beginning', () => {
-    let list = {
-      head = {
-        value: 'first node',
-        next: null
-      }
-    }
-    list.LinkedList.insert({value: 'new node', next: null})
-  })
+    let list = new LinkedList();
+    list.insert({value: 'new node', next: null});
+    console.log('list from test: ', list);
+  });
 });

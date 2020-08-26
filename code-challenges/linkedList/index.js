@@ -18,6 +18,8 @@ console.log('list: ', list);
 // list.includes('first');
 // list.includes('fourth');
 
+let k = list.kthFromEnd(2);
+console.log('using kthfrom end: ', k);
 
 
 

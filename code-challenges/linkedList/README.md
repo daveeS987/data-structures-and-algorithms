@@ -2,7 +2,7 @@
 
 <!-- Short summary or background information -->
 
-## Challenge
+## Challenge Description
 
 <!-- Description of the challenge -->
 
@@ -41,6 +41,55 @@ toString:
 - add null to the end
 - Big O is: O(n)
 
-## API
+## Solution(Whiteboard)
 
 <!-- Description of each method publicly available to your Linked List -->
+
+<br>
+<br>
+
+# Code Challenge 6: Linked List Insertions
+
+<!-- Short summary or background information -->
+
+Create methods to insert nodes into linked list.
+
+## Challenge Description
+
+<!-- Description of the challenge -->
+
+- insertBefore: function will take two parameters. A value to search for and a newVal to add. Insert new node BEFORE target value.
+
+- insertAfter: function will take two parameters. A value to search for and a newVal to add. Insert new node AFTER target value.
+
+- append: add node to end of list
+
+## Approach & Efficiency
+
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+insertBefore(value, newVal) :
+
+- declare a previous and current variable
+- iterate over linked list
+  - if value is found
+    - insert before node
+
+insertAfter(value, newVal) :
+
+- declare a previous and current variable
+- iterate over linked list
+  - if value is found
+    - insert after node
+
+append(value):
+
+- iterate over the linked list till the end
+- reassign current.next to equal the inserted node
+
+## Solution(Whiteboard)
+
+<!-- Embedded whiteboard image -->
+
+![Whiteboard](../../assets/challenge6.png)
+![Visual](../../assets/challenge6visual.jpg)

@@ -52,11 +52,11 @@ class LinkedList {
     return this;
   }
 
-  insertBefore(value, newVal) {
+  insertBefore(target, newVal) {
     let current = this.head;
     let previous;
     while (current.next) {
-      if (current.value === value) {
+      if (current.value === target) {
         let node = new Node(newVal);
         node.next = current;
         previous.next = node;
@@ -66,13 +66,12 @@ class LinkedList {
       current = current.next;
     }
     console.error('target value is not within the list');
-    return this;
   }
 
-  insertAfter(value, newVal) {
+  insertAfter(target, newVal) {
     let current = this.head;
     while (current.next) {
-      if (current.value === value) {
+      if (current.value === target) {
         let node = new Node(newVal);
         let nextNode = current.next;
         current.next = node;
@@ -84,51 +83,17 @@ class LinkedList {
     console.error('target value is not within the list');
   }
 
-  kthFromEnd(k) {}
+  kthFromEnd(k) {
+    let arr = [];
+    let current = this.head;
+    while(current.next) {
+      arr.push(current.value);
+      current = current.next;
+    }
+    return arr[arr.length-1-k];
+  }
 }
 
 
 module.exports = LinkedList;
-
-/*
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-  insert(addVal) {
-    let node = new Node(addVal);
-    node.next = this.head;
-    this.head = node;
-    return this.head;
-  }
-  includes(searchVal) {
-    let current = this.head;
-    let result = searchVal;
-    while (current !== null) {
-      if (current.value === searchVal) {
-        console.log(result, ‘IS in your list’);
-        return true;
-      }
-      current = current.next;
-    }
-    console.log(result, ‘IS NOT in your list’);
-    return false;
-  }
-  toString() {
-    let current = this.head;
-    let string = ‘’;
-    while (current) {
-      if (current !== null) {
-        string = `${string} { ${current.value} } ->`;
-        current = current.next;
-      }
-      if (current === null) {
-        string = `${string} ${null}`;
-      }
-    }
-    console.log(string);
-  }
-}
-*/
-
 
