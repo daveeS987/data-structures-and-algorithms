@@ -30,10 +30,10 @@ class LinkedList {
     let current = this.head;
     let string = '';
     while (current.next) {
-      string = `${string} { ${current.value} } ->`;
+      string += `{ ${current.value} } -> `;
       current = current.next;
     }
-    string = `${string} ${null}`;
+    string += `{ ${current.value} } -> ${null}`;
     return string;
   }
 
