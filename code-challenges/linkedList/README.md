@@ -22,7 +22,7 @@ Insert:
 - create new node Instance
 - assign node.next to equal current
 - reassign head to what node is now
-- Big O is: O(n)
+- Big O is: Time - O(n) / Space - O(n)
 
 Includes:
 
@@ -31,7 +31,7 @@ Includes:
 - if current value equals search value
 - return true
 - otherwise return false
-- Big O is: O(n)
+- Big O is: Time - O(n) / Space - O(n)
 
 toString:
 
@@ -39,7 +39,7 @@ toString:
 - add current value into a string variable
 - once current.next doesnt exist
 - add null to the end
-- Big O is: O(n)
+- Big O is: Time - O(n) / Space - O(n)
 
 ## Solution(Whiteboard)
 
