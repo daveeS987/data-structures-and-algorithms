@@ -14,7 +14,7 @@ list.insertAfter('fourth', '3.5');
 
 
 list.toString();
-console.log('list: ', list);
+console.log('list: ', JSON.stringify(list, null, 2));
 // list.includes('first');
 // list.includes('fourth');
 
