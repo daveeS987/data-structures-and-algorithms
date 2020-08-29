@@ -34,8 +34,7 @@ class LinkedList {
       current = current.next;
     }
     string = `${string} ${null}`;
-    console.log(string);
-    return this;
+    return string;
   }
 
   append(value) {
