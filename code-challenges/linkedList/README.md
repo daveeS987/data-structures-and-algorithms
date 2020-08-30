@@ -93,3 +93,31 @@ append(value):
 
 ![Whiteboard](../../assets/challenge6.png)
 ![Visual](../../assets/challenge6visual.jpg)
+
+<br>
+<br>
+
+# Code Challenge 7
+
+<!-- Short summary or background information -->
+
+## Challenge Description
+
+<!-- Description of the challenge -->
+
+Given a number "k", find the value of a node "k" distance from the end of the linked list.
+
+## Approach & Efficiency
+
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+- Iterate over linked list to find length
+- Iterate a second time the distance of length-k
+- return value at node
+- Time is O(n), Space is 0(1)
+
+## Solution
+
+<!-- Embedded whiteboard image -->
+
+![ll-kth-from-end](../../assets/ll-kth-from-end.png)
