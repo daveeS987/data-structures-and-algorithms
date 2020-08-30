@@ -45,10 +45,10 @@ describe('CheckValuesMatch helper function should work', () => {
 });
 
 // ****************************************
-//                Lab 5
+//            Code Challenge 5
 // ****************************************
 
-describe('Lab 5 Linked List Test: insert, includes, toString', () => {
+describe('Code Challenge 5 Linked List Test: insert, includes, toString', () => {
   it('It can instantiate an empty linked list', () => {
     let list = new LinkedList();
     expect(list).toEqual({ head: null });
@@ -93,10 +93,10 @@ describe('Lab 5 Linked List Test: insert, includes, toString', () => {
 
 
 // ****************************************
-//                Lab 6
+//            Code Challenge 6
 // ****************************************
 
-describe('Lab 6 Linked List Test: append, insertBefore, insertAfter', () => {
+describe('Code Challenge 6 Linked List Test: append, insertBefore, insertAfter', () => {
   let list = new LinkedList();
 
   it('Can successfully add a node to the end of the linked list', () => {
@@ -151,10 +151,10 @@ describe('Lab 6 Linked List Test: append, insertBefore, insertAfter', () => {
 
 
 // ****************************************
-//                Lab 7
+//            Code Challenge 7
 // ****************************************
 
-describe('Lab 7 Linked List Test: k-th value from the end', () => {
+describe('Code Challenge 7 Linked List Test: k-th value from the end', () => {
   let list = new LinkedList();
   list.append(1).append(2).append(3).append(4).append(5);
   console.log('list Lab7: ', JSON.stringify(list, null, 2));
