@@ -22,15 +22,20 @@ describe('CheckValuesMatch helper function should work', () => {
   list.append('second');
   list.append('third');
   let correctValues = ['first', 'second', 'third'];
-  let inCorrectValues = ['first', 'second', 'fourth'];
-  let inCorrectLength = ['first', 'second', 'third', 'fourth'];
+  let inCorrectValues1 = ['bad', 'second', 'third'];
+  let inCorrectValues2 = ['first', 'second', 'bad'];
+  let inCorrectLength = ['first', 'second', 'third', 'bad'];
 
   it('Should return true if values match', () => {
     expect(checkValuesMatch(list,correctValues)).toEqual(true);
   });
 
-  it('Should return false if values do not match', () => {
-    expect(checkValuesMatch(list,inCorrectValues)).toEqual(false);
+  it('Should return false if first values do not match', () => {
+    expect(checkValuesMatch(list,inCorrectValues1)).toEqual(false);
+  });
+
+  it('Should return false if last values do not match', () => {
+    expect(checkValuesMatch(list,inCorrectValues2)).toEqual(false);
   });
 
   it('Should return false if list length and expected array length do not match', () => {

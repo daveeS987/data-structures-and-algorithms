@@ -76,9 +76,8 @@ class LinkedList {
     while (current.next) {
       if (current.value === target) {
         let node = new Node(newVal);
-        let nextNode = current.next;
+        node.next = current.next;
         current.next = node;
-        node.next = nextNode;
         return this;
       }
       current = current.next;
