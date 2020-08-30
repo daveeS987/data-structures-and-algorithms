@@ -52,10 +52,14 @@ class LinkedList {
   }
 
   insertBefore(target, newVal) {
-    let current = this.head;
     let previous;
+    let current = this.head;
     while (current.next) {
       if (current.value === target) {
+        if (!previous) {
+          this.insert(newVal);
+          return this;
+        }
         let node = new Node(newVal);
         node.next = current;
         previous.next = node;
@@ -72,12 +76,15 @@ class LinkedList {
     while (current.next) {
       if (current.value === target) {
         let node = new Node(newVal);
-        let nextNode = current.next;
+        node.next = current.next;
         current.next = node;
-        node.next = nextNode;
         return this;
       }
       current = current.next;
+    }
+    if (current.value === target) {
+      this.append(newVal);
+      return this;
     }
     console.error('target value is not within the list');
   }

@@ -15,6 +15,6 @@ list.insert('fifth');
 // let k = list.kthFromEnd(2);
 // console.log('using kthfrom end: ', k);
 
-let stringVersion = list.toString();
-console.log('stringVersion: ', stringVersion);
-console.log('list: ', JSON.stringify(list, null, 2));
+// let stringVersion = list.toString();
+// console.log('stringVersion: ', stringVersion);
+// console.log('list: ', JSON.stringify(list, null, 2));
