@@ -2,6 +2,7 @@
 
 const Node = require('../node.js');
 const LinkedList = require('../linked-list.js');
+const checkValuesMatch = require('../checkValuesMatch.js');
 
 describe('Test if Node works', () => {
   it('Proof of Life Test', () => {
@@ -35,19 +36,9 @@ describe('Lab 5 Linked List Test: insert, includes, toString', () => {
   });
 
   it('Can properly insert multiple nodes into the linked list', () => {
-    let current = list.head;
     let values = ['third insert', 'second insert', 'first insert'];
-    let i = 0;
-    let allValuesMatch = true;
-    while (current.next) {
-      if (current.value !== values[i]) {
-        allValuesMatch = false;
-        break;
-      }
-      current = current.next;
-      i += 1;
-    }
-    expect(allValuesMatch).toEqual(true);
+    let valuesMatch = checkValuesMatch(list, values);
+    expect(valuesMatch).toEqual(true);
   });
 
   it('Includes method returns true if target exist within linked list', () => {
@@ -61,11 +52,41 @@ describe('Lab 5 Linked List Test: insert, includes, toString', () => {
   });
 
   it('toString method should properly return a collection', () => {
-    console.log('list: ', JSON.stringify(list, null, 2));
     let actual = list.toString();
-    console.log('actual: ', actual);
     let expected =
       '{ third insert } -> { second insert } -> { first insert } -> null';
     expect(actual).toEqual(expected);
+  });
+});
+
+describe('Lab 6 Linked List Test: append, insertBefore, insertAfter', () => {
+  let list = new LinkedList();
+
+  it('Append will add node to end of linked list', () => {
+    list.append('first append');
+    let expected = 'first append';
+    let current = list.head;
+    while(current.next) {
+      current = current.next;
+    }
+    expect(current.value).toEqual(expected);
+  });
+
+  it('Can add multiple nodes to the end of a linked list', () => {
+    list.append('second append');
+    let expected = 'second append';
+    let current = list.head;
+    while(current.next) {
+      current = current.next;
+    }
+    expect(current.value).toEqual(expected);
+  });
+
+  it('InsertBefore method works in the middle of a linked list', () => {
+    list.append('third append');
+    list.insertBefore('second append', '1.5');
+    let values = ['first append', '1.5', 'second append', 'third append'];
+    let valuesMatch = checkValuesMatch(list, values);
+    expect(valuesMatch).toEqual(true);
   });
 });
