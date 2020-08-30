@@ -16,6 +16,28 @@ describe('Test if Node works', () => {
   });
 });
 
+describe('CheckValuesMatch helper function should work', () => {
+  let list = new LinkedList();
+  list.append('first');
+  list.append('second');
+  list.append('third');
+  let correctValues = ['first', 'second', 'third'];
+  let inCorrectValues = ['first', 'second', 'fourth'];
+  let inCorrectLength = ['first', 'second', 'third', 'fourth'];
+
+  it('Should return true if values match', () => {
+    expect(checkValuesMatch(list,correctValues)).toEqual(true);
+  });
+
+  it('Should return false if values do not match', () => {
+    expect(checkValuesMatch(list,inCorrectValues)).toEqual(false);
+  });
+
+  it('Should return false if list length and expected array length do not match', () => {
+    expect(checkValuesMatch(list,inCorrectLength)).toEqual(false);
+  });
+});
+
 describe('Lab 5 Linked List Test: insert, includes, toString', () => {
   it('It can instantiate an empty linked list', () => {
     let list = new LinkedList();
@@ -62,7 +84,7 @@ describe('Lab 5 Linked List Test: insert, includes, toString', () => {
 describe('Lab 6 Linked List Test: append, insertBefore, insertAfter', () => {
   let list = new LinkedList();
 
-  it('Append will add node to end of linked list', () => {
+  it('Can successfully add a node to the end of the linked list', () => {
     list.append('first append');
     let expected = 'first append';
     let current = list.head;
@@ -72,7 +94,7 @@ describe('Lab 6 Linked List Test: append, insertBefore, insertAfter', () => {
     expect(current.value).toEqual(expected);
   });
 
-  it('Can add multiple nodes to the end of a linked list', () => {
+  it('Can successfully add multiple nodes to the end of a linked list', () => {
     list.append('second append');
     let expected = 'second append';
     let current = list.head;
@@ -82,10 +104,31 @@ describe('Lab 6 Linked List Test: append, insertBefore, insertAfter', () => {
     expect(current.value).toEqual(expected);
   });
 
-  it('InsertBefore method works in the middle of a linked list', () => {
+  it('Can successfully insert a node before a node located in the middle of a linked list', () => {
     list.append('third append');
     list.insertBefore('second append', '1.5');
     let values = ['first append', '1.5', 'second append', 'third append'];
+    let valuesMatch = checkValuesMatch(list, values);
+    expect(valuesMatch).toEqual(true);
+  });
+
+  it('Can successfully insert a node before the first node of a linked list', () => {
+    list.insertBefore('first append', '0.5');
+    let values = ['0.5', 'first append', '1.5', 'second append', 'third append'];
+    let valuesMatch = checkValuesMatch(list, values);
+    expect(valuesMatch).toEqual(true);
+  });
+
+  it('Can successfully insert after a node in the middle of the linked list', () => {
+    list.insertAfter('second append', '2.5');
+    let values = ['0.5', 'first append', '1.5', 'second append','2.5', 'third append'];
+    let valuesMatch = checkValuesMatch(list, values);
+    expect(valuesMatch).toEqual(true);
+  });
+
+  it('Can successfully insert a node after the last node of the linked list', ()=> {
+    list.insertAfter('third append', 'last');
+    let values = ['0.5', 'first append', '1.5', 'second append','2.5', 'third append', 'last'];
     let valuesMatch = checkValuesMatch(list, values);
     expect(valuesMatch).toEqual(true);
   });
