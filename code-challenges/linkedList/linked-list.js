@@ -89,14 +89,39 @@ class LinkedList {
     console.error('target value is not within the list');
   }
 
-  kthFromEnd(k) {
-    let arr = [];
+  // kthFromEnd(k) {
+  //   let arr = [];
+  //   let current = this.head;
+  //   while(current.next) {
+  //     arr.push(current.value);
+  //     current = current.next;
+  //   }
+  //   return arr[arr.length-1-k];
+  // }
+
+  kthFromEnd(k){
+    if(k < 0) {
+      console.error('K is a negative number');
+      return undefined;
+    }
+    let listLength = 1;
     let current = this.head;
     while(current.next) {
-      arr.push(current.value);
+      listLength+=1;
       current = current.next;
     }
-    return arr[arr.length-1-k];
+    if (k > listLength) {
+      console.error('K is longer than list');
+      return undefined;
+    }
+    let target = listLength - k;
+    let secondCount = 1;
+    current = this.head;
+    while(secondCount < target) {
+      current = current.next;
+      secondCount+=1;
+    }
+    return current.value;
   }
 }
 
