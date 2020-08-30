@@ -41,7 +41,7 @@ toString:
 - add null to the end
 - Big O is: Time - O(n) / Space - O(n)
 
-## Solution(Whiteboard)
+<!-- ## Solution(Whiteboard) -->
 
 <!-- Description of each method publicly available to your Linked List -->
 

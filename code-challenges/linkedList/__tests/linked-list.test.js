@@ -16,6 +16,7 @@ describe('Test if Node works', () => {
   });
 });
 
+
 describe('CheckValuesMatch helper function should work', () => {
   let list = new LinkedList();
   list.append('first');
@@ -42,6 +43,10 @@ describe('CheckValuesMatch helper function should work', () => {
     expect(checkValuesMatch(list,inCorrectLength)).toEqual(false);
   });
 });
+
+// ****************************************
+//                Lab 5
+// ****************************************
 
 describe('Lab 5 Linked List Test: insert, includes, toString', () => {
   it('It can instantiate an empty linked list', () => {
@@ -85,6 +90,11 @@ describe('Lab 5 Linked List Test: insert, includes, toString', () => {
     expect(actual).toEqual(expected);
   });
 });
+
+
+// ****************************************
+//                Lab 6
+// ****************************************
 
 describe('Lab 6 Linked List Test: append, insertBefore, insertAfter', () => {
   let list = new LinkedList();
@@ -136,5 +146,44 @@ describe('Lab 6 Linked List Test: append, insertBefore, insertAfter', () => {
     let values = ['0.5', 'first append', '1.5', 'second append','2.5', 'third append', 'last'];
     let valuesMatch = checkValuesMatch(list, values);
     expect(valuesMatch).toEqual(true);
+  });
+});
+
+
+// ****************************************
+//                Lab 7
+// ****************************************
+
+describe('Lab 7 Linked List Test: k-th value from the end', () => {
+  let list = new LinkedList();
+  list.append(1).append(2).append(3).append(4).append(5);
+  console.log('list Lab7: ', JSON.stringify(list, null, 2));
+
+  it('Should return undefined if k is longer than list', () => {
+    let actual = list.kthFromEnd(6);
+    expect(actual).toBeUndefined();
+  });
+
+  it('Returns first value if k and list are same length', () => {
+    let actual = list.kthFromEnd(5);
+    let expected = 1;
+    expect(actual).toEqual(expected);
+  });
+
+  it('Returns undefined if k is negative', () => {
+    let actual = list.kthFromEnd(-3);
+    expect(actual).toBeUndefined();
+  });
+
+  it('Should return first value if list is one item', () => {
+    let oneLength = new LinkedList();
+    oneLength.append(1);
+    let actual = oneLength.kthFromEnd(1);
+    expect(actual).toEqual(1);
+  });
+
+  it('Should return correct value if kthFromEnd is called', () => {
+    let actual = list.kthFromEnd(2);
+    expect(actual).toEqual(3);
   });
 });
