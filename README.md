@@ -11,3 +11,4 @@
 - [Code Challenge 5 - Linked List Implementation](/code-challenges/linkedList/linked-list.js)
 - [Code Challenge 6 - Linked List Insertions](/code-challenges/linkedList/linked-list.js)
 - [Code Challenge 7 - Find k-th value from end of list](/code-challenges/linkedList/linked-list.js)
+- [Code Challenge 8 - Zip a linked list](/code-challenges/linkedList/ll-zip.js))

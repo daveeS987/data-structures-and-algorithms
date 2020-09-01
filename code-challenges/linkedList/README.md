@@ -121,3 +121,34 @@ Given a number "k", find the value of a node "k" distance from the end of the li
 <!-- Embedded whiteboard image -->
 
 ![ll-kth-from-end](../../assets/ll-kth-from-end.png)
+
+<br>
+<br>
+
+# Code Challenge 8
+
+<!-- Short summary or background information -->
+
+## Challenge Description
+
+<!-- Description of the challenge -->
+
+Given two linked list, zip both of them together.
+
+## Approach & Efficiency
+
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+- declare two temporary variables for storing the next node in each list
+- declare two current variables to start at the head of each list
+- Create while loop to iterate over first list
+- Connect the current node of list2 to current node of list 1
+- The current node of list 2 will connect to the original next node of list 1
+- Increment each current node to the next node in the list
+- Time is O(n) Space is O(n);
+
+## Solution
+
+<!-- Embedded whiteboard image -->
+
+![Linked List Zip](../../assets/ll-zip.png)
