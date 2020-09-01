@@ -8,7 +8,7 @@ module.exports = (list1, list2) => {
 
   while(l1Current.next) {
     if(!l2Current.next) {
-      l2Current = l1Current.next;
+      l2Current.next = l1Current.next;
       l1Current.next = l2Current;
       break;
     }

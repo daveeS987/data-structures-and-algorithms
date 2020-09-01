@@ -3,6 +3,7 @@
 const Node = require('../node.js');
 const LinkedList = require('../linked-list.js');
 const checkValuesMatch = require('../checkValuesMatch.js');
+const llZip = require('../ll-zip.js');
 
 describe('Test if Node works', () => {
   it('Proof of Life Test', () => {
@@ -157,7 +158,6 @@ describe('Code Challenge 6 Linked List Test: append, insertBefore, insertAfter',
 describe('Code Challenge 7 Linked List Test: k-th value from the end', () => {
   let list = new LinkedList();
   list.append(1).append(2).append(3).append(4).append(5);
-  console.log('list Lab7: ', JSON.stringify(list, null, 2));
 
   it('Should return undefined if k is longer than list', () => {
     let actual = list.kthFromEnd(6);
@@ -185,5 +185,46 @@ describe('Code Challenge 7 Linked List Test: k-th value from the end', () => {
   it('Should return correct value if kthFromEnd is called', () => {
     let actual = list.kthFromEnd(2);
     expect(actual).toEqual(3);
+  });
+});
+
+// ****************************************
+//            Code Challenge 8
+// ****************************************
+
+describe('Code Challenge 8 Linked List Test: ll-zip', () => {
+  it('Should link two list that are equal', () => {
+    let list1 = new LinkedList();
+    let list2 = new LinkedList();
+    list1.append(1).append(3).append(5).append(7);
+    list2.append(2).append(4).append(6).append(8);
+    llZip(list1, list2);
+    let expectedValues = [1,2,3,4,5,6,7,8];
+    let valuesMatch = checkValuesMatch(list1, expectedValues);
+    expect(valuesMatch).toEqual(true);
+  });
+
+  it('Should link with first list being longer', () => {
+    let list1 = new LinkedList();
+    let list2 = new LinkedList();
+    list1.append(1).append(3).append(5).append(6);
+    list2.append(2).append(4);
+    llZip(list1, list2);
+    // console.log('list1: ', JSON.stringify(list1, null, 2));
+    let expectedValues = [1,2,3,4,5,6];
+    let valuesMatch = checkValuesMatch(list1, expectedValues);
+    expect(valuesMatch).toEqual(true);
+  });
+
+  it('Should link with second list being longer', () => {
+    let list1 = new LinkedList();
+    let list2 = new LinkedList();
+    list1.append(1).append(3);
+    list2.append(2).append(4).append(5).append(6);
+    llZip(list1, list2);
+    // console.log('list1: ', JSON.stringify(list1, null, 2));
+    let expectedValues = [1,2,3,4,5,6];
+    let valuesMatch = checkValuesMatch(list1, expectedValues);
+    expect(valuesMatch).toEqual(true);
   });
 });
