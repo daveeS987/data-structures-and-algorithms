@@ -221,8 +221,6 @@ describe('Code Challenge 8 Linked List Test: ll-zip', () => {
     list1.append(1).append(3);
     list2.append(2).append(4).append(5).append(6);
     llZip(list1, list2);
-    console.log('list1: ', JSON.stringify(list1, null, 2));
-    console.log('list2: ', JSON.stringify(list2, null, 2));
     let expectedValues = [1,2,3,4,5,6];
     let valuesMatch = checkValuesMatch(list1, expectedValues);
     expect(valuesMatch).toEqual(true);
