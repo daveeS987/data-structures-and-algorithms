@@ -3,6 +3,7 @@
 const Stack = require('./stacks.js');
 
 let stack = new Stack();
+console.log('first stack', stack);
 
 stack.push('first');
 stack.push('second');

@@ -15,19 +15,37 @@ describe('Proof of life', () => {
 describe('Stacks Module should work correctly', () => {
 
   it('Can successfully push onto a stack', () => {
-
+    let stack = new Stacks();
+    stack.push('first');
+    expect(stack.peek().value).toEqual('first');
   });
 
   it('Can successfully push multiple values onto a stack', () => {
-
+    let stack = new Stacks();
+    stack.push('first');
+    stack.push('second');
+    expect(stack.peek().value).toEqual('second');
   });
 
   it('Can successfully pop off the stack', () => {
+    let stack = new Stacks();
+    stack.push('first');
+    stack.push('second');
+    stack.push('third');
 
+    expect(stack.pop().value).toEqual('third');
   });
 
   it('Can successfully empty a stack after multiple pops', () => {
+    let stack = new Stacks();
+    stack.push('first');
+    stack.push('second');
+    stack.push('third');
 
+    while(stack.peek()) {
+      stack.pop();
+    }
+    expect('All items succesfully popped').toBeTruthy();
   });
 
   it('Can successfully peek the next item on the stack', () => {
@@ -35,11 +53,14 @@ describe('Stacks Module should work correctly', () => {
   });
 
   it('Can successfully instantiate an empty stack', () => {
-
+    let stack = new Stacks();
+    expect(stack.top).toEqual(null);
   });
 
   it('Calling pop or peek on empty stack raises exception', () => {
-
+    let stack = new Stacks();
+    stack.pop();
+    expect(console.error).toHaveBeenCalled();
   });
 
 });
