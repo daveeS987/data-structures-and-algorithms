@@ -1,4 +1,4 @@
-# Stacks and Queues
+# Queues
 
 <!-- Short summary or background information -->
 
