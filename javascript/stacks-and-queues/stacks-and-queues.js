@@ -2,7 +2,8 @@
 
 const Node = require('../linkedList/node.js');
 
-class Stack {
+// last in first out
+class Stacks {
   constructor () {
     this.top = null;
   }
@@ -10,6 +11,13 @@ class Stack {
   push(value) {
     // adds a new node with the value to the top of the stack
     // O(1) Time performance
+    if(!this.top) {
+      this.top = new Node(value);
+    } else {
+      let current = this.top;
+      this.top = new Node(value);
+      current.next = this.top;
+    }
   }
 
   pop() {
@@ -28,7 +36,8 @@ class Stack {
   }
 }
 
-class Queue {
+// first in first out
+class Queues {
   constructor() {
     this.front = null;
   }
@@ -52,3 +61,5 @@ class Queue {
     // returns boolean if empty
   }
 }
+
+module.exports = {Stacks, Queues};

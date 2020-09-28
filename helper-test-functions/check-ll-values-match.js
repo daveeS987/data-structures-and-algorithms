@@ -6,9 +6,9 @@ This function can be used to help test if actual linked list values equal expect
 
 check-ll-values-match(linkedList, array) >>>> boolean
 
-will return true if all values match, and the linkedlist has the correct amount of values. If not, it will return false
+will return true if all values match && has same length of values. If not, it will return false
 
-first paramater: Actual linkedList you created
+first paramater: linkedList you are testing (actual linkedList you created)
 
 second parameter: an array of values that you expect the linkedList to have
 
