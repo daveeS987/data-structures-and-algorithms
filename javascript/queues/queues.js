@@ -2,29 +2,43 @@
 
 const Node = require('../linkedList/node.js');
 
-// first in first out
+// First in First Out
 class Queues {
+
   constructor() {
     this.front = null;
   }
 
   enqueue(value) {
-    // adds new node with value to back fo the queue
-    // O(1) time performance
+    if(this.front === null) {
+      this.front = new Node(value);
+    } else {
+      let current = this.front;
+      while(current.next !== null) {
+        current = current.next;
+      }
+      current.next = new Node(value);
+    }
   }
 
   dequeue() {
-    // removes node from front of queue
-    // returns node's value
-    // raise exception when called on empty queue
+    if(this.front === null) {
+      throw new Error('THERE IS NOTHING TO DEQUEUE');
+    }
+    let dequeueItem = this.front;
+    this.front = this.front.next;
+    return dequeueItem;
   }
 
   peek() {
-    // returns value of node at the front of the queue
+    if(this.front === null) {
+      throw new Error('QUEUE IS EMPTY');
+    }
+    return this.front;
   }
 
   isEmpty() {
-    // returns boolean if empty
+    return this.front === null;
   }
 }
 

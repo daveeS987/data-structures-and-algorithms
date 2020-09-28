@@ -2,36 +2,42 @@
 
 const Node = require('../linkedList/node.js');
 
-// last in first out
+// Last in First Out
 class Stacks {
+
   constructor () {
     this.top = null;
   }
 
   push(value) {
-
     if(this.top === null) {
       this.top = new Node(value);
     } else {
       let originalTop = this.top;
       this.top = new Node(value);
       this.top.next = originalTop;
+      return this.top;
     }
   }
 
   pop() {
-    // removes the node from top of stack
-    // return nodes value
-    // raise exception when called on empty stack
+    if(this.top === null) {
+      throw new Error('THERE IS NOTHING TO POP');
+    }
+    let poppedItem = this.top;
+    this.top = this.top.next;
+    return poppedItem;
   }
 
   peek(){
-    // returns value of node at the top of stack
-    // raise exception when called on empty stack
+    if(this.top === null) {
+      throw new Error('STACK IS EMPTY');
+    }
+    return this.top;
   }
 
   isEmpty() {
-    // returns boolean wheter or not stack is empty
+    return this.top === null;
   }
 }
 
