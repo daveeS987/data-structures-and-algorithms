@@ -14,3 +14,4 @@
 - [Code Challenge 8 - Zip a linked list](./javascript/linkedList/ll-zip.js))
 - [Code Challenge 10 - Stacks](./javascript/stacks/stacks.js)
 - [Code Challenge 10 - Queues](./javascript/queues/queues.js)
+- [Code Challenge 11 - Queue With Stacks](./javascript/queue-with-stacks/queue-with-stacks.js)
