@@ -24,10 +24,11 @@ class Queues {
   dequeue() {
     if(this.front === null) {
       console.error('ERROR: THERE IS NOTHING TO DEQUEUE');
+    } else {
+      let dequeueItem = this.front;
+      this.front = this.front.next;
+      return dequeueItem;
     }
-    let dequeueItem = this.front;
-    this.front = this.front.next;
-    return dequeueItem;
   }
 
   peek() {

@@ -19,4 +19,9 @@ Big o for time is O(n)
 
 ## API
 
-<!-- Description of each method publicly available to your Stack and Queue-->
+<!-- Description of each method publicly available to your Queue-->
+
+- enqueue(value) : will add a new node to the end of the queue
+- dequeue() : take off node from front and return front node
+- peek() : will take a look at what node is in front
+- isEmpty() : will check if queue is empty

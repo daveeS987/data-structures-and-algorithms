@@ -19,4 +19,9 @@ Big o for time is O(n)
 
 ## API
 
-<!-- Description of each method publicly available to your Stack and Queue-->
+<!-- Description of each method publicly available to your Stack-->
+
+- push(value) : will add to the top of the stack
+- pop() : will take off whats on top of stack and return that
+- peek() : will show whats on top of stack
+- isEmpty(): return boolean wheter stack is empty
