@@ -4,13 +4,13 @@ const Node = require('../../linkedList/node.js');
 const Queues = require('../queues.js');
 
 
-describe('Proof of life', () => {
-  it('It can instantiate a new node', () => {
-    let node = new Node('should work');
-    let expected = { value: 'should work', next: null };
-    expect(node).toEqual(expected);
-  });
-});
+// describe('Proof of life', () => {
+//   it('It can instantiate a new node', () => {
+//     let node = new Node('should work');
+//     let expected = { value: 'should work', next: null };
+//     expect(node).toEqual(expected);
+//   });
+// });
 
 
 describe('Queues Module should work correctly', () => {
