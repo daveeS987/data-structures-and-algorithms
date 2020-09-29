@@ -12,6 +12,13 @@ You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = (people) => {
   // Solution code here...
+  // iterate over array of people object
+  // grab the firstname property and combine with last name property
+  // output is array of string
+  let newList = people.map(obj => {
+    return `${obj.firstName} ${obj.lastName}`;
+  });
+  return newList;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -80,7 +87,7 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest solutions-11.test.js
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should convert object to full name string', () => {
     const people = [
       { firstName: 'Jane', lastName: 'Doe' },
