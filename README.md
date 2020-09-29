@@ -15,3 +15,5 @@
 - [Code Challenge 10 - Stacks](./javascript/stacks/stacks.js)
 - [Code Challenge 10 - Queues](./javascript/queues/queues.js)
 - [Code Challenge 11 - Queue With Stacks](./javascript/queue-with-stacks/queue-with-stacks.js)
+- [Code Challenge 12 - Fifo Animal Shelter](./javascript/fifo-animal-shelter/fifo-animal-shelter.js)
+- [Code Challenge 13 - Multi-bracket-validation](./javascript/multi-bracket-validation/multi-bracket-validation.js)
