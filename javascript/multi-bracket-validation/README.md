@@ -12,6 +12,12 @@ Create a function that will take a string containing brackets and return boolean
 
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
+Iterate over the string.  
+If the current element is an opening bracket, add it to a stack.  
+If the current element is a closing bracket, pop off the stack and see if the brackets correspond to each other.  
+If at any point, the brackets don't match return false.
+At the end, return whether the stack is empty.
+
 ## Solution
 
 <!-- Embedded whiteboard image -->

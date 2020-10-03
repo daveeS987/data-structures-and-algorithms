@@ -29,19 +29,19 @@ describe('multiBracketValidation function should work for passing cases', ()=> {
 });
 
 describe('multiBracketValidation function should work for failing cases', ()=> {
-  it('Should pass for balanced brackets', ()=> {
+  it('Should return false for unbalanced brackets', ()=> {
     let input='[({}]';
     let actual= multiBracketValidation(input);
     expect(actual).toEqual(false);
   });
 
-  it('Should pass for balanced brackets', ()=> {
+  it('Should return false for unbalanced brackets', ()=> {
     let input='(](';
     let actual= multiBracketValidation(input);
     expect(actual).toEqual(false);
   });
 
-  it('Should pass for balanced brackets', ()=> {
+  it('Should return false for unbalanced brackets', ()=> {
     let input='{(})';
     let actual= multiBracketValidation(input);
     expect(actual).toEqual(false);
