@@ -1,6 +1,19 @@
 'use strict';
 
-function multiBracketValidation(input) {
+const Stack = require('../stacks/stacks.js');
+
+function multiBracketValidation(string) {
+
+  let stack = new Stack();
+  let brackets = {
+    '(': ')',
+    '{': ')',
+    '[':']'
+  };
+
+  for (let i = 0; i < string.length; i++) {
+
+  }
 
 }
 
