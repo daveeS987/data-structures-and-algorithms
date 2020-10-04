@@ -18,6 +18,9 @@ If the current element is a closing bracket, pop off the stack and see if the br
 If at any point, the brackets don't match return false.
 At the end, return whether the stack is empty.
 
+Big O for time is O(n)
+Big 0 for space is O(n)
+
 ## Solution
 
 <!-- Embedded whiteboard image -->
@@ -60,3 +63,16 @@ Iterate over the array
 If stack is empty
    return true
 ```
+
+#### Visual
+
+![Image](multi-bracket.jpeg)
+
+#### Verification
+
+```
+Mismatched brackets will return false
+Uneven brackets will return false
+if stack is empty at the end, will return true
+```
+
