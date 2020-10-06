@@ -6,7 +6,6 @@ class TreeNode {
     this.right = null;
     this.left = null;
   }
-
 }
 
 class BinaryTree {
@@ -67,10 +66,58 @@ class BinaryTree {
 }
 
 class BinarySearchTree extends BinaryTree() {
+
   add(value) {
-    // make a new node
-    // traverse and put node in the right spot
+    const newNode = new TreeNode(value);
+    const _walk = (node) => {
+      if(value < node.value) {
+        if(!node.left) {
+          node.left = newNode;
+          return newNode;
+        }
+        _walk(node.left);
+      }
+      if(value > node.value) {
+        if(!node.right) {
+          node.right = newNode;
+          return newNode;
+        }
+        _walk(node.right);
+      }
+    };
+    _walk(this.root);
   }
+
+
+
+  contains(value) {
+    while(this.root) {
+      if(this.root === value)
+        return true;
+      if(value > this.root) {
+        this.root = this.right;
+      }
+      else if(value < this.root) {
+        this.root = this.left;
+      }
+      else{
+        return false;
+      }
+    }
+  }
+
+
+
+
+  findMax() {
+
+  }
+
+
+  breadthFirst() {
+
+  }
+
 }
 
 let twenty = new TreeNode(20);
