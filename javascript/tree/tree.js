@@ -1,5 +1,7 @@
 'use strict';
 
+let Queue = require('../queues/queues.js');
+
 class TreeNode {
   constructor(value) {
     this.value = value;
@@ -98,8 +100,22 @@ class BinarySearchTree extends BinaryTree() {
 
 
   breadthFirst() {
+    let breadth = new Queue();
+    breadth.enqueue(this.root);
+    let result = [];
 
+    while(breadth.peek()){
+      let front = breadth.dequeue();
+      result.push(front.value);
 
+      if(front.left !== null) {
+        breadth.enqueue(front.left);
+      }
+      if(front.right !== null) {
+        breadth.enqueue(front.right);
+      }
+    }
+    return result;
   }
 
 }
