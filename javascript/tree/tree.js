@@ -14,55 +14,37 @@ class BinaryTree {
   }
 
   preOrder() {
-
     let results = [];
-
     const _walk = (node) => {
-      // do the work
       results.push(node.value);
-
-      // continue along
       if (node.left) { _walk(node.left); }
       if (node.right) { _walk(node.right); }
     };
-
     _walk(this.root);
-
     return results;
-
   }
 
   inOrder() {
-
     let results = [];
-
     const _walk = (node) => {
-
       if (node.left) { _walk(node.left); }
       results.push(node.value);
       if (node.right) { _walk(node.right); }
     };
-
     _walk(this.root);
     return results;
-
   }
 
   postOrder() {
     let results = [];
-
     const _walk = (node) => {
-
       if (node.left) { _walk(node.left); }
       if (node.right) { _walk(node.right); }
       results.push(node.value);
     };
-
     _walk(this.root);
     return results;
-
   }
-
 }
 
 class BinarySearchTree extends BinaryTree() {
@@ -89,7 +71,6 @@ class BinarySearchTree extends BinaryTree() {
   }
 
 
-
   contains(value) {
     while(this.root) {
       if(this.root === value)
@@ -107,14 +88,17 @@ class BinarySearchTree extends BinaryTree() {
   }
 
 
-
-
   findMax() {
-
+    let current = this.root;
+    while(current.right !== null) {
+      current = current.right;
+    }
+    return current.value;
   }
 
 
   breadthFirst() {
+
 
   }
 
