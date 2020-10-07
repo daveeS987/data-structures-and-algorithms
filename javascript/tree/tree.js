@@ -134,10 +134,9 @@ class BinarySearchTree extends BinaryTree {
     return current.value;
   }
 
-  findMaxRecursively() {
+  // findMaxRecursively() {
 
-  }
-
+  // }
 
   // will have O(W) width for space
   breadthFirst() {

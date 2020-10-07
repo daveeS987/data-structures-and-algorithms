@@ -30,5 +30,8 @@ console.log('containRecursively: ', tree.containsRecursively(75));
 console.log('preOrder : ', tree.preOrder());
 console.log('inOrder : ', tree.inOrder());
 console.log('postOrder : ', tree.postOrder());
+console.log('this runs');
+console.log('breadthFirst :', tree.breadthFirst());
+console.log('this runs as well');
 
 console.log(JSON.stringify(tree, undefined, 4));

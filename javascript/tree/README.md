@@ -74,10 +74,10 @@ Traverse a binary tree using a breadth-first approach and return a list of value
 
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
-Use a queue. Add the root to the queue.  
+Use a queue. Add the tree root to the queue.  
 Dequeue the first item and enqueue its left and right node. Repeat until queue is empty.
 
-Big O Time: O(width)
+Big O Time: O(width)  
 Big O Space: O(n)
 
 ## Solution
