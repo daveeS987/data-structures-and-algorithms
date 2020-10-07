@@ -52,7 +52,18 @@ class BinaryTree {
 class BinarySearchTree extends BinaryTree {
 
   add(value) {
+
     const newNode = new TreeNode(value);
+
+    if (!this.root) {
+      this.root = newNode;
+      return;
+    }
+
+    if (this.root === value) {
+      return;
+    }
+
     const _walk = (node) => {
       if(value < node.value) {
         if(!node.left) {
@@ -112,7 +123,12 @@ class BinarySearchTree extends BinaryTree {
     return current.value;
   }
 
+  findMaxRecursively() {
 
+  }
+
+
+  // will have O(W) width for space
   breadthFirst() {
     let breadth = new Queue();
     breadth.enqueue(this.root);
