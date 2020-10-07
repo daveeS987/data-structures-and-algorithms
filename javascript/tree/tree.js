@@ -147,4 +147,4 @@ class BinarySearchTree extends BinaryTree {
 
 // console.log(JSON.stringify(tree, undefined, 4));
 
-module.exports = BinarySearchTree;
+module.exports = {TreeNode, BinaryTree,BinarySearchTree};
