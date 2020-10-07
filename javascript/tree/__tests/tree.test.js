@@ -165,3 +165,28 @@ describe('Challenge 16: Find Max Value', () => {
     expect(actual).toEqual(70);
   });
 });
+
+
+describe('Challenge 17: Breadth-first Traversal', () => {
+  let twenty = new TreeNode(20);
+  let twelve = new TreeNode(12);
+  let six = new TreeNode(6);
+  let seventeen = new TreeNode(17);
+  let thirtytwo = new TreeNode(32);
+  let twentyfive = new TreeNode(25);
+  let fourty = new TreeNode(40);
+  let seventy = new TreeNode(70);
+
+  twenty.left = twelve;
+  twenty.right = thirtytwo;
+  twelve.left = six;
+  twelve.right = seventeen;
+  thirtytwo.right = fourty;
+  thirtytwo.left = twentyfive;
+  fourty.right = seventy;
+
+  let tree = new BinarySearchTree(twenty);
+  let actual = tree.breadthFirst();
+  let expected = [20, 12, 32, 6, 17, 25, 40, 70];
+  expect(actual).toEqual(expected);
+});
