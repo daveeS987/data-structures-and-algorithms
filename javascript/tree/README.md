@@ -77,8 +77,8 @@ Traverse a binary tree using a breadth-first approach and return a list of value
 Use a queue. Add the tree root to the queue.  
 Dequeue the first item and enqueue its left and right node. Repeat until queue is empty.
 
-Big O Time: O(width)  
-Big O Space: O(n)
+Big O Time: O(n)  
+Big O Space: O(width)
 
 ## Solution
 
