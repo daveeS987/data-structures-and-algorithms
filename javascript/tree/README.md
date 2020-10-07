@@ -25,9 +25,12 @@ contains() will iterate through the tree checking each node value and moving lef
 Big O time: O(n)  
 Big O Space: O(1)
 
-## API
+<!-- ## API -->
 
 <!-- Description of each method publicly available in each of your trees -->
+
+<br>
+<br>
 
 # Challenge 16: Find Maximum Value in a Binary Tree
 
@@ -53,3 +56,32 @@ Big O Space: O(1)
 <!-- Embedded whiteboard image -->
 
 ![whiteboard](find-max.png)
+
+<br>
+<br>
+
+# Challenge 17: Breadth First Traversal
+
+<!-- Short summary or background information -->
+
+## Challenge Description
+
+<!-- Description of the challenge -->
+
+Traverse a binary tree using a breadth-first approach and return a list of values in the tree in the order they were encountered
+
+## Approach & Efficiency
+
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+Use a queue. Add the root to the queue.  
+Dequeue the first item and enqueue its left and right node. Repeat until queue is empty.
+
+Big O Time: O(width)
+Big O Space: O(n)
+
+## Solution
+
+<!-- Embedded whiteboard image -->
+
+![whiteboard](breadth-first.png)
