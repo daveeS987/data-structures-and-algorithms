@@ -49,7 +49,7 @@ class BinaryTree {
   }
 }
 
-class BinarySearchTree extends BinaryTree() {
+class BinarySearchTree extends BinaryTree {
 
   add(value) {
     const newNode = new TreeNode(value);
@@ -117,33 +117,34 @@ class BinarySearchTree extends BinaryTree() {
     }
     return result;
   }
-
 }
 
-let twenty = new TreeNode(20);
-let twelve = new TreeNode(12);
-let six = new TreeNode(6);
-let seventeen = new TreeNode(17);
-let thirtytwo = new TreeNode(32);
-let twentyfive = new TreeNode(25);
-let fourty = new TreeNode(40);
-let seventy = new TreeNode(70);
+// let twenty = new TreeNode(20);
+// let twelve = new TreeNode(12);
+// let six = new TreeNode(6);
+// let seventeen = new TreeNode(17);
+// let thirtytwo = new TreeNode(32);
+// let twentyfive = new TreeNode(25);
+// let fourty = new TreeNode(40);
+// let seventy = new TreeNode(70);
 
-twenty.left = twelve;
-twenty.right = thirtytwo;
-twelve.left = six;
-twelve.right = seventeen;
-thirtytwo.right = fourty;
-thirtytwo.left = twentyfive;
-fourty.right = seventy;
+// twenty.left = twelve;
+// twenty.right = thirtytwo;
+// twelve.left = six;
+// twelve.right = seventeen;
+// thirtytwo.right = fourty;
+// thirtytwo.left = twentyfive;
+// fourty.right = seventy;
 
-let tree = new BinaryTree(twenty);
+// let tree = new BinaryTree(twenty);
 // For a bst ...
 // tree.add(20);
 // tree.add(12);
 
-console.log(tree.preOrder());
-console.log(tree.inOrder());
-console.log(tree.postOrder());
+// console.log(tree.preOrder());
+// console.log(tree.inOrder());
+// console.log(tree.postOrder());
 
 // console.log(JSON.stringify(tree, undefined, 4));
+
+module.exports = BinarySearchTree;
