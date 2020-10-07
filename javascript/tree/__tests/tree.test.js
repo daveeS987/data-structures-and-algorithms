@@ -104,3 +104,64 @@ describe('Binary Search Tree should work correctly', () => {
     expect(actual).toEqual(expected);
   });
 });
+
+describe('Challenge 15: add() and contain() should work correctly', () => {
+  let twenty = new TreeNode(20);
+  let twelve = new TreeNode(12);
+  let six = new TreeNode(6);
+  let seventeen = new TreeNode(17);
+  let thirtytwo = new TreeNode(32);
+  let twentyfive = new TreeNode(25);
+  let fourty = new TreeNode(40);
+  let seventy = new TreeNode(70);
+
+  twenty.left = twelve;
+  twenty.right = thirtytwo;
+  twelve.left = six;
+  twelve.right = seventeen;
+  thirtytwo.right = fourty;
+  thirtytwo.left = twentyfive;
+  fourty.right = seventy;
+
+  let tree = new BinarySearchTree(twenty);
+  it('add() method should work', () => {
+    tree.add(90);
+    let inOrder = tree.inOrder();
+    let expected = [6, 12, 17, 20, 25, 32, 40, 70, 90];
+    expect(inOrder).toEqual(expected);
+  });
+  it('contain() should pass for true cases', () => {
+    let actual = tree.contains(40);
+    expect(actual).toEqual(true);
+  });
+  it('contain() should pass for false cases', () => {
+    let actual = tree.contains(45);
+    expect(actual).toEqual(false);
+  });
+});
+
+
+describe('Challenge 16: Find Max Value', () => {
+  it('Should find the maximum value', () => {
+    let twenty = new TreeNode(20);
+    let twelve = new TreeNode(12);
+    let six = new TreeNode(6);
+    let seventeen = new TreeNode(17);
+    let thirtytwo = new TreeNode(32);
+    let twentyfive = new TreeNode(25);
+    let fourty = new TreeNode(40);
+    let seventy = new TreeNode(70);
+
+    twenty.left = twelve;
+    twenty.right = thirtytwo;
+    twelve.left = six;
+    twelve.right = seventeen;
+    thirtytwo.right = fourty;
+    thirtytwo.left = twentyfive;
+    fourty.right = seventy;
+
+    let tree = new BinarySearchTree(twenty);
+    let actual = tree.findMax();
+    expect(actual).toEqual(70);
+  });
+});
