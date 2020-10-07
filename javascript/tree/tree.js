@@ -134,10 +134,9 @@ class BinarySearchTree extends BinaryTree {
     return current.value;
   }
 
-  findMaxRecursively() {
+  // findMaxRecursively() {
 
-  }
-
+  // }
 
   // will have O(W) width for space
   breadthFirst() {
@@ -147,13 +146,13 @@ class BinarySearchTree extends BinaryTree {
 
     while(breadth.peek()){
       let front = breadth.dequeue();
-      result.push(front.value);
+      result.push(front.value.value);
 
-      if(front.left !== null) {
-        breadth.enqueue(front.left);
+      if(front.value.left) {
+        breadth.enqueue(front.value.left);
       }
-      if(front.right !== null) {
-        breadth.enqueue(front.right);
+      if(front.value.right) {
+        breadth.enqueue(front.value.right);
       }
     }
     return result;

@@ -24,11 +24,14 @@ let tree = new BinarySearchTree(twenty);
 
 // tree.add(90);
 
-console.log('contain: ', tree.contains(25));
-console.log('containRecursively: ', tree.containsRecursively(75));
+// console.log('contain: ', tree.contains(25));
+// console.log('containRecursively: ', tree.containsRecursively(75));
 
-console.log('preOrder : ', tree.preOrder());
-console.log('inOrder : ', tree.inOrder());
-console.log('postOrder : ', tree.postOrder());
+// console.log('preOrder : ', tree.preOrder());
+// console.log('inOrder : ', tree.inOrder());
+// console.log('postOrder : ', tree.postOrder());
+
+let breadthFirst = tree.breadthFirst();
+console.log('breadthFirst :', breadthFirst);
 
 console.log(JSON.stringify(tree, undefined, 4));
