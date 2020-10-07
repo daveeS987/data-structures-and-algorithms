@@ -89,6 +89,20 @@ class BinarySearchTree extends BinaryTree {
     }
   }
 
+  containsRecursively(value) {
+    const _walk = (node) => {
+      if(value === node.value) {return true;}
+      if(value > node.value) {
+        if(!node.right) {return false;}
+        _walk(node.right);
+      } else if (value < node.value) {
+        if(!node.left) {return false;}
+        _walk(node.left);
+      }
+    };
+    _walk(this.root);
+  }
+
 
   findMax() {
     let current = this.root;

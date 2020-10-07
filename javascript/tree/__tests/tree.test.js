@@ -28,7 +28,8 @@ describe('Binary Search Tree should work correctly', () => {
     let thirty = new TreeNode(30);
     twenty.left = ten;
     twenty.right = thirty;
-
+    expect(twenty.right.value).toEqual(30);
+    expect(twenty.left.value).toEqual(10);
   });
 
   it('Can successfully return a collection from a preorder traversal', () => {
