@@ -68,14 +68,14 @@ class BinarySearchTree extends BinaryTree {
       if(value < node.value) {
         if(!node.left) {
           node.left = newNode;
-          return newNode;
+          return;
         }
         _walk(node.left);
       }
       if(value > node.value) {
         if(!node.right) {
           node.right = newNode;
-          return newNode;
+          return;
         }
         _walk(node.right);
       }
@@ -85,33 +85,44 @@ class BinarySearchTree extends BinaryTree {
 
 
   contains(value) {
-    while(this.root) {
-      if(this.root === value)
+    let current = this.root;
+    while(current) {
+      if(current.value === value) {
         return true;
-      if(value > this.root) {
-        this.root = this.right;
       }
-      else if(value < this.root) {
-        this.root = this.left;
+      if(value > current.value) {
+        current = current.right;
       }
-      else{
-        return false;
+      else if(value < current.value) {
+        current = current.left;
       }
     }
+    return false;
   }
 
+
   containsRecursively(value) {
+    let result;
     const _walk = (node) => {
-      if(value === node.value) {return true;}
-      if(value > node.value) {
-        if(!node.right) {return false;}
+      if(value === node.value) {
+        result = true;
+        return;
+      } else if(value > node.value) {
+        if(!node.right) {
+          result = false;
+          return;
+        }
         _walk(node.right);
       } else if (value < node.value) {
-        if(!node.left) {return false;}
+        if(!node.left) {
+          result = false;
+          return;
+        }
         _walk(node.left);
       }
     };
     _walk(this.root);
+    return result;
   }
 
 
@@ -149,32 +160,5 @@ class BinarySearchTree extends BinaryTree {
   }
 }
 
-// let twenty = new TreeNode(20);
-// let twelve = new TreeNode(12);
-// let six = new TreeNode(6);
-// let seventeen = new TreeNode(17);
-// let thirtytwo = new TreeNode(32);
-// let twentyfive = new TreeNode(25);
-// let fourty = new TreeNode(40);
-// let seventy = new TreeNode(70);
-
-// twenty.left = twelve;
-// twenty.right = thirtytwo;
-// twelve.left = six;
-// twelve.right = seventeen;
-// thirtytwo.right = fourty;
-// thirtytwo.left = twentyfive;
-// fourty.right = seventy;
-
-// let tree = new BinaryTree(twenty);
-// For a bst ...
-// tree.add(20);
-// tree.add(12);
-
-// console.log(tree.preOrder());
-// console.log(tree.inOrder());
-// console.log(tree.postOrder());
-
-// console.log(JSON.stringify(tree, undefined, 4));
 
 module.exports = {TreeNode, BinaryTree,BinarySearchTree};
