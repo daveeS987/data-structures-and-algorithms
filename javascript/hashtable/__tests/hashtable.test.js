@@ -7,3 +7,4 @@ describe('Proof of life', () => {
     expect(true).toBeTruthy();
   });
 });
+

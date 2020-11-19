@@ -26,13 +26,24 @@ class LL {
     }
   }
 
+  includes(searchVal) {
+    let current = this.head;
+    while(current) {
+      if(current.value === searchVal) {
+        return true;
+      }
+      current = current.next;
+    }
+    return false;
+  }
+
   print() {
     if (this.head === null) {
       return null;
     } else {
       let current = this.head;
       while(current !== null) {
-        console.log(current);
+        console.log(current.value);
         current = current.next;
       }
     }
@@ -51,10 +62,48 @@ class Hashtable {
     }, 0) * 117 % this.size;
   }
 
-  set(key,val) {
+  add(key,val) {
+    let hash = this.hash(key);
 
+    if(!this.storage[hash]) {
+      let ll = new LL();
+      ll.append([key,val]);
+      this.storage[hash] = ll;
+    } else {
+      this.storage[hash].append([key,val]);
+    }
   }
 
+  get(key) {
+    let hash = this.hash(key);
+    if(!this.storage[hash]) {
+      return undefined;
+    }
+
+    let current = this.storage[hash].head;
+    while(current) {
+      if(current.value[0] === key){
+        return current.value[1];
+      }
+      current = current.next;
+    }
+    return undefined;
+  }
+
+  contains(key) {
+    let hash = this.hash(key);
+    if(!this.storage[hash]) {
+      return false;
+    }
+    let current = this.storage[hash].head;
+    while(current) {
+      if(current.value[0] === key) {
+        return true;
+      }
+      current = current.next;
+    }
+    return false;
+  }
 }
 
 module.exports = {Node, LL, Hashtable};
