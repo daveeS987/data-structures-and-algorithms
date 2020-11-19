@@ -9,10 +9,13 @@ class LinkedList {
 
   insert(value) {
     let node = new Node(value);
-    let current = this.head;
-    node.next = current;
-    this.head = node;
-    return this;
+
+    if(!this.head) {
+      this.head = node;
+    } else {
+      node.next = this.head;
+      this.head = node;
+    }
   }
 
   includes(searchVal) {
