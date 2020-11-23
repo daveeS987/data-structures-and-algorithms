@@ -13,3 +13,5 @@
 ## Solution
 
 <!-- Embedded whiteboard image -->
+
+![UML](CodeChallenge32-UML.jpg)
