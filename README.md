@@ -20,3 +20,6 @@
 - [Code Challenge 15 - Tree](./javascript/tree/tree.js)
 - [Code Challenge 16 - Find Max Value](./javascript/tree/tree.js)
 - [Code Challenge 17 - Breadth-first Traversal](./javascript/tree/tree.js)
+
+- [Code Challenge 30 - Hash Table](./javascript/hashtable/hashtable.js)
+- [Code Challenge 31 - Repeated Words](./javascript/repeated-word/repeated-word.js)

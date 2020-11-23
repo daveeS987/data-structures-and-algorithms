@@ -3,8 +3,10 @@
 const LL = require('./linked-list');
 const llZip = require('./ll-zip.js');
 let list = new LL();
-
+console.log('list at beginning:', list);
 list.insert('first');
+
+console.log('list after first insert:', list);
 list.insert('second');
 list.insert('third');
 list.insert('fourth');
