@@ -26,8 +26,7 @@ class Queues {
       console.error('ERROR: THERE IS NOTHING TO DEQUEUE');
     } else {
       let dequeueItem = this.front;
-      let secondItem = this.front.next;
-      this.front = secondItem;
+      this.front = this.front.next;
       return dequeueItem;
     }
   }
