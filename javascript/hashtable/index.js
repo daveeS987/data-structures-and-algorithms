@@ -22,7 +22,7 @@ hashtable.storage.forEach((item, idx) => {
 
 hashtable.get('hello');
 let result1 = hashtable.contains('key');
-let result2 = hashtable.contains('hello');
+let result2 = hashtable.contains('bob');
 let result3 = hashtable.get('chris');
 let result4 = hashtable.get('hello');
 let result5 = hashtable.get('alex');

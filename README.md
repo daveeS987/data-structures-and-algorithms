@@ -22,3 +22,4 @@
 - [Code Challenge 17 - Breadth-first Traversal](./javascript/tree/tree.js)
 
 - [Code Challenge 30 - Hash Table](./javascript/hashtable/hashtable.js)
+- [Code Challenge 31 - Repeated Words](./javascript/repeated-word/repeated-word.js)
