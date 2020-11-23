@@ -10,13 +10,13 @@ class Stacks {
   }
 
   push(value) {
+    let node = new Node(value);
+
     if(this.top === null) {
-      this.top = new Node(value);
+      this.top = node;
     } else {
-      let originalTop = this.top;
-      this.top = new Node(value);
-      this.top.next = originalTop;
-      return this.top;
+      node.next = this.top;
+      this.top = node;
     }
   }
 
