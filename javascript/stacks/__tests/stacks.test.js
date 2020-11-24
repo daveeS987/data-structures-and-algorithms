@@ -17,14 +17,14 @@ describe('Stacks Module should work correctly', () => {
   it('Can successfully push onto a stack', () => {
     let stack = new Stacks();
     stack.push('first');
-    expect(stack.peek().value).toEqual('first');
+    expect(stack.peek()).toEqual('first');
   });
 
   it('Can successfully push multiple values onto a stack', () => {
     let stack = new Stacks();
     stack.push('first');
     stack.push('second');
-    expect(stack.peek().value).toEqual('second');
+    expect(stack.peek()).toEqual('second');
   });
 
   it('Can successfully pop off the stack', () => {
@@ -33,7 +33,7 @@ describe('Stacks Module should work correctly', () => {
     stack.push('second');
     stack.push('third');
 
-    expect(stack.pop().value).toEqual('third');
+    expect(stack.pop()).toEqual('third');
   });
 
   it('Can successfully empty a stack after multiple pops', () => {

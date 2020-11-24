@@ -26,7 +26,7 @@ class Stacks {
     } else {
       let poppedItem = this.top;
       this.top = this.top.next;
-      return poppedItem;
+      return poppedItem.value;
     }
   }
 
@@ -34,7 +34,7 @@ class Stacks {
     if(this.top === null) {
       console.error('ERROR: STACK IS EMPTY');
     } else {
-      return this.top;
+      return this.top.value;
     }
   }
 
