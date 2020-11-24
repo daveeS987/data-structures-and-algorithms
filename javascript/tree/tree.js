@@ -145,8 +145,8 @@ class BinarySearchTree extends BinaryTree {
     let result = [];
 
     while(breadth.peek()){
-      let front = breadth.dequeue().value;
-      result.push(front.value);
+      let front = breadth.dequeue();
+      result.push(front);
 
       if(front.left) {
         breadth.enqueue(front.left);

@@ -25,9 +25,8 @@ class Queues {
     if(this.front === null) {
       console.error('ERROR: THERE IS NOTHING TO DEQUEUE');
     } else {
-      let dequeueItem = this.front;
-      let secondItem = this.front.next;
-      this.front = secondItem;
+      let dequeueItem = this.front.value;
+      this.front = this.front.next;
       return dequeueItem;
     }
   }
