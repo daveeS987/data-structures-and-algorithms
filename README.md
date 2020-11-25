@@ -23,3 +23,4 @@
 
 - [Code Challenge 30 - Hash Table](./javascript/hashtable/hashtable.js)
 - [Code Challenge 31 - Repeated Words](./javascript/repeated-word/repeated-word.js)
+- [Code Challenge 32 - Tree Intersection](./javascript/tree-intersection/tree-intersection.js)
