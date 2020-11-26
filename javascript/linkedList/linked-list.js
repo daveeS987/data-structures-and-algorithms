@@ -20,7 +20,7 @@ class LinkedList {
 
   includes(searchVal) {
     let current = this.head;
-    while (current.next) {
+    while (current) {
       if (current.value === searchVal) {
         return true;
       }
