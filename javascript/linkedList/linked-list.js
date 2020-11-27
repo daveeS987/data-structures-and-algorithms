@@ -7,38 +7,18 @@ class LinkedList {
     this.head = null;
   }
 
+
   insert(value) {
     let node = new Node(value);
-
     if(!this.head) {
       this.head = node;
     } else {
       node.next = this.head;
       this.head = node;
     }
+    return this;
   }
 
-  includes(searchVal) {
-    let current = this.head;
-    while (current) {
-      if (current.value === searchVal) {
-        return true;
-      }
-      current = current.next;
-    }
-    return false;
-  }
-
-  toString() {
-    let current = this.head;
-    let string = '';
-    while (current.next) {
-      string += `{ ${current.value} } -> `;
-      current = current.next;
-    }
-    string += `{ ${current.value} } -> ${null}`;
-    return string;
-  }
 
   append(value) {
     let node = new Node(value);
@@ -54,43 +34,81 @@ class LinkedList {
     return this;
   }
 
-  insertBefore(target, newVal) {
-    let previous;
+
+  includes(searchVal) {
+    if(!this.head) {
+      return false;
+    }
     let current = this.head;
-    while (current.next) {
-      if (current.value === target) {
-        if (!previous) {
-          this.insert(newVal);
-          return this;
-        }
-        let node = new Node(newVal);
-        node.next = current;
-        previous.next = node;
-        return this;
+    while (current) {
+      if (current.value === searchVal) {
+        return true;
       }
-      previous = current;
       current = current.next;
     }
-    console.error('target value is not within the list');
+    return false;
   }
 
-  insertAfter(target, newVal) {
+
+  toString() {
     let current = this.head;
-    while (current.next) {
-      if (current.value === target) {
-        let node = new Node(newVal);
+    let string = '';
+    while (current) {
+      string += `{ ${current.value} } -> `;
+      current = current.next;
+    }
+    return string += 'null';
+  }
+
+
+  insertBefore(target, newVal) {
+
+    let node = new Node(newVal);
+
+    if(!this.head) {
+      this.head = node;
+      return this;
+    }
+
+    if(this.head.value === target) {
+      node.next = this.head;
+      this.head = node;
+      return this;
+    }
+
+    let current = this.head;
+    while(current) {
+      if(current.next.value === target) {
         node.next = current.next;
         current.next = node;
         return this;
       }
       current = current.next;
     }
-    if (current.value === target) {
-      this.append(newVal);
+    console.error('target is not within the list');
+  }
+
+  insertAfter(target, newVal) {
+
+    let node = new Node(newVal);
+    if(!this.head) {
+      this.head = node;
       return this;
     }
-    console.error('target value is not within the list');
+
+    let current = this.head;
+    while(current) {
+      if(current.value === target){
+        node.next = current.next;
+        current.next = node;
+        return this;
+      }
+      current = current.next;
+    }
+    console.error('target is not within list');
   }
+
+
 
   // kthFromEnd(k) {
   //   let arr = [];

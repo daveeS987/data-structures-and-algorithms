@@ -157,7 +157,11 @@ describe('Code Challenge 6 Linked List Test: append, insertBefore, insertAfter',
 
 describe('Code Challenge 7 Linked List Test: k-th value from the end', () => {
   let list = new LinkedList();
-  list.append(1).append(2).append(3).append(4).append(5);
+  list.append(1);
+  list.append(2);
+  list.append(3);
+  list.append(4);
+  list.append(5);
 
   it('Should return undefined if k is longer than list', () => {
     let actual = list.kthFromEnd(6);
@@ -196,8 +200,16 @@ describe('Code Challenge 8 Linked List Test: ll-zip', () => {
   it('Should link two list that are equal', () => {
     let list1 = new LinkedList();
     let list2 = new LinkedList();
-    list1.append(1).append(3).append(5).append(7);
-    list2.append(2).append(4).append(6).append(8);
+    list1.append(1);
+    list1.append(3);
+    list1.append(5);
+    list1.append(7);
+
+    list2.append(2);
+    list2.append(4);
+    list2.append(6);
+    list2.append(8);
+
     llZip(list1, list2);
     let expectedValues = [1,2,3,4,5,6,7,8];
     let valuesMatch = checkValuesMatch(list1, expectedValues);
