@@ -10,18 +10,18 @@ class Stacks {
   }
 
   push(value) {
-    if(this.top === null) {
-      this.top = new Node(value);
+    let node = new Node(value);
+    if(!this.top) {
+      this.top = node;
     } else {
-      let originalTop = this.top;
-      this.top = new Node(value);
-      this.top.next = originalTop;
+      node.next = this.top;
+      this.top = node;
       return this.top;
     }
   }
 
   pop() {
-    if(this.top === null) {
+    if(!this.top) {
       console.error('ERROR: THERE IS NOTHING TO POP');
     } else {
       let poppedItem = this.top;
@@ -31,7 +31,7 @@ class Stacks {
   }
 
   peek(){
-    if(this.top === null) {
+    if(!this.top) {
       console.error('ERROR: STACK IS EMPTY');
     } else {
       return this.top;

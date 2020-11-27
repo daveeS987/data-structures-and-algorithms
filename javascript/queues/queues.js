@@ -10,19 +10,21 @@ class Queues {
   }
 
   enqueue(value) {
-    if(this.front === null) {
-      this.front = new Node(value);
+
+    let node = new Node(value);
+    if(!this.front) {
+      this.front = node;
     } else {
       let current = this.front;
       while(current.next !== null) {
         current = current.next;
       }
-      current.next = new Node(value);
+      current.next = node;
     }
   }
 
   dequeue() {
-    if(this.front === null) {
+    if(!this.front) {
       console.error('ERROR: THERE IS NOTHING TO DEQUEUE');
     } else {
       let dequeueItem = this.front;
@@ -32,7 +34,7 @@ class Queues {
   }
 
   peek() {
-    if(this.front === null) {
+    if(!this.front) {
       console.error('ERROR: QUEUE IS EMPTY');
     }
     return this.front;
