@@ -252,4 +252,9 @@ describe('Challenge 17: Breadth-first Traversal', () => {
 
     expect(actual).toEqual(expected);
   });
+
+  it('Should return empty array if Linked list is empty', () => {
+    let tree = new BinarySearchTree();
+    expect(tree.breadthFirst()).toEqual([]);
+  });
 });

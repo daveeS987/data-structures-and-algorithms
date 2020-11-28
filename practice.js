@@ -1,5 +1,7 @@
 'use strict';
 
+const Queue = require('./javascript/queues/queues.js');
+
 class TreeNode{
   constructor(value){
     this.value = value;
@@ -8,76 +10,63 @@ class TreeNode{
   }
 }
 
-// inOrder, preOrder, postPorder
-
 class BinaryTree {
-  constructor(node = null){
+  constructor(node = null) {
     this.root = node;
   }
 
-
-  // left, root, right
-  inOrder() {
-    let results = [];
-    const walk = (node) => {
-      if(node.left) {walk(node.left);}
-      results.push(node.value);
-      if(node.right) {walk(node.right);}
-    };
+  // inOrder > left, root, right
+  inOrder(){
+    let result = [];
+    const walk = (node) {
+      if(node.left) {walk(node.left)};
+      result.push(node.value);
+      if(node.right) {walk(node.right)};
+    }
     walk(this.root);
-    return results;
+    return result;
   }
 
 
-  // root, left, right
+  // preOrder > root, left, right
   preOrder() {
-    let results = [];
+    let result = [];
     const walk = (node) => {
-      results.push(node.value);
-      if(node.left) {walk(node.left);}
-      if(node.right) {walk(node.right);}
-    };
+      result.push(node.value);
+      if(node.left) {walk(node.left)};
+      if(node.right) {walk(node.right)}
+    }
     walk(this.root);
-    return results;
+    return result;
   }
 
 
-  // left, right, root
+  // postOrder > left, right, root
   postOrder() {
-    let results = [];
+    let result = [];
     const walk = (node) => {
-      if(node.left) {walk(node.left);}
-      if(node.right) {walk(node.right);}
-      results.push(node.value);
-    };
+      if(node.left) {walk(node.left)};
+      if(node.right) {walk(node.right)};
+      result.push(node.value);
+    }
     walk(this.root);
-    return results;
+    return result;
   }
 }
 
-class BinarySearchTree extends BinaryTree {
+class BinarySearchTree extends BinaryTree{
 
-  /*
-
-  add, contains, findMax, findMin
-
-  */
-
+  //add , iteraContains, recurseContains, findMax, BreadthFirst
 
   add(value) {
-
     let newNode = new TreeNode(value);
 
     if(!this.root) {
-      this.root = newNode;
-      return;
-    }
+      this.root = node;
+      return this;
+    } 
 
     const walk = (node) => {
-
-      if(value === node.value) {
-        console.error('This value is already present');
-      }
 
       if(value < node.value) {
         if(!node.left) {
@@ -85,57 +74,84 @@ class BinarySearchTree extends BinaryTree {
         } else {
           walk(node.left);
         }
-      }
-      else if(value > node.value) {
+      } else {
         if(!node.right) {
           node.right = newNode;
         } else {
           walk(node.right);
         }
       }
-    };
+    }
     walk(this.root);
+    return this;
   }
 
-  // contains(value) {
+  containsIterate(target) {
+    let current = this.root;
+    while(current) {
+      if(target === current.value) {
+        return true;
+      }
+      if(target < current.value) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    return false;
+  }
 
-  //   if(!this.root) {
-  //     return false;
-  //   }
-
-  //   const walk = (node) => {
-
-  //     if(value === node.value) {
-  //       return true;
-  //     }
-
-  //     if(value < node.value) {
-  //       if(!node.left) {
-  //         return false;
-  //       }
-  //       walk(node.left);
-  //     }
-
-  //     if(value > node.value) {
-  //       if(!node.right) {
-  //         return false;
-  //       }
-  //       walk(node.right);
-  //     }
-
-  //   };
-  //   walk(this.root);
-  // }
-
-  contains(val) {
+  containsRecursively(target) {
 
     if(!this.root) {
       return false;
     }
 
+    let result = false;
+
     const walk = (node) => {
 
-      if(node.value) 
+      if(target === node.value) {
+        result = true;
+        return;
+      } else if (target < node.value) {
+        walk(node.left);
+      } else {
+        walk(node.right);
+      }
     }
+    walk(this.root);
+    return result;
+  }
+
+  findMax() {
+    if(!this.root) {
+      console.error('Tree is empty');
+    } else {
+      let current = this.root;
+      while(current) {
+        current = current.right;
+      }
+      return current.value;
+    }
+  }
+
+  breadthFirst() {
+
+    let result = [];
+    let breadth = new Queue();
+    breadth.enqueue(this.root);
+
+    while(!breadth.isEmpty()) {
+      let dequeuedItem = breadth.dequeue();
+      result.push(dequeuedItem.value);
+      if(dequeuedItem.left) {
+        breadth.enqueue(dequeuedItem.left);
+      }
+      if(dequeuedItem.right) {
+        breadth.enqueue(dequeuedItem.right);
+      }
+    }
+    return result;
   }
 }

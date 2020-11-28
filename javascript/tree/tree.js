@@ -103,31 +103,24 @@ class BinarySearchTree extends BinaryTree {
     return false;
   }
 
-  contains(value) {
+  contains(target) {
 
     if(!this.root) {
       return false;
     }
 
-    let result;
+    let result = false;
+
     const walk = (node) => {
 
-      if(value === node.value) {
+      if(target === node.value) {
         result = true;
         return;
-      }
-      else if(value < node.value) {
-        if(!node.left) {
-          result = false;
-          return;
-        }
+      } else if (target < node.value) {
+        if(!node.left) {return;}
         walk(node.left);
-      }
-      else if(value > node.value) {
-        if(!node.right) {
-          result = false;
-          return;
-        }
+      } else {
+        if(!node.right){return;}
         walk(node.right);
       }
     };
