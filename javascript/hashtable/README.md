@@ -18,9 +18,9 @@ Big 0 Time: O(1)
 
 <!-- Description of each method publicly available in each of your hashtable -->
 
-Hashtable class has the following methods attached
+Hashtable class has the following methods attached:
 
-hash >> will take a key return a hashed index
-add >> will add key, value pair
-get >> given a valid key, it will return the first value
-contains >> given a key, it will return boolean if key present
+- hash >> will take a key and return a hashed index
+- add >> will add key, value pair to hashTable
+- get >> given a valid key, it will return the first value
+- contains >> given a key, it will return a boolean if key is present
