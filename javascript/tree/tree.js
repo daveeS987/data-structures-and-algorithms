@@ -15,36 +15,39 @@ class BinaryTree {
     this.root = node;
   }
 
-  preOrder() {
-    let results = [];
-    const _walk = (node) => {
-      results.push(node.value);
-      if (node.left) { _walk(node.left); }
-      if (node.right) { _walk(node.right); }
-    };
-    _walk(this.root);
-    return results;
-  }
-
+  // left, root, right
   inOrder() {
     let results = [];
-    const _walk = (node) => {
-      if (node.left) { _walk(node.left); }
+    const walk = (node) => {
+      if (node.left) { walk(node.left); }
       results.push(node.value);
-      if (node.right) { _walk(node.right); }
+      if (node.right) { walk(node.right); }
     };
-    _walk(this.root);
+    walk(this.root);
     return results;
   }
 
+  // root, left, right
+  preOrder() {
+    let results = [];
+    const walk = (node) => {
+      results.push(node.value);
+      if (node.left) { walk(node.left); }
+      if (node.right) { walk(node.right); }
+    };
+    walk(this.root);
+    return results;
+  }
+
+  // left, right, root
   postOrder() {
     let results = [];
-    const _walk = (node) => {
-      if (node.left) { _walk(node.left); }
-      if (node.right) { _walk(node.right); }
+    const walk = (node) => {
+      if (node.left) { walk(node.left); }
+      if (node.right) { walk(node.right); }
       results.push(node.value);
     };
-    _walk(this.root);
+    walk(this.root);
     return results;
   }
 }
@@ -53,38 +56,39 @@ class BinarySearchTree extends BinaryTree {
 
   add(value) {
 
-    const newNode = new TreeNode(value);
+    let newNode = new TreeNode(value);
 
-    if (!this.root) {
+    if(!this.root) {
       this.root = newNode;
       return;
     }
 
-    if (this.root === value) {
-      return;
-    }
+    const walk = (node) => {
 
-    const _walk = (node) => {
+      if(value === node.value) {
+        console.error('This value is already present');
+      }
+
       if(value < node.value) {
         if(!node.left) {
           node.left = newNode;
-          return;
+        } else {
+          walk(node.left);
         }
-        _walk(node.left);
       }
-      if(value > node.value) {
+      else if(value > node.value) {
         if(!node.right) {
           node.right = newNode;
-          return;
+        } else {
+          walk(node.right);
         }
-        _walk(node.right);
       }
     };
-    _walk(this.root);
+    walk(this.root);
   }
 
 
-  contains(value) {
+  containsIterate(value) {
     let current = this.root;
     while(current) {
       if(current.value === value) {
@@ -92,36 +96,43 @@ class BinarySearchTree extends BinaryTree {
       }
       if(value > current.value) {
         current = current.right;
-      }
-      else if(value < current.value) {
+      } else {
         current = current.left;
       }
     }
     return false;
   }
 
+  contains(value) {
 
-  containsRecursively(value) {
+    if(!this.root) {
+      return false;
+    }
+
     let result;
-    const _walk = (node) => {
+    const walk = (node) => {
+
       if(value === node.value) {
         result = true;
         return;
-      } else if(value > node.value) {
-        if(!node.right) {
-          result = false;
-          return;
-        }
-        _walk(node.right);
-      } else if (value < node.value) {
+      }
+      else if(value < node.value) {
         if(!node.left) {
           result = false;
           return;
         }
-        _walk(node.left);
+        walk(node.left);
+      }
+      else if(value > node.value) {
+        if(!node.right) {
+          result = false;
+          return;
+        }
+        walk(node.right);
       }
     };
-    _walk(this.root);
+
+    walk(this.root);
     return result;
   }
 
@@ -137,19 +148,20 @@ class BinarySearchTree extends BinaryTree {
 
   // will have O(W) width for space
   breadthFirst() {
+
     let breadth = new Queue();
     breadth.enqueue(this.root);
     let result = [];
 
-    while(breadth.peek()){
-      let front = breadth.dequeue().value;
-      result.push(front.value);
+    while(breadth.peek()) {
+      let dequeued = breadth.dequeue().value;
+      result.push(dequeued.value);
 
-      if(front.left) {
-        breadth.enqueue(front.left);
+      if(dequeued.left) {
+        breadth.enqueue(dequeued.left);
       }
-      if(front.right) {
-        breadth.enqueue(front.right);
+      if(dequeued.right) {
+        breadth.enqueue(dequeued.right);
       }
     }
     return result;
@@ -157,4 +169,4 @@ class BinarySearchTree extends BinaryTree {
 }
 
 
-module.exports = {TreeNode, BinaryTree,BinarySearchTree};
+module.exports = {TreeNode, BinaryTree, BinarySearchTree};

@@ -12,16 +12,17 @@ class Stacks {
   push(value) {
     let node = new Node(value);
 
-    if(this.top === null) {
+    if(!this.top) {
       this.top = node;
     } else {
       node.next = this.top;
       this.top = node;
+      return this;
     }
   }
 
   pop() {
-    if(this.top === null) {
+    if(!this.top) {
       console.error('ERROR: THERE IS NOTHING TO POP');
     } else {
       let poppedItem = this.top;
@@ -31,7 +32,7 @@ class Stacks {
   }
 
   peek(){
-    if(this.top === null) {
+    if(!this.top) {
       console.error('ERROR: STACK IS EMPTY');
     } else {
       return this.top.value;
