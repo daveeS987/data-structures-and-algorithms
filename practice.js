@@ -1,157 +1,64 @@
 'use strict';
 
-const Queue = require('./javascript/queues/queues.js');
+const LL = require('./javascript/linkedList/linked-list.js');
 
-class TreeNode{
-  constructor(value){
-    this.value = value;
-    this.left = null;
-    this.right = null;
-  }
-}
-
-class BinaryTree {
-  constructor(node = null) {
-    this.root = node;
+class HashTable{
+  constructor(size){
+    this.size = size;
+    this.storage = new Array(size);
   }
 
-  // inOrder > left, root, right
-  inOrder(){
-    let result = [];
-    const walk = (node) {
-      if(node.left) {walk(node.left)};
-      result.push(node.value);
-      if(node.right) {walk(node.right)};
+  // hash, add, get, contains
+
+  hash(key) {
+    return key.split('').reduce((acc, val, i) => {
+      return acc + val.charCodeAt(0);
+    }, 0) * 599 % this.size;
+  }
+
+  add(key,value) {
+    let hashIndex = this.hash(key);
+
+    if(!this.storage[hashIndex]) {
+      let newLL = new LL();
+      newLL.insert([key,value]);
+      this.storage[hashIndex] = newLL;
+    } else {
+      this.storage[hashIndex].insert([key,value]);
     }
-    walk(this.root);
-    return result;
   }
 
+  contains(key) {
+    let hashedIndex = this.hash(key);
 
-  // preOrder > root, left, right
-  preOrder() {
-    let result = [];
-    const walk = (node) => {
-      result.push(node.value);
-      if(node.left) {walk(node.left)};
-      if(node.right) {walk(node.right)}
+    if(!this.storage[hashedIndex]) {
+      return false;
     }
-    walk(this.root);
-    return result;
-  }
 
-
-  // postOrder > left, right, root
-  postOrder() {
-    let result = [];
-    const walk = (node) => {
-      if(node.left) {walk(node.left)};
-      if(node.right) {walk(node.right)};
-      result.push(node.value);
-    }
-    walk(this.root);
-    return result;
-  }
-}
-
-class BinarySearchTree extends BinaryTree{
-
-  //add , iteraContains, recurseContains, findMax, BreadthFirst
-
-  add(value) {
-    let newNode = new TreeNode(value);
-
-    if(!this.root) {
-      this.root = node;
-      return this;
-    } 
-
-    const walk = (node) => {
-
-      if(value < node.value) {
-        if(!node.left) {
-          node.left = newNode;
-        } else {
-          walk(node.left);
-        }
-      } else {
-        if(!node.right) {
-          node.right = newNode;
-        } else {
-          walk(node.right);
-        }
-      }
-    }
-    walk(this.root);
-    return this;
-  }
-
-  containsIterate(target) {
-    let current = this.root;
+    let current = this.storage[hashedIndex].head;
     while(current) {
-      if(target === current.value) {
+      if(current.value[0] === key) {
         return true;
       }
-      if(target < current.value) {
-        current = current.left;
-      } else {
-        current = current.right;
-      }
+      current = current.next;
     }
     return false;
   }
 
-  containsRecursively(target) {
+  get(key) {
+    let hashedIndex = this.hash(key);
 
-    if(!this.root) {
-      return false;
+    if(!this.storage[hashedIndex]) {
+      return null;
     }
 
-    let result = false;
-
-    const walk = (node) => {
-
-      if(target === node.value) {
-        result = true;
-        return;
-      } else if (target < node.value) {
-        walk(node.left);
-      } else {
-        walk(node.right);
+    let current = this.storage[hashedIndex].head;
+    while(current) {
+      if(current.value[0] === key) {
+        return current.value[1];
       }
+      current = current.next;
     }
-    walk(this.root);
-    return result;
-  }
-
-  findMax() {
-    if(!this.root) {
-      console.error('Tree is empty');
-    } else {
-      let current = this.root;
-      while(current) {
-        current = current.right;
-      }
-      return current.value;
-    }
-  }
-
-  breadthFirst() {
-
-    let result = [];
-    let breadth = new Queue();
-    breadth.enqueue(this.root);
-
-    while(!breadth.isEmpty()) {
-      let dequeuedItem = breadth.dequeue();
-      result.push(dequeuedItem.value);
-      if(dequeuedItem.left) {
-        breadth.enqueue(dequeuedItem.left);
-      }
-      if(dequeuedItem.right) {
-        breadth.enqueue(dequeuedItem.right);
-      }
-    }
-    return result;
+    return null;
   }
 }
