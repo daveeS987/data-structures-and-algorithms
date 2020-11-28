@@ -1,51 +1,141 @@
 'use strict';
 
-class Node {
-  constructor(value) {
+class TreeNode{
+  constructor(value){
     this.value = value;
-    this.next = null;
+    this.left = null;
+    this.right = null;
   }
 }
 
-class Queues {
-  constructor(){
-    this.front = null;
+// inOrder, preOrder, postPorder
+
+class BinaryTree {
+  constructor(node = null){
+    this.root = node;
   }
 
-  // enqueue, dequeue, peek, isEmpty
 
-  enqueue(value) {
-    let node = new Node(value);
-    if(!this.front) {
-      this.front = node;
-    } else {
-      let current = this.front;
-      while(current.next !== null) {
-        current = current.next;
+  // left, root, right
+  inOrder() {
+    let results = [];
+    const walk = (node) => {
+      if(node.left) {walk(node.left);}
+      results.push(node.value);
+      if(node.right) {walk(node.right);}
+    };
+    walk(this.root);
+    return results;
+  }
+
+
+  // root, left, right
+  preOrder() {
+    let results = [];
+    const walk = (node) => {
+      results.push(node.value);
+      if(node.left) {walk(node.left);}
+      if(node.right) {walk(node.right);}
+    };
+    walk(this.root);
+    return results;
+  }
+
+
+  // left, right, root
+  postOrder() {
+    let results = [];
+    const walk = (node) => {
+      if(node.left) {walk(node.left);}
+      if(node.right) {walk(node.right);}
+      results.push(node.value);
+    };
+    walk(this.root);
+    return results;
+  }
+}
+
+class BinarySearchTree extends BinaryTree {
+
+  /*
+
+  add, contains, findMax, findMin
+
+  */
+
+
+  add(value) {
+
+    let newNode = new TreeNode(value);
+
+    if(!this.root) {
+      this.root = newNode;
+      return;
+    }
+
+    const walk = (node) => {
+
+      if(value === node.value) {
+        console.error('This value is already present');
       }
-      current.next = node;
-    }
+
+      if(value < node.value) {
+        if(!node.left) {
+          node.left = newNode;
+        } else {
+          walk(node.left);
+        }
+      }
+      else if(value > node.value) {
+        if(!node.right) {
+          node.right = newNode;
+        } else {
+          walk(node.right);
+        }
+      }
+    };
+    walk(this.root);
   }
 
-  dequeue() {
-    if(!this.front) {
-      console.error('Queue is empty');
-    } else {
-      let dequeued = this.front;
-      this.front = this.front.next;
-      return dequeued;
-    }
-  }
+  // contains(value) {
 
-  peek() {
-    if(!this.front) {
-      console.error('Queue is empty');
-    } else {
-      return this.front;
-    }
-  }
+  //   if(!this.root) {
+  //     return false;
+  //   }
 
-  isEmpty() {
-    return this.front === null;
+  //   const walk = (node) => {
+
+  //     if(value === node.value) {
+  //       return true;
+  //     }
+
+  //     if(value < node.value) {
+  //       if(!node.left) {
+  //         return false;
+  //       }
+  //       walk(node.left);
+  //     }
+
+  //     if(value > node.value) {
+  //       if(!node.right) {
+  //         return false;
+  //       }
+  //       walk(node.right);
+  //     }
+
+  //   };
+  //   walk(this.root);
+  // }
+
+  contains(val) {
+
+    if(!this.root) {
+      return false;
+    }
+
+    const walk = (node) => {
+
+      if(node.value) 
+    }
   }
 }

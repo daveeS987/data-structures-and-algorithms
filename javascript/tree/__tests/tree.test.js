@@ -106,36 +106,95 @@ describe('Binary Search Tree should work correctly', () => {
 });
 
 describe('Challenge 15: add() and contain() should work correctly', () => {
+
   let twenty = new TreeNode(20);
-  let twelve = new TreeNode(12);
-  let six = new TreeNode(6);
-  let seventeen = new TreeNode(17);
-  let thirtytwo = new TreeNode(32);
-  let twentyfive = new TreeNode(25);
-  let fourty = new TreeNode(40);
-  let seventy = new TreeNode(70);
-
-  twenty.left = twelve;
-  twenty.right = thirtytwo;
-  twelve.left = six;
-  twelve.right = seventeen;
-  thirtytwo.right = fourty;
-  thirtytwo.left = twentyfive;
-  fourty.right = seventy;
-
   let tree = new BinarySearchTree(twenty);
+  tree.add(6);
+  tree.add(12);
+  tree.add(17);
+  tree.add(25);
+  tree.add(32);
+  tree.add(40);
+  tree.add(70);
+
   it('add() method should work', () => {
     tree.add(90);
+    tree.add(42);
     let inOrder = tree.inOrder();
-    let expected = [6, 12, 17, 20, 25, 32, 40, 70, 90];
+    let expected = [6, 12, 17, 20, 25, 32, 40, 42, 70, 90];
     expect(inOrder).toEqual(expected);
   });
-  it('contain() should pass for true cases', () => {
-    let actual = tree.contains(40);
+
+  it('contain() should pass if value is the first node', () => {
+    let actual = tree.contains(20);
     expect(actual).toEqual(true);
   });
-  it('contain() should pass for false cases', () => {
-    let actual = tree.contains(45);
+
+  it('contain() should pass if value is somewhere in the middle', () => {
+    let actual = tree.contains(32);
+    expect(actual).toEqual(true);
+  });
+
+  it('contain() should pass if value is the last node', () => {
+    let actual = tree.contains(70);
+    expect(actual).toEqual(true);
+  });
+
+  it('contain() should return false if target is less than any value in the tree', () => {
+    let actual = tree.contains(1);
+    expect(actual).toEqual(false);
+  });
+
+  it('contain() should return false if target is greater than any node value', () => {
+    let actual = tree.contains(100);
+    expect(actual).toEqual(false);
+  });
+
+  it('contain() should return false if target is not present', () => {
+    let actual = tree.contains(22);
+    expect(actual).toEqual(false);
+  });
+});
+
+
+describe('iterative-contains method should work correctly', () => {
+  let twenty = new TreeNode(20);
+  let tree = new BinarySearchTree(twenty);
+  tree.add(6);
+  tree.add(12);
+  tree.add(17);
+  tree.add(25);
+  tree.add(32);
+  tree.add(40);
+  tree.add(70);
+
+  it('containsIterate() should pass if value is the first node', () => {
+    let actual = tree.containsIterate(20);
+    expect(actual).toEqual(true);
+  });
+
+  it('containsIterate() should pass if value is somewhere in the middle', () => {
+    let actual = tree.containsIterate(32);
+    expect(actual).toEqual(true);
+  });
+
+  it('containsIterate() should pass if value is the last node', () => {
+    let actual = tree.containsIterate(70);
+    expect(actual).toEqual(true);
+  });
+
+  it('containsIterate() should return false if target is less than any value in the tree', () => {
+    let actual = tree.containsIterate(1);
+    expect(actual).toEqual(false);
+  });
+
+  it('containsIterate() should return false if target is greater than any node value', () => {
+    let actual = tree.containsIterate(100);
+    expect(actual).toEqual(false);
+  });
+
+  it('containsIterate() should return false if target is not present', () => {
+    let actual = tree.containsIterate(22);
     expect(actual).toEqual(false);
   });
 });
