@@ -25,7 +25,7 @@ describe('PseudoQueue should work', () => {
 
     let dequedItem = pseudoQue.dequeue();
     console.log('dequedItem', JSON.stringify(dequedItem, null, 2));
-    expect(dequedItem.value).toEqual('first');
+    expect(dequedItem).toEqual('first');
   });
 
 });

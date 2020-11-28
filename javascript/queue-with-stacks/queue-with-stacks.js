@@ -24,7 +24,7 @@ class PseuodoQueue {
     }
 
     while(this.stackContainer.peek()) {
-      let popped = this.stackContainer.pop().value;
+      let popped = this.stackContainer.pop();
       this.front.push(popped);
     }
 

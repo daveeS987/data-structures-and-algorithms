@@ -10,8 +10,8 @@ class Queues {
   }
 
   enqueue(value) {
-
     let node = new Node(value);
+
     if(!this.front) {
       this.front = node;
     } else {
@@ -21,6 +21,7 @@ class Queues {
       }
       current.next = node;
     }
+    return this;
   }
 
   dequeue() {
@@ -29,15 +30,16 @@ class Queues {
     } else {
       let dequeueItem = this.front;
       this.front = this.front.next;
-      return dequeueItem;
+      return dequeueItem.value;
     }
   }
 
   peek() {
     if(!this.front) {
       console.error('ERROR: QUEUE IS EMPTY');
+    } else {
+      return this.front.value;
     }
-    return this.front;
   }
 
   isEmpty() {
