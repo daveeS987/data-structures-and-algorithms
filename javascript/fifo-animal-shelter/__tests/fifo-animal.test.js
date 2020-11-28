@@ -38,8 +38,8 @@ describe('AnimalShelter class should work correctly', () => {
     animalShelter.enqueue(dog2);
     animalShelter.enqueue(cat2);
 
-    expect(animalShelter.dog.peek().value.name).toEqual(dog1.name);
-    expect(animalShelter.cat.peek().value.name).toEqual(cat1.name);
+    expect(animalShelter.dog.peek().name).toEqual(dog1.name);
+    expect(animalShelter.cat.peek().name).toEqual(cat1.name);
   });
 
   it('Dequeue should work correctly', () => {
@@ -53,9 +53,9 @@ describe('AnimalShelter class should work correctly', () => {
     let first = animalShelter.dequeue('dog');
     let second = animalShelter.dequeue('cat');
 
-    expect(first.value.name).toEqual(dog1.name);
-    expect(second.value.name).toEqual(cat1.name);
-    expect(animalShelter.dog.peek().value.name).toEqual(dog2.name);
-    expect(animalShelter.cat.peek().value.name).toEqual(cat2.name);
+    expect(first.name).toEqual(dog1.name);
+    expect(second.name).toEqual(cat1.name);
+    expect(animalShelter.dog.peek().name).toEqual(dog2.name);
+    expect(animalShelter.cat.peek().name).toEqual(cat2.name);
   });
 });

@@ -21,7 +21,7 @@ function multiBracketValidation(string) {
       stack.push(string[i]);
     } else if (closingBrackets[string[i]]) {
       let popped = stack.pop();
-      if (popped.value !== closingBrackets[string[i]]) {
+      if (popped !== closingBrackets[string[i]]) {
         return false;
       }
     } else {
