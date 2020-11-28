@@ -17,8 +17,8 @@ class Stacks {
     } else {
       node.next = this.top;
       this.top = node;
-      return this;
     }
+    return this;
   }
 
   pop() {
