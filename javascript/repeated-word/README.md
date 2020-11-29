@@ -52,3 +52,5 @@ If (current item is present in our hashmap)
 return current item  
 else  
 add current item to hashmap
+
+![UML](aww-board.png)
