@@ -1,9 +1,6 @@
 'use strict';
 
-let Node = require('./repeated-word').Node;
-let LL = require('./repeated-word.js').LL;
-let HashMap = require('./repeated-word.js').HashMap;
-let repeatedWord = require('./repeated-word.js').repeatedWord;
+let repeatedWord = require('./repeated-word.js');
 
 let input1 = 'Once upon a time, there was a brave princess who...';
 
