@@ -12,6 +12,7 @@ hashtable.add('alex', 'nations');
 hashtable.add('chris', 'rock');
 hashtable.add('bob', 'builder');
 
+console.log(hashtable);
 // printing out
 hashtable.storage.forEach((item, idx) => {
   if(!this.head) {
@@ -33,7 +34,7 @@ let result21 = hashtable.contains('billy');
 
 let result3 = hashtable.get('chris');
 let result4 = hashtable.get('hello');
-let result5 = hashtable.get('hello');
+let result5 = hashtable.get('alex');
 
 console.log({result1});
 console.log({result2});

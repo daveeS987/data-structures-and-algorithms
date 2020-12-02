@@ -1,64 +1,78 @@
 'use strict';
 
-const LL = require('./javascript/linkedList/linked-list.js');
+const Node{
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
 
-class HashTable{
-  constructor(size){
-    this.size = size;
-    this.storage = new Array(size);
+const LinkedList{
+  constructor() {
+    this.head = null;
   }
 
-  // hash, add, get, contains
+  // insert, append, contains, insertBefore, insertAfter
+}
 
-  hash(key) {
-    return key.split('').reduce((acc, val, i) => {
+const Hashtable {
+  constructor(size) {
+    this.size = size;
+    this.storage = new Array(size); 
+  }
+
+  // hash, add, get, contains,
+
+  hash(key){
+    return key.split('').reduce((acc,val,i) => {
       return acc + val.charCodeAt(0);
     }, 0) * 599 % this.size;
   }
 
-  add(key,value) {
+  add(key,val) {
+
     let hashIndex = this.hash(key);
 
-    if(!this.storage[hashIndex]) {
-      let newLL = new LL();
-      newLL.insert([key,value]);
-      this.storage[hashIndex] = newLL;
+    if(!this.storage[hashIndex]){
+      let ll = new LinkedList();
+      ll.insert([key,val]);
+      this.storage[hashIndex] = ll;
     } else {
-      this.storage[hashIndex].insert([key,value]);
+      this.storage[hashIndex].insert([key,val]);
     }
-  }
-
-  contains(key) {
-    let hashedIndex = this.hash(key);
-
-    if(!this.storage[hashedIndex]) {
-      return false;
-    }
-
-    let current = this.storage[hashedIndex].head;
-    while(current) {
-      if(current.value[0] === key) {
-        return true;
-      }
-      current = current.next;
-    }
-    return false;
   }
 
   get(key) {
-    let hashedIndex = this.hash(key);
+    let hashIndex = this.hash(key);
 
-    if(!this.storage[hashedIndex]) {
+    if(!this.storage[hashIndex]) {
       return null;
-    }
-
-    let current = this.storage[hashedIndex].head;
-    while(current) {
-      if(current.value[0] === key) {
-        return current.value[1];
+    } else {
+      let current = this.storage[hashIndex].head;
+      while(current) {
+        if(current.value[0] === key) {
+          return current.value[1];
+        }
+        current = current.next;
       }
-      current = current.next;
     }
     return null;
+  }
+
+  contains(key) {
+    let hashIndex = this.storage(key);
+
+    if(!this.storage[hashIndex]) {
+      return false;
+    } else {
+      let current = this.storage[hashIndex].head;
+      while(current) {
+        if(current.value[0] === key) {
+          return true;
+        }
+        current = current.next;
+      }
+    }
+    return false;
   }
 }
