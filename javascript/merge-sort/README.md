@@ -10,6 +10,9 @@
 
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
+Time: O(n\*logn)
+Space: O(n)
+
 ## Solution
 
 <!-- Embedded whiteboard image -->
