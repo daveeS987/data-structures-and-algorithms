@@ -1,4 +1,4 @@
-# Graphs
+# Graphs.
 
 <!-- Short summary or background information -->
 
