@@ -52,6 +52,11 @@ class Graph {
   }
 
 
+  getAllVertex() {
+    return this.adjacencyList.keys();
+  }
+
+
   getNeighbors(vertex) {
     return this.adjacencyList.get(vertex);
   }
