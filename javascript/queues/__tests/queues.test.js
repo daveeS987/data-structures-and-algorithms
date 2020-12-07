@@ -54,16 +54,18 @@ describe('Queues Module should work correctly', () => {
   });
 
   it('Calling dequeue on empty queue raises exception', () => {
-    let spy = jest.spyOn(console, 'error');
+    // let spy = jest.spyOn(console, 'error');
     let queue = new Queues();
-    queue.dequeue();
-    expect(spy).toHaveBeenCalled();
+    let result = queue.dequeue();
+    // expect(spy).toHaveBeenCalled();
+    expect(result).toBeNull();
   });
 
   it('Calling peek on empty queue raises exception', () => {
-    let spy = jest.spyOn(console, 'error');
+    // let spy = jest.spyOn(console, 'error');
     let queue = new Queues();
-    queue.peek();
-    expect(spy).toHaveBeenCalled();
+    let result = queue.peek();
+    // expect(spy).toHaveBeenCalled();
+    expect(result).toBeNull();
   });
 });

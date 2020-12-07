@@ -26,7 +26,8 @@ class Queues {
 
   dequeue() {
     if(!this.front) {
-      console.error('ERROR: THERE IS NOTHING TO DEQUEUE');
+      // console.error('ERROR: THERE IS NOTHING TO DEQUEUE');
+      return null;
     } else {
       let dequeueItem = this.front;
       this.front = this.front.next;
@@ -36,7 +37,8 @@ class Queues {
 
   peek() {
     if(!this.front) {
-      console.error('ERROR: QUEUE IS EMPTY');
+      // console.error('ERROR: QUEUE IS EMPTY');
+      return null;
     } else {
       return this.front.value;
     }
