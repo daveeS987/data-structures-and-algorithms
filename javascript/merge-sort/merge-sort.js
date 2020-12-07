@@ -36,16 +36,23 @@ function merge(left, right, arr) {
     a++;
   }
 
-  while(r < right.length) {
-    arr[a] = right[r];
-    arr++;
-    r++;
-  }
+  // while(r < right.length) {
+  //   arr[a] = right[r];
+  //   arr++;
+  //   r++;
+  // }
 
-  while(l < left.length) {
+  // while(l < left.length) {
+  //   arr[a] = left[l];
+  //   arr++;
+  //   l++;
+  // }
+
+  if (l === left.length) {
+    arr[a] = right[r];
+  }
+  else {
     arr[a] = left[l];
-    arr++;
-    l++;
   }
 
   return arr;
