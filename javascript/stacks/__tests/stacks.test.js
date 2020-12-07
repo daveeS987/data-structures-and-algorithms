@@ -58,17 +58,23 @@ describe('Stacks Module should work correctly', () => {
   });
 
   it('Calling pop on empty stack raises exception', () => {
-    let spy = jest.spyOn(console, 'error');
+    // let spy = jest.spyOn(console, 'error');
+    // let stack = new Stacks();
+    // stack.pop();
+    // expect(spy).toHaveBeenCalled();
     let stack = new Stacks();
-    stack.pop();
-    expect(spy).toHaveBeenCalled();
+    let result = stack.pop();
+    expect(result).toBeNull();
   });
 
   it('Calling peek on empty stack raises exception', () => {
-    let spy = jest.spyOn(console, 'error');
+    // let spy = jest.spyOn(console, 'error');
+    // let stack = new Stacks();
+    // stack.peek();
+    // expect(spy).toHaveBeenCalled();
     let stack = new Stacks();
-    stack.peek();
-    expect(spy).toHaveBeenCalled();
+    let result = stack.peek();
+    expect(result).toBeNull();
   });
 
 });

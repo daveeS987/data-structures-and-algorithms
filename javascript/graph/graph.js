@@ -1,5 +1,8 @@
 'use strict';
 
+let Queue = require('../queues/queues.js');
+let Stack = require('../stacks/stacks.js');
+
 class Vertex {
   constructor(value) {
     this.value = value;
@@ -18,33 +21,52 @@ class Graph {
     this.adjacencyList = new Map();
   }
 
+
   addVertex(vertex) {
     this.adjacencyList.set(vertex, []);
+    return this;
   }
+
 
   addDirectedEdge(startVertex, endVertex) {
     if (this.adjacencyList.has(startVertex) && this.adjacencyList.has(endVertex)) {
       const neighbors = this.adjacencyList.get(startVertex);
       neighbors.push(new Edge(endVertex));
+      return this;
+    } else {
+      console.error('Vertex may not be present in this graph');
+      return null;
     }
   }
+
 
   addUndirectedEdge(startVertex, endVertex) {
     this.addDirectedEdge(startVertex, endVertex);
     this.addDirectedEdge(endVertex, startVertex);
+    return this;
   }
 
-  bft(startNode) {
 
-    const queue = [];
+  getSize() {
+    return this.adjacencyList.size;
+  }
+
+
+  getNeighbors(vertex) {
+    return this.adjacencyList.get(vertex);
+  }
+
+
+  bft(startVertex) {
+
+    const queue = new Queue();
     const visitedNodes = new Set();
-    queue.push(startNode);
-    visitedNodes.add(startNode);
+    queue.enqueue(startVertex);
+    visitedNodes.add(startVertex);
 
-    // in a real queue, this would be while queue.peek()
-    while (queue.length) {
+    while (queue.peek()) {
 
-      const currentVertex = queue.shift();
+      const currentVertex = queue.dequeue();
       const neighbors = this.adjacencyList.get(currentVertex);
 
       for (let neighbor of neighbors) {
@@ -54,53 +76,40 @@ class Graph {
         } else {
           visitedNodes.add(neighborVertex);
         }
-        queue.push(neighborVertex);
+        queue.enqueue(neighborVertex);
       }
     }
-
     return visitedNodes;
-
   }
 
-  // The difference? Stack vs Queue
-  dft(startNode) {
 
+  dft(startVertex) {
+
+    const stack = new Stack();
+    const visitedNodes = new Set();
+    stack.push(startVertex);
+    visitedNodes.add(startVertex);
+
+    while(stack.peek()) {
+
+      let currentVertex = stack.pop();
+      let neighborList = this.adjacencyList.get(currentVertex);
+
+      for(let edge of neighborList) {
+        let neighborVertex = edge.vertex;
+        if(visitedNodes.has(neighborVertex)) {
+          continue;
+        } else {
+          visitedNodes.add(neighborVertex);
+        }
+        stack.push(neighborVertex);
+      }
+    }
+    return visitedNodes;
   }
 
-  getNeighbors(vertex) {
-    return this.adjacencyList.get(vertex);
-  }
 }
 
-const graph = new Graph();
 
-const ten = new Vertex(10);
-const two = new Vertex(2);
-const six = new Vertex(6);
-const seven = new Vertex(7);
-const three = new Vertex(3);
-const eight = new Vertex(8);
-const nine = new Vertex(9);
+module.exports = {Vertex, Edge, Graph};
 
-graph.addVertex(ten);
-graph.addVertex(two);
-graph.addVertex(six);
-graph.addVertex(seven);
-graph.addVertex(three);
-graph.addVertex(eight);
-graph.addVertex(nine);
-
-graph.addUndirectedEdge(ten, two);
-graph.addUndirectedEdge(ten, six);
-graph.addUndirectedEdge(ten, three);
-graph.addUndirectedEdge(six, seven);
-graph.addUndirectedEdge(six, eight);
-graph.addUndirectedEdge(three, eight);
-graph.addUndirectedEdge(seven, eight);
-graph.addUndirectedEdge(seven, nine);
-graph.addUndirectedEdge(two, seven);
-
-console.log(graph);
-
-console.log(graph.bft(ten));
-console.log(graph.bft(seven));
