@@ -15,12 +15,12 @@ describe('QuickSort Method should work correctly', () => {
   });
 
   it('Should account for a few uniques', () => {
-    let arr2 = [5,12,7,5,5,7];
-    expect(quickSort(arr2)).toEqual([5,5,5,7,7,12]);
+    let arr3 = [5,12,7,5,5,7];
+    expect(quickSort(arr3)).toEqual([5,5,5,7,7,12]);
   });
 
   it('Should account for a nearly sorted array', () => {
-    let arr2 = [2,3,5,7,13,11];
-    expect(quickSort(arr2)).toEqual([2,3,5,7,11,13]);
+    let arr4 = [2,3,5,7,13,11];
+    expect(quickSort(arr4)).toEqual([2,3,5,7,11,13]);
   });
 });
