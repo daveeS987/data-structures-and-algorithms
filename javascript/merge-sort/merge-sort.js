@@ -2,7 +2,6 @@
 
 function mergeSort(array) {
 
-
   let n = array.length;
 
   if (n > 1) {
@@ -36,23 +35,19 @@ function merge(left, right, arr) {
     a++;
   }
 
-  // while(r < right.length) {
+  // if (l === left.length) {
   //   arr[a] = right[r];
-  //   arr++;
-  //   r++;
   // }
-
-  // while(l < left.length) {
+  // else {
   //   arr[a] = left[l];
-  //   arr++;
-  //   l++;
   // }
 
-  if (l === left.length) {
-    arr[a] = right[r];
+  while(l < left.length){
+    arr[a] = left[l]; a++; l++;
   }
-  else {
-    arr[a] = left[l];
+
+  while(r < right.length){
+    arr[a] = right[r]; a++; r++;
   }
 
   return arr;
