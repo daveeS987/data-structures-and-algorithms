@@ -97,5 +97,43 @@ describe('Graph Implementation should function correctly', () => {
 
 
 describe('BreadthFirstSearch should return correct values', () => {
+  it('Should return correct order with strings', () => {
 
+    let graph = new Graph();
+    const pandora = new Vertex('Pandora');
+    const arendelle = new Vertex('Arendelle');
+    const metroville = new Vertex('Metroville');
+    const monstroplolis = new Vertex('Monstroplolis');
+    const narnia = new Vertex('Narnia');
+    const naboo = new Vertex('Naboo');
+
+    graph.addVertex(pandora);
+    graph.addVertex(arendelle);
+    graph.addVertex(metroville);
+    graph.addVertex(monstroplolis);
+    graph.addVertex(narnia);
+    graph.addVertex(naboo);
+
+    graph.addUndirectedEdge(pandora,arendelle);
+
+    graph.addUndirectedEdge(arendelle,metroville);
+    graph.addUndirectedEdge(arendelle,monstroplolis);
+
+    graph.addUndirectedEdge(monstroplolis,naboo);
+    graph.addUndirectedEdge(monstroplolis,metroville);
+
+    graph.addUndirectedEdge(metroville,narnia);
+    graph.addUndirectedEdge(metroville,naboo);
+
+    graph.addUndirectedEdge(naboo,narnia);
+
+    let result = graph.bft(pandora);
+    let expected = ['Pandora', 'Arendelle', 'Metroville', 'Monstroplolis', 'Narnia', 'Naboo'];
+
+    let i = 0;
+    result.forEach( item => {
+      expect(item.value).toEqual(expected[i]);
+      i+=1;
+    });
+  });
 });
