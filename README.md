@@ -28,3 +28,4 @@
 - [Code Challenge 32 - Tree Intersection](./javascript/tree-intersection/tree-intersection.js)
 - [Code Challenge 33 - Left Join](./javascript/left-join/left-join.js)
 - [Code Challenge 35 - Graph](./javascript/graph/graph.js)
+- [Code Challenge 36 - Graph - BreadthFirstSearch](./javascript/graph/graph.js)
