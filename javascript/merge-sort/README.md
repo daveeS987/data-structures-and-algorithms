@@ -6,11 +6,13 @@
 
 <!-- Description of the challenge -->
 
+Implement a merge sort method to sort a numbered array.
+
 ## Approach & Efficiency
 
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
-Time: O(n\*logn)
+Time: O(n \* Log n)
 Space: O(n)
 
 ## Solution
