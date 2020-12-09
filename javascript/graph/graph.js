@@ -80,8 +80,8 @@ class Graph {
           continue;
         } else {
           visitedNodes.add(neighborVertex);
+          queue.enqueue(neighborVertex);
         }
-        queue.enqueue(neighborVertex);
       }
     }
     return visitedNodes;
@@ -106,8 +106,8 @@ class Graph {
           continue;
         } else {
           visitedNodes.add(neighborVertex);
+          stack.push(neighborVertex);
         }
-        stack.push(neighborVertex);
       }
     }
     return visitedNodes;

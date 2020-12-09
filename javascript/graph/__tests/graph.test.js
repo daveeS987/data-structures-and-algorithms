@@ -94,3 +94,8 @@ describe('Graph Implementation should function correctly', () => {
   });
 
 });
+
+
+describe('BreadthFirstSearch should return correct values', () => {
+
+});
