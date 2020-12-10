@@ -35,19 +35,17 @@ function merge(left, right, arr) {
     a++;
   }
 
-  // if (l === left.length) {
-  //   arr[a] = right[r];
-  // }
-  // else {
-  //   arr[a] = left[l];
-  // }
 
   while(l < left.length){
-    arr[a] = left[l]; a++; l++;
+    arr[a] = left[l];
+    a++;
+    l++;
   }
 
   while(r < right.length){
-    arr[a] = right[r]; a++; r++;
+    arr[a] = right[r];
+    a++;
+    r++;
   }
 
   return arr;
