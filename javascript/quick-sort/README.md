@@ -22,3 +22,5 @@ Best and Average Case: O(n Log n)
 ## Solution
 
 <!-- Embedded whiteboard image -->
+
+![Quick Sort](Quick-Sort-Visual.jpg)
