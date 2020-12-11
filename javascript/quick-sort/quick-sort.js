@@ -18,14 +18,14 @@ function partition(arr, left, right) {
   for(let i=left; i < right; i++) {
     if(arr[i] <= pivot){
       low++;
-      swap(arr,i,low);
+      swap(arr,low,i);
     }
   }
-  swap(arr, right, low + 1);
+  swap(arr, low + 1, right);
   return low + 1;
 }
 
-function swap(arr, i, low) {
+function swap(arr, low, i) {
   let temp;
   temp = arr[i];
   arr[i] = arr[low];
