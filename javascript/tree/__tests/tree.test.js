@@ -105,21 +105,43 @@ describe('Binary Search Tree should work correctly', () => {
   });
 });
 
-describe('Challenge 15: add() and contain() should work correctly', () => {
+describe('AddIteravily should work correctly', () => {
 
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
-  tree.add(6);
-  tree.add(12);
-  tree.add(17);
-  tree.add(25);
-  tree.add(32);
-  tree.add(40);
-  tree.add(70);
+  tree.addIteravily(6);
+  tree.addIteravily(12);
+  tree.addIteravily(17);
+  tree.addIteravily(25);
+  tree.addIteravily(32);
+  tree.addIteravily(40);
+  tree.addIteravily(70);
 
-  it('add() method should work', () => {
-    tree.add(90);
-    tree.add(42);
+  it('addIteravily() method should work', () => {
+    tree.addIteravily(90);
+    tree.addIteravily(42);
+    let inOrder = tree.inOrder();
+    let expected = [6, 12, 17, 20, 25, 32, 40, 42, 70, 90];
+    expect(inOrder).toEqual(expected);
+  });
+});
+
+
+describe('AddRecursively and contain() should work correctly', () => {
+
+  let twenty = new TreeNode(20);
+  let tree = new BinarySearchTree(twenty);
+  tree.addRecursively(6);
+  tree.addRecursively(12);
+  tree.addRecursively(17);
+  tree.addRecursively(25);
+  tree.addRecursively(32);
+  tree.addRecursively(40);
+  tree.addRecursively(70);
+
+  it('addRecursively() method should work', () => {
+    tree.addRecursively(90);
+    tree.addRecursively(42);
     let inOrder = tree.inOrder();
     let expected = [6, 12, 17, 20, 25, 32, 40, 42, 70, 90];
     expect(inOrder).toEqual(expected);
@@ -157,16 +179,17 @@ describe('Challenge 15: add() and contain() should work correctly', () => {
 });
 
 
+
 describe('iterative-contains method should work correctly', () => {
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
-  tree.add(6);
-  tree.add(12);
-  tree.add(17);
-  tree.add(25);
-  tree.add(32);
-  tree.add(40);
-  tree.add(70);
+  tree.addRecursively(6);
+  tree.addRecursively(12);
+  tree.addRecursively(17);
+  tree.addRecursively(25);
+  tree.addRecursively(32);
+  tree.addRecursively(40);
+  tree.addRecursively(70);
 
   it('containsIterate() should pass if value is the first node', () => {
     let actual = tree.containsIterate(20);

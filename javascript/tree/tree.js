@@ -54,7 +54,7 @@ class BinaryTree {
 
 class BinarySearchTree extends BinaryTree {
 
-  add(value) {
+  addRecursively(value) {
 
     let newNode = new TreeNode(value);
 
@@ -85,6 +85,32 @@ class BinarySearchTree extends BinaryTree {
       }
     };
     walk(this.root);
+  }
+
+  addIteravily(value) {
+    let node = new TreeNode(value);
+
+    if(!this.root) {
+      this.root = node;
+      return this;
+    }
+
+    let current = this.root;
+    while(current) {
+      if(value > current.value) {
+        if(!current.right) {
+          current.right = node;
+          return this;
+        }
+        current = current.right;
+      } else {
+        if(!current.left) {
+          current.left = node;
+          return this;
+        }
+        current = current.left;
+      }
+    }
   }
 
 
