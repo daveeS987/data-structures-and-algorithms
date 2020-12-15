@@ -2,7 +2,6 @@
 
 const TreeNode = require('../tree.js').TreeNode;
 const BinarySearchTree = require('../tree.js').BinarySearchTree;
-const Queue = require('../../queues/queues.js');
 
 describe('Proof of life test', () => {
   it('Proof of life', () => {
@@ -10,7 +9,7 @@ describe('Proof of life test', () => {
   });
 });
 
-describe('Binary Search Tree should work correctly', () => {
+describe('Binary Search Tree', () => {
   it('Can successfully instantiate an empty tree', () => {
     let tree = new BinarySearchTree();
     expect(tree.root).toEqual(null);
@@ -105,7 +104,7 @@ describe('Binary Search Tree should work correctly', () => {
   });
 });
 
-describe('AddIteravily should work correctly', () => {
+describe('AddIteravily', () => {
 
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
@@ -127,7 +126,7 @@ describe('AddIteravily should work correctly', () => {
 });
 
 
-describe('AddRecursively and contain() should work correctly', () => {
+describe('AddRecursively', () => {
 
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
@@ -147,40 +146,61 @@ describe('AddRecursively and contain() should work correctly', () => {
     expect(inOrder).toEqual(expected);
   });
 
-  it('contain() should pass if value is the first node', () => {
-    let actual = tree.contains(20);
+});
+
+describe('ContainsRecursively', () => {
+
+  let twenty = new TreeNode(20);
+  let tree = new BinarySearchTree(twenty);
+  tree.addRecursively(6);
+  tree.addRecursively(12);
+  tree.addRecursively(17);
+  tree.addRecursively(25);
+  tree.addRecursively(32);
+  tree.addRecursively(40);
+  tree.addRecursively(70);
+
+  it('addRecursively() method should work', () => {
+    tree.addRecursively(90);
+    tree.addRecursively(42);
+    let inOrder = tree.inOrder();
+    let expected = [6, 12, 17, 20, 25, 32, 40, 42, 70, 90];
+    expect(inOrder).toEqual(expected);
+  });
+
+  it('containsRecursively() should pass if value is the first node', () => {
+    let actual = tree.containsRecursively(20);
     expect(actual).toEqual(true);
   });
 
-  it('contain() should pass if value is somewhere in the middle', () => {
-    let actual = tree.contains(32);
+  it('containsRecursively() should pass if value is somewhere in the middle', () => {
+    let actual = tree.containsRecursively(32);
     expect(actual).toEqual(true);
   });
 
-  it('contain() should pass if value is the last node', () => {
-    let actual = tree.contains(70);
+  it('containsRecursively() should pass if value is the last node', () => {
+    let actual = tree.containsRecursively(70);
     expect(actual).toEqual(true);
   });
 
-  it('contain() should return false if target is less than any value in the tree', () => {
-    let actual = tree.contains(1);
+  it('containsRecursively() should return false if target is less than any value in the tree', () => {
+    let actual = tree.containsRecursively(1);
     expect(actual).toEqual(false);
   });
 
-  it('contain() should return false if target is greater than any node value', () => {
-    let actual = tree.contains(100);
+  it('containsRecursively() should return false if target is greater than any node value', () => {
+    let actual = tree.containsRecursively(100);
     expect(actual).toEqual(false);
   });
 
-  it('contain() should return false if target is not present', () => {
-    let actual = tree.contains(22);
+  it('containsRecursively() should return false if target is not present', () => {
+    let actual = tree.containsRecursively(22);
     expect(actual).toEqual(false);
   });
 });
 
 
-
-describe('iterative-contains method should work correctly', () => {
+describe('ContainsIterate', () => {
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
   tree.addRecursively(6);
@@ -223,7 +243,7 @@ describe('iterative-contains method should work correctly', () => {
 });
 
 
-describe('Challenge 16: Find Max Value', () => {
+describe('FindMax', () => {
   it('Should find the maximum value', () => {
     let twenty = new TreeNode(20);
     let twelve = new TreeNode(12);
@@ -249,7 +269,7 @@ describe('Challenge 16: Find Max Value', () => {
 });
 
 
-describe('Challenge 17: Breadth-first Traversal', () => {
+describe('Breadth-first Traversal', () => {
   it('Should list out the correct order', () => {
 
     let twenty = new TreeNode(20);

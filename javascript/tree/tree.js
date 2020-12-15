@@ -129,7 +129,7 @@ class BinarySearchTree extends BinaryTree {
     return false;
   }
 
-  contains(target) {
+  containsRecursively(target) {
 
     if(!this.root) {
       return false;
