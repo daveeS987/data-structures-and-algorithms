@@ -72,6 +72,7 @@ class BinarySearchTree extends BinaryTree {
       if(value < node.value) {
         if(!node.left) {
           node.left = newNode;
+          // return this;
         } else {
           walk(node.left);
         }
@@ -79,12 +80,14 @@ class BinarySearchTree extends BinaryTree {
       else if(value > node.value) {
         if(!node.right) {
           node.right = newNode;
+          // return this;
         } else {
           walk(node.right);
         }
       }
     };
     walk(this.root);
+    return this;
   }
 
   addIteravily(value) {
@@ -128,6 +131,32 @@ class BinarySearchTree extends BinaryTree {
     }
     return false;
   }
+
+  // containsRecursively(target) {
+
+  //   if(!this.root) {
+  //     return false;
+  //   }
+
+  //   let result = false;
+
+  //   const walk = (node) => {
+
+  //     if(target === node.value) {
+  //       result = true;
+  //       return;
+  //     } else if (target < node.value) {
+  //       if(!node.left) {return;}
+  //       walk(node.left);
+  //     } else {
+  //       if(!node.right){return;}
+  //       walk(node.right);
+  //     }
+  //   };
+
+  //   walk(this.root);
+  //   return result;
+  // }
 
   containsRecursively(target) {
 

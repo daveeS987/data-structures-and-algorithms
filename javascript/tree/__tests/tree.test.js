@@ -108,13 +108,11 @@ describe('AddIteravily', () => {
 
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
-  tree.addIteravily(6);
-  tree.addIteravily(12);
-  tree.addIteravily(17);
-  tree.addIteravily(25);
-  tree.addIteravily(32);
-  tree.addIteravily(40);
-  tree.addIteravily(70);
+  let nodes = [6,12,17,25,32,40,70];
+
+  nodes.forEach(node => {
+    tree.addIteravily(node);
+  });
 
   it('addIteravily() method should work', () => {
     tree.addIteravily(90);
@@ -130,17 +128,14 @@ describe('AddRecursively', () => {
 
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
-  tree.addRecursively(6);
-  tree.addRecursively(12);
-  tree.addRecursively(17);
-  tree.addRecursively(25);
-  tree.addRecursively(32);
-  tree.addRecursively(40);
-  tree.addRecursively(70);
+  let nodes = [6,12,17,25,32,40,70];
+
+  nodes.forEach(node => {
+    tree.addRecursively(node);
+  });
 
   it('addRecursively() method should work', () => {
-    tree.addRecursively(90);
-    tree.addRecursively(42);
+    tree.addRecursively(90).addRecursively(42);
     let inOrder = tree.inOrder();
     let expected = [6, 12, 17, 20, 25, 32, 40, 42, 70, 90];
     expect(inOrder).toEqual(expected);
@@ -152,17 +147,14 @@ describe('ContainsRecursively', () => {
 
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
-  tree.addRecursively(6);
-  tree.addRecursively(12);
-  tree.addRecursively(17);
-  tree.addRecursively(25);
-  tree.addRecursively(32);
-  tree.addRecursively(40);
-  tree.addRecursively(70);
+  let nodes = [6,12,17,25,32,40,70];
+
+  nodes.forEach(node => {
+    tree.addRecursively(node);
+  });
 
   it('addRecursively() method should work', () => {
-    tree.addRecursively(90);
-    tree.addRecursively(42);
+    tree.addRecursively(90).addRecursively(42);
     let inOrder = tree.inOrder();
     let expected = [6, 12, 17, 20, 25, 32, 40, 42, 70, 90];
     expect(inOrder).toEqual(expected);
@@ -203,13 +195,11 @@ describe('ContainsRecursively', () => {
 describe('ContainsIterate', () => {
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
-  tree.addRecursively(6);
-  tree.addRecursively(12);
-  tree.addRecursively(17);
-  tree.addRecursively(25);
-  tree.addRecursively(32);
-  tree.addRecursively(40);
-  tree.addRecursively(70);
+  let nodes = [6,12,17,25,32,40,70];
+
+  nodes.forEach(node => {
+    tree.addIteravily(node);
+  });
 
   it('containsIterate() should pass if value is the first node', () => {
     let actual = tree.containsIterate(20);

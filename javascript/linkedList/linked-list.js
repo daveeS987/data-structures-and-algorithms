@@ -3,8 +3,8 @@
 const Node = require('./node.js');
 
 class LinkedList {
-  constructor() {
-    this.head = null;
+  constructor(node = null) {
+    this.head = node;
   }
 
 
