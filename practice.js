@@ -203,207 +203,7 @@ class Queue{
   }
 }
 
-class TreeNode{
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
-  }
-}
 
-class BinaryTree{
-  constructor(treeNode = null) {
-    this.root = treeNode;
-  }
-
-  // inOrder, preOrder, postOrder
-
-  // left, node, right
-  inOrder() {
-
-    let result = [];
-    const walk = node => {
-      if(node.left) {walk(node.left);}
-      result.push(node.value);
-      if(node.right) {walk(node.right);}
-    };
-    walk(this.root);
-    return result;
-  }
-
-  // node, left, right
-  preOrder() {
-    let result = [];
-    const walk = node => {
-      result.push(node.value);
-      if(node.left) {walk(node.left);}
-      if(node.right) {walk(node.right);}
-    };
-    walk(this.root);
-    return result;
-  }
-
-
-  // left, right, node
-  postOrder() {
-    let result = [];
-    const walk = node => {
-      if(node.left) {walk(node.left);}
-      if(node.right) {walk(node.right);}
-      result.push(node.value);
-    };
-    walk(this.root);
-    return result;
-  }
-}
-
-class BinarySearchTree extends BinaryTree {
-
-  // addIteravily, addRecursviely, containsIteravily, containsRecursively, findMax, Breadthfirst
-
-  add(newValue) {
-
-    let node = new TreeNode(newValue);
-
-    if(!this.root) {
-      this.root = node;
-      return this;
-    }
-
-    let current = this.root;
-    while(current) {
-      if(current.value === newValue) {
-        console.log('Value is already present');
-        return this;
-      }
-      if(newValue > current.value) {
-        if(!current.right) {
-          current.right = node;
-          return this;
-        }
-        current = current.right;
-      } else {
-        if(!current.left) {
-          current.left = node;
-          return this;
-        }
-        current = current.left;
-      }
-    }
-  }
-
-  addRecursively(newValue) {
-
-    let node = new TreeNode(newValue);
-
-    if(!this.root) {
-      this.root = node;
-      return this;
-    }
-
-    const walk = node => {
-      if(node.value === newValue) {
-        console.log('Value is already in the tree');
-        return;
-      }
-
-      if(newValue > node.value) {
-        if(!node.right) {
-          node.right = node;
-          return this;
-        }
-        walk(node.right);
-      } else {
-        if(!node.left) {
-          node.left = node;
-          return this;
-        }
-        walk(node.left);
-      }
-    };
-    walk(this.root);
-    return this;
-  }
-
-
-  containsIteravily(target) {
-
-    if(!this.root) {
-      return null;
-    }
-
-    let current = this.root;
-
-    while(current) {
-      if(current.value === target) {
-        return true;
-      }
-
-      if(target > current.value) {
-        current = current.right;
-      } else {
-        current = current.left;
-      }
-    }
-    return false;
-  }
-
-  containsRecursively(target) {
-
-    if(!this.root) {
-      return false;
-    }
-
-    let result = false;
-
-    const walk = (node) => {
-
-      if(target === node.value) {
-        result = true;
-        return;
-      } else if (target < node.value) {
-        if(!node.left) {return;}
-        walk(node.left);
-      } else {
-        if(!node.right){return;}
-        walk(node.right);
-      }
-    };
-
-    walk(this.root);
-    return result;
-  }
-
-  findMax() {
-
-    if(!this.root) {
-      return null;
-    }
-
-    let current = this.root;
-    while(current.right) {
-      current = current.right;
-    }
-    return current.value;
-  }
-
-  breadthFirst(){
-
-    let result = [];
-    let queue = new Queue();
-    queue.enqueue(this.root);
-
-    while(queue.peek()) {
-
-      let dequed = queue.dequeue();
-      result.push(dequed.value);
-
-      if(dequed.left) {queue.enqueue(dequed.left);}
-      if(dequed.right) {queue.enqueue(dequed.right);}
-    }
-    return result;
-  }
-}
 
 class HashMap{
   constructor(size) {
@@ -466,5 +266,202 @@ class HashMap{
       current = current.next;
     }
     return false;
+  }
+}
+
+class TreeNode{
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class BinaryTree{
+  constructor(node = null) {
+    this.root = node;
+  }
+
+  // inOrder: left, node, right;
+
+  inOrder() {
+
+    let result = [];
+
+    const walk = node => {
+      if(node.left) {walk(node.left);}
+      result.push(node.value);
+      if(node.right) {walk(node.right);}
+    };
+
+    walk(this.root);
+    return result;
+  }
+
+  // preOrder: node, left, right
+  preOrder() {
+
+    let result = [];
+
+    const walk = node => {
+      result.push(node.value);
+      if(node.left) {walk(node.left);}
+      if(node.right) {walk(node.right);}
+    };
+    walk(this.root);
+    return result;
+  }
+
+  // postOrder: left, right, node
+  postOrder(){
+
+    let result = [];
+
+    const walk = node => {
+      if(node.left) {walk(node.left);}
+      if(node.right) {walk(node.right);}
+      result.push(node.value);
+    };
+    walk(this.root);
+    return result;
+  }
+}
+
+class BinarySearchTree extends BinaryTree{
+
+  // addIteravily, addRecursively, containsIteraveily, containsRecursively, findMax, BreadthFirst
+
+  addIteravily(value) {
+
+    let treeNode = new TreeNode(value);
+
+    if(!this.root) {
+      this.root = treeNode;
+      return this;
+    }
+
+    let current = this.root;
+    while(current) {
+      if(value > current.value) {
+        if(!current.right) {
+          current.right = treeNode;
+          return this;
+        }
+        current = current.right;
+      } else {
+        if(!current.left) {
+          current.left = treeNode;
+          return this;
+        }
+        current = current.left;
+      }
+    }
+  }
+
+  addRecursively(value) {
+
+    let treeNode = new TreeNode(value);
+
+    const walk = node => {
+
+      if(node.value === value) {
+        console.error('value is already in the tree');
+      }
+
+      if(value > node.value) {
+        if(!node.right) {
+          node.right = treeNode;
+          return this;
+        }
+        walk(node.right);
+      } else {
+        if(!node.left) {
+          node.left = treeNode;
+          return this;
+        }
+        walk(node.left);
+      }
+    };
+    walk(this.root);
+  }
+
+  containsIteravily(value) {
+
+    let current = this.root;
+
+    while(current) {
+      if(current.value === value) {
+        return true;
+      }
+
+      if(value > current.value) {
+        current = current.right;
+      } else {
+        current = current.left;
+      }
+    }
+    return false;
+  }
+
+  containsRecursively(value) {
+
+    const walk = (node, result=false) => {
+
+      if(!node) {return result;}
+
+      if(node.value === value) {
+        result = true;
+        return result;
+      } else if (value > node.value) {
+        return walk(node.right);
+      } else {
+        return walk(node.left);
+      }
+    };
+
+    return walk(this.root);
+  }
+
+  findMaxIteravily() {
+
+    let current = this.root;
+
+    while(current.right) {
+      current = current.right;
+    }
+    return current.value;
+  }
+
+  findMaxRecursively() {
+
+    const walk = node => {
+
+      if(!node.right) {return node.value;}
+      return walk(node.right);
+    };
+
+    return walk(this.root);
+  }
+
+  breadthFirstSearch() {
+
+    let result = [];
+    let breadth = new Queue();
+    breadth.enqueue(this.root);
+
+    while(breadth.peek()) {
+      let dequed = breadth.dequeue();
+      result.push(dequed.value);
+
+      if(dequed.left) {
+        breadth.enqueue(dequed.left);
+      }
+
+      if(dequed.right) {
+        breadth.enqueue(dequed.right);
+      }
+    }
+
+    return result;
   }
 }

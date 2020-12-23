@@ -134,33 +134,24 @@ class BinarySearchTree extends BinaryTree {
   }
 
 
-  containsRecursively(target) {
-
-    if(!this.root) {
-      return null;
-    }
+  containsRecursively(value) {
 
     const walk = (node, result=false) => {
 
-      if(!node) {
-        console.log('result:', result);
-        return result;
-      }
+      if(!node) {return result;}
 
-      if(node.value === target) {
+      if(node.value === value) {
         result = true;
         return result;
-      } else if(target > node.value) {
-        return walk(node.right, result);
+      } else if (value > node.value) {
+        return walk(node.right);
       } else {
-        return walk(node.left, result);
+        return walk(node.left);
       }
     };
 
     return walk(this.root);
-
   }
-
 
 
 
@@ -170,6 +161,16 @@ class BinarySearchTree extends BinaryTree {
       current = current.right;
     }
     return current.value;
+  }
+
+  findMaxRecursively() {
+
+    const walk = node => {
+      if(!node.right) {return node.value;}
+      return walk(node.right);
+    };
+
+    return walk(this.root);
   }
 
 

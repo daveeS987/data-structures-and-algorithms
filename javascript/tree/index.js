@@ -34,11 +34,10 @@ let tree = new BinarySearchTree(twenty);
 // console.log('breadthFirst :', breadthFirst);
 
 
-console.log('test1: ', tree.containsRecursively(40));
+console.log('test1: ', tree.findMaxRecursively());
 
-tree.addRecursively(40);
 
-console.log(JSON.stringify(tree, undefined, 2));
+// console.log(JSON.stringify(tree, undefined, 2));
 /*
 
 
