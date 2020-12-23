@@ -30,23 +30,31 @@ let tree = new BinarySearchTree(twenty);
 // console.log('inOrder : ', tree.inOrder());
 // console.log('postOrder : ', tree.postOrder());
 
-let breadthFirst = tree.breadthFirst();
-console.log('breadthFirst :', breadthFirst);
-
-console.log(JSON.stringify(tree, undefined, 4));
+// let breadthFirst = tree.breadthFirst();
+// console.log('breadthFirst :', breadthFirst);
 
 
+console.log('test1: ', tree.containsRecursively(40));
+
+tree.addRecursively(40);
+
+console.log(JSON.stringify(tree, undefined, 2));
+/*
 
 
-////             Johns Code              ////
+
+
+/----------------------------- Johns Code ------------------------------/
 
 const tree1 = new BinarySearchTree();
 
 const nodes = [9, 4, 12, 3, 11, 22, 2];
-nodes.forEach((number) => tree.insert(number));
+nodes.forEach((number) => tree.addIteravily(number));
 
 // console.log(JSON.stringify(tree, undefined, 2));
 
+
+/----------------------------------------------------------------------/
 
 function traverseWithHelper(root) {
 
@@ -59,13 +67,12 @@ function traverseWithHelper(root) {
   };
 
   _walk(root);
-
   return results;
-
 }
 
 console.log(traverseWithHelper(tree.root));
 
+/----------------------------------------------------------------------/
 
 console.log('Recursive without helper...');
 
@@ -78,6 +85,7 @@ function iterateRecursiveWithoutHelper(node, results = []) {
 
 console.log(iterateRecursiveWithoutHelper(tree.root));
 
+/----------------------------------------------------------------------/
 
 function goWide(tree) {
 
@@ -97,7 +105,9 @@ function goWide(tree) {
   }
 
   return results;
-
 }
 
 console.log(goWide(tree));
+
+
+*/

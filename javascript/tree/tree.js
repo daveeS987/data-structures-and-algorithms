@@ -72,7 +72,7 @@ class BinarySearchTree extends BinaryTree {
       if(value < node.value) {
         if(!node.left) {
           node.left = newNode;
-          // return this;
+          return this;
         } else {
           walk(node.left);
         }
@@ -80,7 +80,7 @@ class BinarySearchTree extends BinaryTree {
       else if(value > node.value) {
         if(!node.right) {
           node.right = newNode;
-          // return this;
+          return this;
         } else {
           walk(node.right);
         }
@@ -89,6 +89,7 @@ class BinarySearchTree extends BinaryTree {
     walk(this.root);
     return this;
   }
+
 
   addIteravily(value) {
     let node = new TreeNode(value);
@@ -132,57 +133,35 @@ class BinarySearchTree extends BinaryTree {
     return false;
   }
 
-  // containsRecursively(target) {
-
-  //   if(!this.root) {
-  //     return false;
-  //   }
-
-  //   let result = false;
-
-  //   const walk = (node) => {
-
-  //     if(target === node.value) {
-  //       result = true;
-  //       return;
-  //     } else if (target < node.value) {
-  //       if(!node.left) {return;}
-  //       walk(node.left);
-  //     } else {
-  //       if(!node.right){return;}
-  //       walk(node.right);
-  //     }
-  //   };
-
-  //   walk(this.root);
-  //   return result;
-  // }
 
   containsRecursively(target) {
 
     if(!this.root) {
-      return false;
+      return null;
     }
 
-    let result = false;
+    const walk = (node, result=false) => {
 
-    const walk = (node) => {
+      if(!node) {
+        console.log('result:', result);
+        return result;
+      }
 
-      if(target === node.value) {
+      if(node.value === target) {
         result = true;
-        return;
-      } else if (target < node.value) {
-        if(!node.left) {return;}
-        walk(node.left);
+        return result;
+      } else if(target > node.value) {
+        return walk(node.right, result);
       } else {
-        if(!node.right){return;}
-        walk(node.right);
+        return walk(node.left, result);
       }
     };
 
-    walk(this.root);
-    return result;
+    return walk(this.root);
+
   }
+
+
 
 
   findMax() {
