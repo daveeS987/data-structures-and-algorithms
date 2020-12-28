@@ -271,6 +271,10 @@ class BinarySearchTree extends BinaryTree{
 
     let current = this.root;
     while(current) {
+      if(current.value === value) {
+        console.error('Value is already present');
+      }
+
       if(value > current.value) {
         if(!current.right) {
           current.right = node;
@@ -289,14 +293,79 @@ class BinarySearchTree extends BinaryTree{
 
   addRecursively(value) {
 
+    let newNode = new TreeNode(value);
+
+    if(!this.root) {
+      this.root = newNode;
+      return this;
+    }
+
+    const walk = node => {
+
+      if(node.value === value) {
+        console.error('Value is already present');
+      }
+
+      if(value > node.value) {
+        if(!node.right) {
+          node.right = newNode;
+          return this;
+        }
+        walk(node.right);
+      } else {
+        if(!node.left) {
+          node.left = newNode;
+          return this;
+        }
+        walk(node.left);
+      }
+    };
+
+    walk(this.root);
   }
 
   containsIteravily(value) {
 
+    if(!this.root) {
+      return null;
+    }
+
+    let current = this.root;
+
+    while(current) {
+      if(current.value === value) {
+        return true;
+      }
+
+      if(value > current.value) {
+        current = current.right;
+      } else {
+        current = current.left;
+      }
+    }
+    return false;
   }
+
 
   containsRecursively(value) {
 
+    if(!this.root) {
+      return null;
+    }
+
+    const walk = (node) => {
+
+      if(!node) { return false;}
+      if(node.value === value) { return true;}
+
+      if(value > node.value) {
+        return walk(node.right);
+      } else {
+        return walk(node.left);
+      }
+    };
+
+    return walk(this.root);
   }
 
   findMaxIteravily() {

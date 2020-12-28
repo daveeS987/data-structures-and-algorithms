@@ -136,14 +136,16 @@ class BinarySearchTree extends BinaryTree {
 
   containsRecursively(value) {
 
-    const walk = (node, result=false) => {
+    if(!this.root) {
+      return null;
+    }
 
-      if(!node) {return result;}
+    const walk = (node) => {
 
-      if(node.value === value) {
-        result = true;
-        return result;
-      } else if (value > node.value) {
+      if(!node) { return false;}
+      if(node.value === value) { return true;}
+
+      if(value > node.value) {
         return walk(node.right);
       } else {
         return walk(node.left);
