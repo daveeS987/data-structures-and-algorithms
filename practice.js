@@ -370,13 +370,50 @@ class BinarySearchTree extends BinaryTree{
 
   findMaxIteravily() {
 
+    if(!this.root) {
+      return null;
+    }
+
+    let current = this.root;
+    while(current.next) {
+      current = current.right;
+    }
+    return current.value;
   }
 
   findMaxRecursively() {
 
+    if(!this.root) {
+      return null;
+    }
+
+    const walk = node => {
+
+      if(!node.next) {return node.value;}
+      return walk(node.right);
+    };
+
+    return walk(this.root);
   }
 
   breadthFirstSearch() {
 
+    let result = [];
+    let breadth = new Queue();
+    breadth.enqueue(this.root);
+
+    while(breadth.peek()) {
+      let dequed = breadth.dequeue();
+      result.push(dequed.value);
+
+      if(dequed.left) {
+        breadth.enqueue(dequed.left);
+      }
+
+      if(dequed.right) {
+        breadth.enqueue(dequed.right);
+      }
+    }
+    return result;
   }
 }
