@@ -417,3 +417,70 @@ class BinarySearchTree extends BinaryTree{
     return result;
   }
 }
+
+class HashMap{
+  constructor(size) {
+    this.size = size;
+    this.storage = new Array(size);
+  }
+
+  // hash, set, contains, get
+
+  hash(key) {
+
+    return key.split('').reduce((acc, val, idx) => {
+      return acc + val.charCodeAt(0);
+    }, 0) * 599 % this.size;
+  }
+
+  set(key, value) {
+
+    let hashIdx = this.hash(key);
+
+    if(!this.storage[hashIdx]){
+      let ll = new LinkedList();
+      ll.insert([key,value]);
+      this.storage[hashIdx] = ll;
+    } else {
+      this.storage[hashIdx].insert([key,value]);
+    }
+    return this;
+  }
+
+  contains(key) {
+
+    let hashIdx = this.hash(key);
+
+    if(!this.storage[hashIdx]) {
+      return false;
+    }
+
+    let current = this.storage[hashIdx].head;
+    while(current) {
+      if(current.value[0] === key) {
+        return true;
+      }
+      current = current.next;
+    }
+
+    return false;
+  }
+
+  get(key) {
+
+    let hashIdx = this.hash(key);
+    if(!this.storage[hashIdx]) {
+      return null;
+    }
+
+    let current = this.storage[hashIdx].head;
+
+    while(current) {
+      if(current.value[0] === key) {
+        return current.value[1];
+      }
+      current = current.next;
+    }
+    console.error('key is not present in hashtable');
+  }
+}
