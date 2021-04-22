@@ -30,7 +30,20 @@ For this example, the total at 9:00 a.m. is 17 + 26 + 7 + 5 + 33, or 88 total co
 Return the array of the total number of cookies sold per hour for all of the stores combined.
 ------------------------------------------------------------------------------------------------ */
 
-const hoursOpen = ['9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.', '8 p.m.'];
+const hoursOpen = [
+  '9 a.m.',
+  '10 a.m.',
+  '11 a.m.',
+  '12 p.m.',
+  '1 p.m.',
+  '2 p.m.',
+  '3 p.m.',
+  '4 p.m.',
+  '5 p.m.',
+  '6 p.m.',
+  '7 p.m.',
+  '8 p.m.',
+];
 
 const firstPike = [17, 18, 23, 24, 24, 12, 13, 27, 30, 20, 24, 18];
 const seaTac = [26, 5, 5, 59, 23, 39, 38, 20, 30, 7, 59, 43];
@@ -42,7 +55,14 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
-  return stores[0].map((val, idx) => firstPike[idx] + seaTac[idx] + seattleCenter[idx] + capHill[idx] + alkiBeach[idx]);
+  return stores[0].map(
+    (val, idx) =>
+      firstPike[idx] +
+      seaTac[idx] +
+      seattleCenter[idx] +
+      capHill[idx] +
+      alkiBeach[idx]
+  );
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,16 +93,28 @@ Write a function named howManyTreats that will return the quantity of treats you
 const errands = [
   {
     store: 'Grocery store',
-    items: [{ name: 'Eggs', quantity: 12 }, { name: 'Milk', quantity: 1 }, { name: 'Apples', quantity: 3 }]
+    items: [
+      { name: 'Eggs', quantity: 12 },
+      { name: 'Milk', quantity: 1 },
+      { name: 'Apples', quantity: 3 },
+    ],
   },
   {
     store: 'Drug store',
-    items: [{ name: 'Toothpaste', quantity: 1 }, { name: 'Toothbrush', quantity: 3 }, { name: 'Mouthwash', quantity: 1 }]
+    items: [
+      { name: 'Toothpaste', quantity: 1 },
+      { name: 'Toothbrush', quantity: 3 },
+      { name: 'Mouthwash', quantity: 1 },
+    ],
   },
   {
     store: 'Pet store',
-    items: [{ name: 'Cans of food', quantity: 8 }, { name: 'Treats', quantity: 24 }, { name: 'Leash', quantity: 1 }]
-  }
+    items: [
+      { name: 'Cans of food', quantity: 8 },
+      { name: 'Treats', quantity: 24 },
+      { name: 'Leash', quantity: 1 },
+    ],
+  },
 ];
 
 const howManyTreats = (arr) => {
@@ -122,7 +154,10 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 
 const calculateProduct = (numbers) => {
   // Solution code here...
-  return numbers.reduce((acc, arr) => acc *= arr.reduce((acc, val) => acc *= val, 1), 1);
+  return numbers.reduce(
+    (acc, arr) => (acc *= arr.reduce((acc, val) => (acc *= val), 1)),
+    1
+  );
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -145,10 +180,12 @@ const averageDailyTemperature = (weather) => {
   // Solution code here...
   let days = 0;
   let tempTotal = 0;
-  weather.forEach(arr => arr.forEach(temp => {
-    tempTotal += temp;
-    days += 1;
-  }));
+  weather.forEach((arr) =>
+    arr.forEach((temp) => {
+      tempTotal += temp;
+      days += 1;
+    })
+  );
   return tempTotal / days;
 };
 
@@ -211,7 +248,20 @@ describe('Testing challenge 1', () => {
 
 describe('Testing challenge 2', () => {
   test('It should add the hourly totals array', () => {
-    expect(grandTotal(cookieStores)).toStrictEqual([88, 153, 252, 286, 139, 161, 145, 232, 276, 207, 161, 169]);
+    expect(grandTotal(cookieStores)).toStrictEqual([
+      88,
+      153,
+      252,
+      286,
+      139,
+      161,
+      145,
+      232,
+      276,
+      207,
+      161,
+      169,
+    ]);
   });
 });
 
@@ -229,10 +279,12 @@ describe('Testing challenge 3', () => {
       { sales: '276 cookies', time: '5 p.m.' },
       { sales: '207 cookies', time: '6 p.m.' },
       { sales: '161 cookies', time: '7 p.m.' },
-      { sales: '169 cookies', time: '8 p.m.' }
+      { sales: '169 cookies', time: '8 p.m.' },
     ]);
 
-    expect(salesData(hoursOpen, grandTotal(cookieStores)).length).toStrictEqual(hoursOpen.length);
+    expect(salesData(hoursOpen, grandTotal(cookieStores)).length).toStrictEqual(
+      hoursOpen.length
+    );
   });
 });
 
@@ -263,11 +315,23 @@ xdescribe('Testing challenge 5', () => {
 
 describe('Testing challenge 6', () => {
   test('It should multiply all the numbers together', () => {
-    expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
+    expect(
+      calculateProduct([
+        [1, 2],
+        [3, 4],
+        [5, 6],
+      ])
+    ).toStrictEqual(720);
   });
 
   test('It should return zero if there are any zeroes in the data', () => {
-    expect(calculateProduct([[2, 3, 4, 6, 0], [4, 3, 7], [2, 4, 6]])).toStrictEqual(0);
+    expect(
+      calculateProduct([
+        [2, 3, 4, 6, 0],
+        [4, 3, 7],
+        [2, 4, 6],
+      ])
+    ).toStrictEqual(0);
   });
   test('It should work even if some of the arrays contain no numbers', () => {
     expect(calculateProduct([[1, 2], [], [3, 4, 5]])).toStrictEqual(120);

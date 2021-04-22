@@ -14,16 +14,16 @@ class PseuodoQueue {
   }
 
   dequeue() {
-    if(this.front.top !== null) {
+    if (this.front.top !== null) {
       let popped = this.front.pop();
       return popped;
     }
-    if(this.stackContainer.top === null) {
+    if (this.stackContainer.top === null) {
       console.error('ERROR: There is nothing to Dequeue');
       return;
     }
 
-    while(this.stackContainer.peek()) {
+    while (this.stackContainer.peek()) {
       let popped = this.stackContainer.pop();
       this.front.push(popped);
     }
@@ -32,6 +32,5 @@ class PseuodoQueue {
     return dequeueItem;
   }
 }
-
 
 module.exports = PseuodoQueue;

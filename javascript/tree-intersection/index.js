@@ -5,7 +5,6 @@ const BinaryTree = require('../tree/tree.js').BinaryTree;
 const HashTable = require('../hashtable/hashtable.js');
 const treeIntersection = require('./tree-intersection.js');
 
-
 let onefifty = new TreeNode(150);
 let onehundred = new TreeNode(100);
 let twofifty = new TreeNode(250);

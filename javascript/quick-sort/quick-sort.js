@@ -1,8 +1,7 @@
 'use strict';
 
-function quickSort(arr, left=0, right=arr.length-1) {
-
-  if(left < right) {
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
     let position = partition(arr, left, right);
     quickSort(arr, left, position - 1);
     quickSort(arr, position + 1, right);
@@ -11,14 +10,13 @@ function quickSort(arr, left=0, right=arr.length-1) {
 }
 
 function partition(arr, left, right) {
-
   let pivot = arr[right];
   let low = left - 1;
 
-  for(let i=left; i < right; i++) {
-    if(arr[i] <= pivot){
+  for (let i = left; i < right; i++) {
+    if (arr[i] <= pivot) {
       low++;
-      swap(arr,low,i);
+      swap(arr, low, i);
     }
   }
   swap(arr, low + 1, right);
@@ -31,6 +29,5 @@ function swap(arr, low, i) {
   arr[i] = arr[low];
   arr[low] = temp;
 }
-
 
 module.exports = quickSort;

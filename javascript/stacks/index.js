@@ -16,12 +16,7 @@ const Stack = require('./stacks.js');
 
 // console.log('stack after pop:', JSON.stringify(stack, null, 2));
 
-
-
-
-
 /////        Johns Code           /////
-
 
 let familyStack = new Stack();
 familyStack.push('John');
@@ -37,7 +32,6 @@ while (familyStack.peek()) {
   console.log(person);
 }
 
-
 console.log('Recursive ...');
 familyStack.push('John');
 familyStack.push('Cathy');
@@ -45,9 +39,10 @@ familyStack.push('Zach');
 familyStack.push('Allie');
 
 function iterateRecursively(stack) {
-
   // Base Case
-  if (!stack.peek()) { return; }
+  if (!stack.peek()) {
+    return;
+  }
 
   // Process
   let person = stack.pop();
@@ -55,7 +50,6 @@ function iterateRecursively(stack) {
 
   // Move the pointer
   iterateRecursively(stack);
-
 }
 
 console.log(iterateRecursively(familyStack));

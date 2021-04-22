@@ -121,7 +121,7 @@ xdescribe('Testing challenge 3', () => {
     expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
   });
 
-  test('It should fail things that aren\'t email addresses', () => {
+  test("It should fail things that aren't email addresses", () => {
     expect(validateEmail('justastring')).toBeFalsy();
     expect(validateEmail('missing@adomain')).toBeFalsy();
     expect(validateEmail('@noname.com')).toBeFalsy();

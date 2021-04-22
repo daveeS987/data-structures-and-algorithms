@@ -13,7 +13,6 @@ describe('Proof of life', () => {
 });
 
 describe('FizzBuzz should work correctly', () => {
-
   let twenty = new TreeNode(20);
   let twelve = new TreeNode(12);
   let six = new TreeNode(6);

@@ -75,4 +75,3 @@ Mismatched brackets will return false
 Uneven brackets will return false
 if stack is empty at the end, will return true
 ```
-

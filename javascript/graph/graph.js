@@ -21,15 +21,16 @@ class Graph {
     this.adjacencyList = new Map();
   }
 
-
   addVertex(vertex) {
     this.adjacencyList.set(vertex, []);
     return this;
   }
 
-
   addDirectedEdge(startVertex, endVertex) {
-    if (this.adjacencyList.has(startVertex) && this.adjacencyList.has(endVertex)) {
+    if (
+      this.adjacencyList.has(startVertex) &&
+      this.adjacencyList.has(endVertex)
+    ) {
       const neighbors = this.adjacencyList.get(startVertex);
       neighbors.push(new Edge(endVertex));
       return this;
@@ -39,38 +40,31 @@ class Graph {
     }
   }
 
-
   addUndirectedEdge(startVertex, endVertex) {
     this.addDirectedEdge(startVertex, endVertex);
     this.addDirectedEdge(endVertex, startVertex);
     return this;
   }
 
-
   getSize() {
     return this.adjacencyList.size;
   }
-
 
   getAllVertex() {
     return this.adjacencyList.keys();
   }
 
-
   getNeighbors(vertex) {
     return this.adjacencyList.get(vertex);
   }
 
-
   bft(startVertex) {
-
     const queue = new Queue();
     const visitedNodes = new Set();
     queue.enqueue(startVertex);
     visitedNodes.add(startVertex);
 
     while (queue.peek()) {
-
       const currentVertex = queue.dequeue();
       const neighbors = this.adjacencyList.get(currentVertex);
 
@@ -87,22 +81,19 @@ class Graph {
     return visitedNodes;
   }
 
-
   dft(startVertex) {
-
     const stack = new Stack();
     const visitedNodes = new Set();
     stack.push(startVertex);
     visitedNodes.add(startVertex);
 
-    while(stack.peek()) {
-
+    while (stack.peek()) {
       let currentVertex = stack.pop();
       let neighborList = this.adjacencyList.get(currentVertex);
 
-      for(let edge of neighborList) {
+      for (let edge of neighborList) {
         let neighborVertex = edge.vertex;
-        if(visitedNodes.has(neighborVertex)) {
+        if (visitedNodes.has(neighborVertex)) {
           continue;
         } else {
           visitedNodes.add(neighborVertex);
@@ -112,9 +103,6 @@ class Graph {
     }
     return visitedNodes;
   }
-
 }
 
-
-module.exports = {Vertex, Edge, Graph};
-
+module.exports = { Vertex, Edge, Graph };

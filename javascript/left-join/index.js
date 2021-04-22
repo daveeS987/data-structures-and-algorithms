@@ -2,7 +2,6 @@
 
 let leftJoins = require('./left-join.js');
 
-
 let map1 = new Map();
 let map2 = new Map();
 
@@ -23,7 +22,7 @@ let expected = [
   ['wrath', 'anger', 'delight'],
   ['diligent', 'employed', 'idle'],
   ['outfit', 'garb', null],
-  ['guide', 'usher', 'follow']
+  ['guide', 'usher', 'follow'],
 ];
 
 let actual = leftJoins(map1, map2);

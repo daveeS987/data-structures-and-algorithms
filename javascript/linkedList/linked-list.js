@@ -7,10 +7,9 @@ class LinkedList {
     this.head = node;
   }
 
-
   insert(value) {
     let node = new Node(value);
-    if(!this.head) {
+    if (!this.head) {
       this.head = node;
     } else {
       node.next = this.head;
@@ -18,7 +17,6 @@ class LinkedList {
     }
     return this;
   }
-
 
   append(value) {
     let node = new Node(value);
@@ -34,9 +32,8 @@ class LinkedList {
     return this;
   }
 
-
   includes(searchVal) {
-    if(!this.head) {
+    if (!this.head) {
       return false;
     }
     let current = this.head;
@@ -49,7 +46,6 @@ class LinkedList {
     return false;
   }
 
-
   toString() {
     let current = this.head;
     let string = '';
@@ -57,28 +53,26 @@ class LinkedList {
       string += `{ ${current.value} } -> `;
       current = current.next;
     }
-    return string += 'null';
+    return (string += 'null');
   }
 
-
   insertBefore(target, newVal) {
-
     let node = new Node(newVal);
 
-    if(!this.head) {
+    if (!this.head) {
       this.head = node;
       return this;
     }
 
-    if(this.head.value === target) {
+    if (this.head.value === target) {
       node.next = this.head;
       this.head = node;
       return this;
     }
 
     let current = this.head;
-    while(current) {
-      if(current.next.value === target) {
+    while (current) {
+      if (current.next.value === target) {
         node.next = current.next;
         current.next = node;
         return this;
@@ -89,16 +83,15 @@ class LinkedList {
   }
 
   insertAfter(target, newVal) {
-
     let node = new Node(newVal);
-    if(!this.head) {
+    if (!this.head) {
       this.head = node;
       return this;
     }
 
     let current = this.head;
-    while(current) {
-      if(current.value === target){
+    while (current) {
+      if (current.value === target) {
         node.next = current.next;
         current.next = node;
         return this;
@@ -108,16 +101,15 @@ class LinkedList {
     console.error('target is not within list');
   }
 
-
-  kthFromEnd(k){
-    if(k < 0) {
+  kthFromEnd(k) {
+    if (k < 0) {
       console.error('K is a negative number');
       return undefined;
     }
     let listLength = 1;
     let current = this.head;
-    while(current.next) {
-      listLength+=1;
+    while (current.next) {
+      listLength += 1;
       current = current.next;
     }
     if (k > listLength) {
@@ -127,14 +119,12 @@ class LinkedList {
     let target = listLength - k;
     let secondCount = 1;
     current = this.head;
-    while(secondCount < target) {
+    while (secondCount < target) {
       current = current.next;
-      secondCount+=1;
+      secondCount += 1;
     }
     return current.value;
   }
 }
 
-
 module.exports = LinkedList;
-

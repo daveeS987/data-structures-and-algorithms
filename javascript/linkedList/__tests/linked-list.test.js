@@ -17,7 +17,6 @@ describe('Test if Node works', () => {
   });
 });
 
-
 describe('CheckValuesMatch helper function should work', () => {
   let list = new LinkedList();
   list.append('first');
@@ -29,19 +28,19 @@ describe('CheckValuesMatch helper function should work', () => {
   let inCorrectLength = ['first', 'second', 'third', 'bad'];
 
   it('Should return true if values match', () => {
-    expect(checkValuesMatch(list,correctValues)).toEqual(true);
+    expect(checkValuesMatch(list, correctValues)).toEqual(true);
   });
 
   it('Should return false if first values do not match', () => {
-    expect(checkValuesMatch(list,inCorrectValues1)).toEqual(false);
+    expect(checkValuesMatch(list, inCorrectValues1)).toEqual(false);
   });
 
   it('Should return false if last values do not match', () => {
-    expect(checkValuesMatch(list,inCorrectValues2)).toEqual(false);
+    expect(checkValuesMatch(list, inCorrectValues2)).toEqual(false);
   });
 
   it('Should return false if list length and expected array length do not match', () => {
-    expect(checkValuesMatch(list,inCorrectLength)).toEqual(false);
+    expect(checkValuesMatch(list, inCorrectLength)).toEqual(false);
   });
 });
 
@@ -92,7 +91,6 @@ describe('Code Challenge 5 Linked List Test: insert, includes, toString', () => 
   });
 });
 
-
 // ****************************************
 //            Code Challenge 6
 // ****************************************
@@ -104,7 +102,7 @@ describe('Code Challenge 6 Linked List Test: append, insertBefore, insertAfter',
     list.append('first append');
     let expected = 'first append';
     let current = list.head;
-    while(current.next) {
+    while (current.next) {
       current = current.next;
     }
     expect(current.value).toEqual(expected);
@@ -114,7 +112,7 @@ describe('Code Challenge 6 Linked List Test: append, insertBefore, insertAfter',
     list.append('second append');
     let expected = 'second append';
     let current = list.head;
-    while(current.next) {
+    while (current.next) {
       current = current.next;
     }
     expect(current.value).toEqual(expected);
@@ -130,26 +128,46 @@ describe('Code Challenge 6 Linked List Test: append, insertBefore, insertAfter',
 
   it('Can successfully insert a node before the first node of a linked list', () => {
     list.insertBefore('first append', '0.5');
-    let values = ['0.5', 'first append', '1.5', 'second append', 'third append'];
+    let values = [
+      '0.5',
+      'first append',
+      '1.5',
+      'second append',
+      'third append',
+    ];
     let valuesMatch = checkValuesMatch(list, values);
     expect(valuesMatch).toEqual(true);
   });
 
   it('Can successfully insert after a node in the middle of the linked list', () => {
     list.insertAfter('second append', '2.5');
-    let values = ['0.5', 'first append', '1.5', 'second append','2.5', 'third append'];
+    let values = [
+      '0.5',
+      'first append',
+      '1.5',
+      'second append',
+      '2.5',
+      'third append',
+    ];
     let valuesMatch = checkValuesMatch(list, values);
     expect(valuesMatch).toEqual(true);
   });
 
-  it('Can successfully insert a node after the last node of the linked list', ()=> {
+  it('Can successfully insert a node after the last node of the linked list', () => {
     list.insertAfter('third append', 'last');
-    let values = ['0.5', 'first append', '1.5', 'second append','2.5', 'third append', 'last'];
+    let values = [
+      '0.5',
+      'first append',
+      '1.5',
+      'second append',
+      '2.5',
+      'third append',
+      'last',
+    ];
     let valuesMatch = checkValuesMatch(list, values);
     expect(valuesMatch).toEqual(true);
   });
 });
-
 
 // ****************************************
 //            Code Challenge 7
@@ -211,7 +229,7 @@ describe('Code Challenge 8 Linked List Test: ll-zip', () => {
     list2.append(8);
 
     llZip(list1, list2);
-    let expectedValues = [1,2,3,4,5,6,7,8];
+    let expectedValues = [1, 2, 3, 4, 5, 6, 7, 8];
     let valuesMatch = checkValuesMatch(list1, expectedValues);
     expect(valuesMatch).toEqual(true);
   });
@@ -222,7 +240,7 @@ describe('Code Challenge 8 Linked List Test: ll-zip', () => {
     list1.append(1).append(3).append(5).append(6);
     list2.append(2).append(4);
     llZip(list1, list2);
-    let expectedValues = [1,2,3,4,5,6];
+    let expectedValues = [1, 2, 3, 4, 5, 6];
     let valuesMatch = checkValuesMatch(list1, expectedValues);
     expect(valuesMatch).toEqual(true);
   });
@@ -233,7 +251,7 @@ describe('Code Challenge 8 Linked List Test: ll-zip', () => {
     list1.append(1).append(3);
     list2.append(2).append(4).append(5).append(6);
     llZip(list1, list2);
-    let expectedValues = [1,2,3,4,5,6];
+    let expectedValues = [1, 2, 3, 4, 5, 6];
     let valuesMatch = checkValuesMatch(list1, expectedValues);
     expect(valuesMatch).toEqual(true);
   });

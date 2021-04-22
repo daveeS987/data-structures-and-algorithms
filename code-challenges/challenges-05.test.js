@@ -10,20 +10,20 @@ Write a function named templateWithJQuery that uses jQuery to get the html templ
 ------------------------------------------------------------------------------------------------ */
 let starWarsPeople = [
   {
-    "name": "Luke Skywalker",
-    "height": "172",
-    "eye_color": "blue"
+    name: 'Luke Skywalker',
+    height: '172',
+    eye_color: 'blue',
   },
   {
-    "name": "C-3PO",
-    "height": "167",
-    "eye_color": "yellow"
+    name: 'C-3PO',
+    height: '167',
+    eye_color: 'yellow',
   },
   {
-    "name": "R2-D2",
-    "height": "96",
-    "eye_color": "red"
-  }
+    name: 'R2-D2',
+    height: '96',
+    eye_color: 'red',
+  },
 ];
 
 let $ = createSnippetWithJQuery(`
@@ -35,8 +35,6 @@ let $ = createSnippetWithJQuery(`
   </section>
 </main>
 `);
-
-
 
 const templateWithJQuery = () => {
   // Solution code here...
@@ -87,7 +85,6 @@ const wordsToCharList = (arr) => {
   return result;
 };
 
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -125,14 +122,13 @@ const gruffaloCrumble = {
     'Fold together remaining ingredients to make the crisp',
     'Spread the crisp evenly over the gruffalo mixture',
     'Bake for 12-15 hours',
-  ]
+  ],
 };
-
 
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
-  recipe.ingredients.forEach(value => {
+  recipe.ingredients.forEach((value) => {
     let str1 = value.slice(value.indexOf(' ') + 1);
     let str2 = str1.slice(str1.indexOf(' ') + 1);
     result.push(str2);
@@ -206,7 +202,6 @@ const removeLastCharacters = (str, numberOfCharacters) => {
   // Solution code here...
 };
 
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 
@@ -218,7 +213,6 @@ const totalSumCSV = (str) => {
   // Solution code here...
   return total;
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -268,7 +262,16 @@ describe('Testing challenge 1', () => {
 
 describe('Testing challenge 2', () => {
   test('It should return a list of shortening words', () => {
-    expect(howMuchPencil('Welcome')).toStrictEqual(['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', '']);
+    expect(howMuchPencil('Welcome')).toStrictEqual([
+      'Welcome',
+      'elcome',
+      'lcome',
+      'come',
+      'ome',
+      'me',
+      'e',
+      '',
+    ]);
     expect(howMuchPencil('Welcome').length).toStrictEqual(8);
     expect(howMuchPencil('')).toStrictEqual(['']);
     expect(howMuchPencil('abc')).toStrictEqual(['abc', 'bc', 'c', '']);
@@ -277,29 +280,77 @@ describe('Testing challenge 2', () => {
 
 describe('Testing challenge 3', () => {
   test('It should return an array of individual letters', () => {
-    expect(wordsToCharList('Gregor')).toStrictEqual(['G', 'r', 'e', 'g', 'o', 'r']);
+    expect(wordsToCharList('Gregor')).toStrictEqual([
+      'G',
+      'r',
+      'e',
+      'g',
+      'o',
+      'r',
+    ]);
     expect(wordsToCharList('Gregor').length).toStrictEqual(6);
-    expect(wordsToCharList('hooray')).toStrictEqual(['h', 'o', 'o', 'r', 'a', 'y']);
+    expect(wordsToCharList('hooray')).toStrictEqual([
+      'h',
+      'o',
+      'o',
+      'r',
+      'a',
+      'y',
+    ]);
     expect(wordsToCharList('')).toStrictEqual([]);
   });
 });
 
 describe('Testing challenge 4', () => {
   test('It should return a list of foods', () => {
-    expect(listFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
+    expect(listFoods(gruffaloCrumble)).toStrictEqual([
+      'Gruffalo',
+      'oats',
+      'brown sugar',
+      'flour',
+      'pure maple syrup',
+      'chopped nuts',
+      'baking soda',
+      'baking powder',
+      'cinnamon',
+      'melted butter',
+      'fresh water',
+    ]);
     expect(listFoods(gruffaloCrumble).length).toStrictEqual(11);
   });
 });
 
 xdescribe('Testing challenge 5', () => {
   test('It should return a list of foods', () => {
-    expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
+    expect(splitFoods(gruffaloCrumble)).toStrictEqual([
+      'Gruffalo',
+      'oats',
+      'brown sugar',
+      'flour',
+      'pure maple syrup',
+      'chopped nuts',
+      'baking soda',
+      'baking powder',
+      'cinnamon',
+      'melted butter',
+      'fresh water',
+    ]);
   });
 });
 
 xdescribe('Testing challenge 6', () => {
   test('It should return a list of recipe steps', () => {
-    expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
+    expect(stepActions(gruffaloCrumble)).toStrictEqual([
+      'Pre-heat',
+      'De-prickle',
+      'Sprinkle',
+      'Mix',
+      'Grease',
+      'Combine',
+      'Fold',
+      'Spread',
+      'Bake',
+    ]);
     expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
   });
 });
@@ -354,11 +405,13 @@ xdescribe('Testing challenge 11', () => {
     expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
     expect(extractVowels('gregor').length).toStrictEqual(2);
 
-    expect(extractVowels('The quick brown fox')).toStrictEqual(['Th qck brwn fx', 'eioou']);
+    expect(extractVowels('The quick brown fox')).toStrictEqual([
+      'Th qck brwn fx',
+      'eioou',
+    ]);
   });
 });
 
-
 function createSnippetWithJQuery(html) {
   return cheerio.load(html);
-};
+}

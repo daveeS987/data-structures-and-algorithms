@@ -9,7 +9,6 @@ describe('Proof of Life', () => {
 });
 
 describe('PseudoQueue should work', () => {
-
   it('Should be able to enqueue', () => {
     let pseudoQue = new PseuodoQueue();
     pseudoQue.enqueue('first');
@@ -27,5 +26,4 @@ describe('PseudoQueue should work', () => {
     console.log('dequedItem', JSON.stringify(dequedItem, null, 2));
     expect(dequedItem).toEqual('first');
   });
-
 });

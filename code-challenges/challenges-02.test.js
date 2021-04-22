@@ -4,10 +4,10 @@ CHALLENGE 1 - Review
 Write a function named raisedToTheThird that takes in an array of numbers and returns a new array of
 each of those numbers raised to the 3rd power (hint: look up Math.pow()). Use forEach to solve this problem.
 ------------------------------------------------------------------------------------------------ */
-const raisedToTheThird = arr => {
+const raisedToTheThird = (arr) => {
   // Solution code here...
   let result = [];
-  arr.forEach(value => {
+  arr.forEach((value) => {
     result.push(Math.pow(value, 3));
   });
   return result;
@@ -17,7 +17,7 @@ CHALLENGE 2
 Write a function that appends ' The end.' to a string, and returns the modified string.
 The original source string should not be modified.
 ------------------------------------------------------------------------------------------------ */
-const appendTheEnd = str => {
+const appendTheEnd = (str) => {
   // Solution code here...
   let str2 = str + ' The end.';
   return str2;
@@ -36,7 +36,7 @@ const a = [1, 2, 3];
 appendFirstToLast(a);
 console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
-const appendFirstToLast = arr => {
+const appendFirstToLast = (arr) => {
   // Solution code here...
   let firstValue = arr[0];
   arr.push(firstValue);
@@ -75,7 +75,7 @@ console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 const setStatusAsAuthor = (people) => {
   // Solution code here...
-  people.forEach(value => {
+  people.forEach((value) => {
     value.isAuthor = true;
   });
 };
@@ -92,7 +92,7 @@ console.log(a) prints [1, 2, 3, 4]
 ------------------------------------------------------------------------------------------------ */
 const append = (arr1, arr2) => {
   // Solution code here...
-  arr2.forEach(value => {
+  arr2.forEach((value) => {
     arr1.push(value);
   });
 };
@@ -104,7 +104,13 @@ Run your tests from the console: jest challenges-02.test.js
 ------------------------------------------------------------------------------------------------ */
 describe('Testing challenge 1', () => {
   test('It should return a new array of numbers raised to the thrid power', () => {
-    expect(raisedToTheThird([2, 4, 5, -7, 0])).toStrictEqual([8, 64, 125, -343, 0]);
+    expect(raisedToTheThird([2, 4, 5, -7, 0])).toStrictEqual([
+      8,
+      64,
+      125,
+      -343,
+      0,
+    ]);
   });
 });
 describe('Testing challenge 2', () => {
@@ -131,7 +137,11 @@ describe('Testing challenge 4', () => {
 });
 describe('Testing challenge 5', () => {
   test('It should add a property to every object in an array', () => {
-    const a = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }, { fullName: 'Kurt Vonnegut' }];
+    const a = [
+      { fullName: 'Octavia Butler' },
+      { fullName: 'Ray Bradbury' },
+      { fullName: 'Kurt Vonnegut' },
+    ];
     setStatusAsAuthor(a);
     expect(a[0].isAuthor).toStrictEqual(true);
     expect(a[1].isAuthor).toStrictEqual(true);
@@ -146,4 +156,3 @@ describe('Testing challenge 6', () => {
     expect(a).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8]);
   });
 });
-

@@ -6,8 +6,8 @@ module.exports = (list1, list2) => {
   let l1Current = list1.head;
   let l2Current = list2.head;
 
-  while(l1Current.next) {
-    if(!l2Current.next) {
+  while (l1Current.next) {
+    if (!l2Current.next) {
       l2Current.next = l1Current.next;
       l1Current.next = l2Current;
       return list1;
@@ -22,7 +22,7 @@ module.exports = (list1, list2) => {
       l2Current = l2Temp;
     }
   }
-  if(l2Current) {
+  if (l2Current) {
     l1Current.next = l2Current;
   }
   return list1;

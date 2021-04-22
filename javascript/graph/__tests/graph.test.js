@@ -5,9 +5,7 @@ let Vertex = require('../graph.js').Vertex;
 let Edge = require('../graph.js').Edge;
 
 describe('Graph Implementation should function correctly', () => {
-
   it('Node can be successfully added to the graph', () => {
-
     let graph = new Graph();
     let vertex1 = new Vertex(1);
     graph.addVertex(vertex1);
@@ -15,7 +13,6 @@ describe('Graph Implementation should function correctly', () => {
   });
 
   it('An edge can be successfully added to the graph', () => {
-
     let graph = new Graph();
     let vertex1 = new Vertex(1);
     let vertex2 = new Vertex(2);
@@ -32,10 +29,14 @@ describe('Graph Implementation should function correctly', () => {
     let vertex2 = new Vertex(2);
     let vertex3 = new Vertex(3);
     let vertex4 = new Vertex(4);
-    graph.addVertex(vertex1).addVertex(vertex2).addVertex(vertex3).addVertex(vertex4);
+    graph
+      .addVertex(vertex1)
+      .addVertex(vertex2)
+      .addVertex(vertex3)
+      .addVertex(vertex4);
     let result = graph.getAllVertex();
-    let expectedValues = [1,2,3,4];
-    for(let i = 0; i < result.lenth; i++) {
+    let expectedValues = [1, 2, 3, 4];
+    for (let i = 0; i < result.lenth; i++) {
       expect(result[i]).toEqual(expectedValues[i]);
     }
   });
@@ -46,13 +47,17 @@ describe('Graph Implementation should function correctly', () => {
     let vertex2 = new Vertex(2);
     let vertex3 = new Vertex(3);
     let vertex4 = new Vertex(4);
-    graph.addVertex(vertex1).addVertex(vertex2).addVertex(vertex3).addVertex(vertex4);
+    graph
+      .addVertex(vertex1)
+      .addVertex(vertex2)
+      .addVertex(vertex3)
+      .addVertex(vertex4);
     graph.addDirectedEdge(vertex1, vertex2);
     graph.addDirectedEdge(vertex2, vertex3);
     graph.addDirectedEdge(vertex3, vertex4);
     let neighbors = graph.getNeighbors(vertex1);
-    let expected = [2,3,4];
-    for(let i=0; i < neighbors.length;i++) {
+    let expected = [2, 3, 4];
+    for (let i = 0; i < neighbors.length; i++) {
       expect(neighbors[i].vertex.value).toEqual(expected[i]);
     }
   });
@@ -63,12 +68,16 @@ describe('Graph Implementation should function correctly', () => {
     let vertex2 = new Vertex(2);
     let vertex3 = new Vertex(3);
     let vertex4 = new Vertex(4);
-    graph.addVertex(vertex1).addVertex(vertex2).addVertex(vertex3).addVertex(vertex4);
+    graph
+      .addVertex(vertex1)
+      .addVertex(vertex2)
+      .addVertex(vertex3)
+      .addVertex(vertex4);
     graph.addDirectedEdge(vertex1, vertex2);
     graph.addDirectedEdge(vertex2, vertex3);
     graph.addDirectedEdge(vertex3, vertex4);
     let neighbors = graph.getNeighbors(vertex1);
-    for(let i=0; i < neighbors.length;i++) {
+    for (let i = 0; i < neighbors.length; i++) {
       expect(neighbors[i].weight).toEqual(0);
     }
   });
@@ -79,7 +88,11 @@ describe('Graph Implementation should function correctly', () => {
     let vertex2 = new Vertex(2);
     let vertex3 = new Vertex(3);
     let vertex4 = new Vertex(4);
-    graph.addVertex(vertex1).addVertex(vertex2).addVertex(vertex3).addVertex(vertex4);
+    graph
+      .addVertex(vertex1)
+      .addVertex(vertex2)
+      .addVertex(vertex3)
+      .addVertex(vertex4);
     expect(graph.getSize()).toEqual(4);
   });
 
@@ -92,13 +105,10 @@ describe('Graph Implementation should function correctly', () => {
   it('An empty graph properly returns null', () => {
     let graph = new Graph();
   });
-
 });
-
 
 describe('BreadthFirstSearch should return correct values', () => {
   it('Should return correct order with strings', () => {
-
     let graph = new Graph();
     const pandora = new Vertex('Pandora');
     const arendelle = new Vertex('Arendelle');
@@ -114,26 +124,33 @@ describe('BreadthFirstSearch should return correct values', () => {
     graph.addVertex(narnia);
     graph.addVertex(naboo);
 
-    graph.addUndirectedEdge(pandora,arendelle);
+    graph.addUndirectedEdge(pandora, arendelle);
 
-    graph.addUndirectedEdge(arendelle,metroville);
-    graph.addUndirectedEdge(arendelle,monstroplolis);
+    graph.addUndirectedEdge(arendelle, metroville);
+    graph.addUndirectedEdge(arendelle, monstroplolis);
 
-    graph.addUndirectedEdge(monstroplolis,naboo);
-    graph.addUndirectedEdge(monstroplolis,metroville);
+    graph.addUndirectedEdge(monstroplolis, naboo);
+    graph.addUndirectedEdge(monstroplolis, metroville);
 
-    graph.addUndirectedEdge(metroville,narnia);
-    graph.addUndirectedEdge(metroville,naboo);
+    graph.addUndirectedEdge(metroville, narnia);
+    graph.addUndirectedEdge(metroville, naboo);
 
-    graph.addUndirectedEdge(naboo,narnia);
+    graph.addUndirectedEdge(naboo, narnia);
 
     let result = graph.bft(pandora);
-    let expected = ['Pandora', 'Arendelle', 'Metroville', 'Monstroplolis', 'Narnia', 'Naboo'];
+    let expected = [
+      'Pandora',
+      'Arendelle',
+      'Metroville',
+      'Monstroplolis',
+      'Narnia',
+      'Naboo',
+    ];
 
     let i = 0;
-    result.forEach( item => {
+    result.forEach((item) => {
       expect(item.value).toEqual(expected[i]);
-      i+=1;
+      i += 1;
     });
   });
 });

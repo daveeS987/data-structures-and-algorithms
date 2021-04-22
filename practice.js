@@ -1,41 +1,38 @@
 'use strict';
 
-class Node{
-  constructor(value){
+class Node {
+  constructor(value) {
     this.value = value;
     this.next = null;
   }
 }
 
-class LinkedList{
-  constructor(node=null){
+class LinkedList {
+  constructor(node = null) {
     this.head = node;
   }
 
   // append, insert, insertBefore, insertAfter, contains
-  append(value){
-
+  append(value) {
     let node = new Node(value);
 
-    if(!this.head) {
+    if (!this.head) {
       this.head = node;
       return this;
     }
 
     let current = this.head;
-    while(current.next) {
+    while (current.next) {
       current = current.next;
     }
     current.next = node;
     return this;
   }
 
-
   insert(value) {
-
     let node = new Node(value);
 
-    if(!this.head) {
+    if (!this.head) {
       this.head = node;
       return this;
     }
@@ -46,15 +43,14 @@ class LinkedList{
   }
 
   insertBefore(value, target) {
-
     let node = new Node(value);
 
-    if(!this.head) {
+    if (!this.head) {
       this.head = node;
       return this;
     }
 
-    if(this.head.value === target) {
+    if (this.head.value === target) {
       node.next = this.head;
       this.head = node;
       return this;
@@ -62,8 +58,8 @@ class LinkedList{
 
     let current = this.head;
 
-    while(current) {
-      if(current.next.value === target) {
+    while (current) {
+      if (current.next.value === target) {
         node.next = current.next;
         current.next = node;
         return this;
@@ -75,18 +71,17 @@ class LinkedList{
   }
 
   insertAfter(value, target) {
-
     let node = new Node(value);
 
-    if(!this.head){
+    if (!this.head) {
       this.head = node;
       return this;
     }
 
     let current = this.head;
 
-    while(current) {
-      if(current.value === target) {
+    while (current) {
+      if (current.value === target) {
         node.next = current.next;
         current.next = node;
         return this;
@@ -97,14 +92,13 @@ class LinkedList{
   }
 
   contains(target) {
-
-    if(!this.head) {
+    if (!this.head) {
       return null;
     }
 
     let current = this.head;
-    while(current) {
-      if(current.value === target) {
+    while (current) {
+      if (current.value === target) {
         return true;
       }
       current = current.next;
@@ -113,17 +107,16 @@ class LinkedList{
   }
 }
 
-class Stack{
+class Stack {
   constructor(node = null) {
     this.top = node;
   }
 
   // push, pop, peek, isEmpty
   push(value) {
-
     let node = new Node(value);
 
-    if(!this.top) {
+    if (!this.top) {
       this.top = node;
       return this;
     }
@@ -134,8 +127,7 @@ class Stack{
   }
 
   pop() {
-
-    if(!this.top) {
+    if (!this.top) {
       return null;
     }
 
@@ -145,45 +137,42 @@ class Stack{
   }
 
   peek() {
-
-    if(!this.top) {
+    if (!this.top) {
       return null;
     }
     return this.top.value;
   }
 
-  isEmpty(){
+  isEmpty() {
     return this.top === null;
   }
 }
 
-class Queue{
-  constructor(node=null) {
+class Queue {
+  constructor(node = null) {
     this.front = node;
   }
 
   //enqueue, pop, peek, isEmpty
 
   enqueue(value) {
-
     let node = new Node(value);
 
-    if(!this.front) {
+    if (!this.front) {
       this.front = node;
       return this;
     }
 
     let current = this.front;
-    while(current.next) {
+    while (current.next) {
       current = current.next;
     }
     current.next = node;
     return this;
   }
 
-  dequeue(){
-
-    if(!this.front) {
+  dequeue() {
+    if (!this.front) {
       return null;
     }
 
@@ -193,8 +182,7 @@ class Queue{
   }
 
   peek() {
-
-    if(!this.front) {
+    if (!this.front) {
       return null;
     }
 
@@ -206,7 +194,7 @@ class Queue{
   }
 }
 
-class TreeNode{
+class TreeNode {
   constructor(value) {
     this.value = value;
     this.left = null;
@@ -214,19 +202,23 @@ class TreeNode{
   }
 }
 
-class BinaryTree{
-  constructor(node = null){
+class BinaryTree {
+  constructor(node = null) {
     this.root = node;
   }
 
   //left, root, right
-  inOrder(){
+  inOrder() {
     let results = [];
 
-    const walk = node => {
-      if(node.left) {walk(node.left);}
+    const walk = (node) => {
+      if (node.left) {
+        walk(node.left);
+      }
       results.push(node.value);
-      if(node.right) {walk(node.right);}
+      if (node.right) {
+        walk(node.right);
+      }
     };
 
     walk(this.root);
@@ -237,10 +229,14 @@ class BinaryTree{
   preOrder() {
     let results = [];
 
-    const walk = node => {
+    const walk = (node) => {
       results.push(node.value);
-      if(node.left) {walk(node.left);}
-      if(node.right) {walk(node.right);}
+      if (node.left) {
+        walk(node.left);
+      }
+      if (node.right) {
+        walk(node.right);
+      }
     };
 
     walk(this.root);
@@ -251,9 +247,13 @@ class BinaryTree{
   postOrder() {
     let results = [];
 
-    const walk = node => {
-      if(node.left) {walk(node.left);}
-      if(node.right) {walk(node.right);}
+    const walk = (node) => {
+      if (node.left) {
+        walk(node.left);
+      }
+      if (node.right) {
+        walk(node.right);
+      }
       results.push(node.value);
     };
     walk(this.root);
@@ -262,32 +262,30 @@ class BinaryTree{
 }
 
 class BinarySearchTree extends BinaryTree {
-
   // addIteravily
   addIteravily(value) {
-
     let node = new TreeNode(value);
 
-    if(!this.root){
+    if (!this.root) {
       this.root = node;
       return this;
     }
 
     let current = this.root;
-    while(current) {
-      if(current.value === value) {
+    while (current) {
+      if (current.value === value) {
         console.error('Value already exists');
         return this;
       }
 
-      if(value > current.value) {
-        if(!current.right) {
+      if (value > current.value) {
+        if (!current.right) {
           current.right = node;
           return this;
         }
         current = current.right;
       } else {
-        if(!current.left) {
+        if (!current.left) {
           current.left = node;
           return this;
         }
@@ -298,29 +296,27 @@ class BinarySearchTree extends BinaryTree {
 
   // addRecursively
   addRecursively(value) {
-
     let newNode = new TreeNode(value);
 
-    if(!this.root) {
+    if (!this.root) {
       this.root = newNode;
       return this;
     }
 
-    const walk = node => {
-
-      if(node.value === value) {
+    const walk = (node) => {
+      if (node.value === value) {
         console.error('this value already exist');
         return;
       }
 
-      if(value > node.value) {
-        if(!node.right) {
+      if (value > node.value) {
+        if (!node.right) {
           node.right = newNode;
           return;
         }
         walk(node.right);
       } else {
-        if(!node.left) {
+        if (!node.left) {
           node.left = newNode;
           return;
         }
@@ -331,9 +327,8 @@ class BinarySearchTree extends BinaryTree {
     return this;
   }
 
-
   // containsIteravily
-
+  // containsIterate;
   // containsRecursively
   // findMax
   // findMaxRecursively

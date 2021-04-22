@@ -27,8 +27,6 @@ let list = new LL();
 // let k = list.kthFromEnd(6);
 // console.log('using kthfrom end: ', k);
 
-
-
 // let list1 = new LL();
 // let list2 = new LL();
 
@@ -41,8 +39,6 @@ let list = new LL();
 // llZip(list1, list2);
 // console.log('list1: ', JSON.stringify(list1, null, 2));
 // console.log('list2: ', JSON.stringify(list2, null, 2));
-
-
 
 // ************ Johns code ************** //
 list.append('John');
@@ -64,7 +60,9 @@ while (current) {
 console.log('Traverse recursively');
 
 function traverseLinkedListRecursively(node) {
-  if (!node) { return; }
+  if (!node) {
+    return;
+  }
 
   // do our work
   console.log(node.value);
@@ -75,16 +73,22 @@ function traverseLinkedListRecursively(node) {
 
 traverseLinkedListRecursively(list.head);
 
-
 console.log('Traverse Recursively w/return value');
 
 function traverseLinkedListRecursivelyWithReturn(node, biggestOne = '') {
-  if (!node) { return biggestOne; }
+  if (!node) {
+    return biggestOne;
+  }
 
   // Do Your Work
-  if (node.value.length > biggestOne.length) { biggestOne = node.value; }
+  if (node.value.length > biggestOne.length) {
+    biggestOne = node.value;
+  }
 
   return traverseLinkedListRecursivelyWithReturn(node.next, biggestOne);
 }
 
-console.log('Longest Name: ', traverseLinkedListRecursivelyWithReturn(list.head));
+console.log(
+  'Longest Name: ',
+  traverseLinkedListRecursivelyWithReturn(list.head)
+);

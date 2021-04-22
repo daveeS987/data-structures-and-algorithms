@@ -9,7 +9,6 @@ describe('Proof of life', () => {
 });
 
 describe('Left Join should work correctly', () => {
-
   it('It should return correct values', () => {
     let map1 = new Map();
     let map2 = new Map();
@@ -31,7 +30,7 @@ describe('Left Join should work correctly', () => {
       ['wrath', 'anger', 'delight'],
       ['diligent', 'employed', 'idle'],
       ['outfit', 'garb', null],
-      ['guide', 'usher', 'follow']
+      ['guide', 'usher', 'follow'],
     ];
 
     let actual = leftJoins(map1, map2);
@@ -39,7 +38,6 @@ describe('Left Join should work correctly', () => {
   });
 
   it('It should return correct values when no values match', () => {
-
     let map1 = new Map();
     let map2 = new Map();
 
@@ -60,7 +58,7 @@ describe('Left Join should work correctly', () => {
       ['wrath', 'anger', null],
       ['diligent', 'employed', null],
       ['outfit', 'garb', null],
-      ['guide', 'usher', null]
+      ['guide', 'usher', null],
     ];
 
     let actual = leftJoins(map1, map2);
@@ -68,7 +66,6 @@ describe('Left Join should work correctly', () => {
   });
 
   it('It should return correct when left hashmap is smaller', () => {
-
     let map1 = new Map();
     let map2 = new Map();
 
@@ -92,7 +89,7 @@ describe('Left Join should work correctly', () => {
       ['wrath', 'anger', null],
       ['diligent', 'employed', null],
       ['outfit', 'garb', null],
-      ['guide', 'usher', null]
+      ['guide', 'usher', null],
     ];
 
     let actual = leftJoins(map1, map2);

@@ -20,7 +20,6 @@ fourty.right = seventy;
 
 let tree = new BinarySearchTree(twenty);
 
-
 // tree.add(90);
 
 // console.log('contain: ', tree.contains(25));
@@ -33,9 +32,7 @@ let tree = new BinarySearchTree(twenty);
 // let breadthFirst = tree.breadthFirst();
 // console.log('breadthFirst :', breadthFirst);
 
-
 console.log('test1: ', tree.findMaxRecursively());
-
 
 // console.log(JSON.stringify(tree, undefined, 2));
 /*

@@ -51,7 +51,7 @@ describe('Binary Search Tree', () => {
 
     let tree = new BinarySearchTree(twenty);
     let actual = tree.preOrder();
-    let expected = [20,12,6,17,32,25,40,70];
+    let expected = [20, 12, 6, 17, 32, 25, 40, 70];
     expect(actual).toEqual(expected);
   });
 
@@ -105,12 +105,11 @@ describe('Binary Search Tree', () => {
 });
 
 describe('AddIteravily', () => {
-
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
-  let nodes = [6,12,17,25,32,40,70];
+  let nodes = [6, 12, 17, 25, 32, 40, 70];
 
-  nodes.forEach(node => {
+  nodes.forEach((node) => {
     tree.addIteravily(node);
   });
 
@@ -123,14 +122,12 @@ describe('AddIteravily', () => {
   });
 });
 
-
 describe('AddRecursively', () => {
-
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
-  let nodes = [6,12,17,25,32,40,70];
+  let nodes = [6, 12, 17, 25, 32, 40, 70];
 
-  nodes.forEach(node => {
+  nodes.forEach((node) => {
     tree.addRecursively(node);
   });
 
@@ -140,16 +137,14 @@ describe('AddRecursively', () => {
     let expected = [6, 12, 17, 20, 25, 32, 40, 42, 70, 90];
     expect(inOrder).toEqual(expected);
   });
-
 });
 
 describe('ContainsRecursively', () => {
-
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
-  let nodes = [6,12,17,25,32,40,70];
+  let nodes = [6, 12, 17, 25, 32, 40, 70];
 
-  nodes.forEach(node => {
+  nodes.forEach((node) => {
     tree.addRecursively(node);
   });
 
@@ -191,13 +186,12 @@ describe('ContainsRecursively', () => {
   });
 });
 
-
 describe('ContainsIterate', () => {
   let twenty = new TreeNode(20);
   let tree = new BinarySearchTree(twenty);
-  let nodes = [6,12,17,25,32,40,70];
+  let nodes = [6, 12, 17, 25, 32, 40, 70];
 
-  nodes.forEach(node => {
+  nodes.forEach((node) => {
     tree.addIteravily(node);
   });
 
@@ -232,7 +226,6 @@ describe('ContainsIterate', () => {
   });
 });
 
-
 describe('FindMax', () => {
   it('Should find the maximum value', () => {
     let twenty = new TreeNode(20);
@@ -258,10 +251,8 @@ describe('FindMax', () => {
   });
 });
 
-
 describe('Breadth-first Traversal', () => {
   it('Should list out the correct order', () => {
-
     let twenty = new TreeNode(20);
     let twelve = new TreeNode(12);
     let six = new TreeNode(6);

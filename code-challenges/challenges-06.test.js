@@ -18,44 +18,44 @@ let characters = [
     name: 'Eddard',
     spouse: 'Catelyn',
     children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
-    house: 'Stark'
+    house: 'Stark',
   },
   {
     name: 'Jon A.',
     spouse: 'Lysa',
     children: ['Robin'],
-    house: 'Arryn'
+    house: 'Arryn',
   },
   {
     name: 'Cersei',
     spouse: 'Robert',
     children: ['Joffrey', 'Myrcella', 'Tommen'],
-    house: 'Lannister'
+    house: 'Lannister',
   },
   {
     name: 'Daenarys',
     spouse: 'Khal Drogo',
     children: ['Drogon', 'Rhaegal', 'Viserion'],
-    house: 'Targaryen'
+    house: 'Targaryen',
   },
   {
     name: 'Mace',
     spouse: 'Alerie',
     children: ['Margaery', 'Loras'],
-    house: 'Tyrell'
+    house: 'Tyrell',
   },
   {
     name: 'Euron',
     spouse: null,
     children: [],
-    house: 'Greyjoy'
+    house: 'Greyjoy',
   },
   {
     name: 'Jon S.',
     spouse: null,
     children: [],
-    house: 'Snow'
-  }
+    house: 'Snow',
+  },
 ];
 
 let $ = createSnippetWithJQuery(`
@@ -72,7 +72,7 @@ let $ = createSnippetWithJQuery(`
 const templatingWithMustache = () => {
   // Solution code here...
   let array = [];
-  Object.values(characters).forEach(person => {
+  Object.values(characters).forEach((person) => {
     let $template = $('#template').html();
     let rendered = Mustache.render($template, person);
     array.push(rendered);
@@ -88,9 +88,17 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
 const courseInfo = {
-  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
-  topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
-  finalExam: true
+  name: 'Code 301',
+  duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
+  topics: [
+    'SMACSS',
+    'APIs',
+    'NodeJS',
+    'SQL',
+    'jQuery',
+    'functional programming',
+  ],
+  finalExam: true,
 };
 
 const getCourseKeys = (obj) => {
@@ -107,7 +115,7 @@ Write a function named getHouses that returns a new array containing the names o
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
-  arr.forEach(obj => {
+  arr.forEach((obj) => {
     houses.push(obj.house);
   });
   return houses;
@@ -159,7 +167,7 @@ Write a function named totalCharacters that takes in an array and returns the nu
 const totalCharacters = (arr) => {
   // Solution code here...
   let total = 0;
-  arr.forEach(person => {
+  arr.forEach((person) => {
     total++;
     if (person.spouse) {
       total++;
@@ -182,10 +190,10 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 const houseSize = (arr) => {
   const sizes = [];
   // Solution code here...
-  arr.forEach(person => {
+  arr.forEach((person) => {
     let family = {
       house: person.house,
-      members: 1 + person.children.length
+      members: 1 + person.children.length,
     };
     if (person.spouse) {
       family.members++;
@@ -215,12 +223,12 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  arr.forEach(person => {
+  arr.forEach((person) => {
     let family = {
       house: person.house,
-      members: 1 + person.children.length
+      members: 1 + person.children.length,
     };
-    if (deceasedSpouses.includes(person.spouse) === false && (person.spouse)) {
+    if (deceasedSpouses.includes(person.spouse) === false && person.spouse) {
       family.members++;
     }
     survivors.push(family);
@@ -249,13 +257,26 @@ describe('Testing challenge 1', () => {
 
 describe('Testing challenge 2', () => {
   test('It should return the keys from an object', () => {
-    expect(getCourseKeys(courseInfo)).toStrictEqual(['name', 'duration', 'topics', 'finalExam']);
+    expect(getCourseKeys(courseInfo)).toStrictEqual([
+      'name',
+      'duration',
+      'topics',
+      'finalExam',
+    ]);
   });
 });
 
 describe('Testing challenge 3', () => {
   test('It should return an array of the names of the houses', () => {
-    expect(getHouses(characters)).toStrictEqual(['Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Greyjoy', 'Snow']);
+    expect(getHouses(characters)).toStrictEqual([
+      'Stark',
+      'Arryn',
+      'Lannister',
+      'Targaryen',
+      'Tyrell',
+      'Greyjoy',
+      'Snow',
+    ]);
     expect(getHouses(characters).length).toStrictEqual(7);
   });
 });
@@ -288,17 +309,32 @@ describe('Testing challenge 6', () => {
 
 describe('Testing challenge 7', () => {
   test('It should return an object for each house containing the name and size', () => {
-    expect(houseSize(characters)).toStrictEqual([{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Greyjoy', members: 1 }, { house: 'Snow', members: 1 }]);
+    expect(houseSize(characters)).toStrictEqual([
+      { house: 'Stark', members: 7 },
+      { house: 'Arryn', members: 3 },
+      { house: 'Lannister', members: 5 },
+      { house: 'Targaryen', members: 5 },
+      { house: 'Tyrell', members: 4 },
+      { house: 'Greyjoy', members: 1 },
+      { house: 'Snow', members: 1 },
+    ]);
     expect(houseSize(characters).length).toStrictEqual(7);
   });
 });
 
 describe('Testing challenge 8', () => {
   test('It should not include any deceased spouses', () => {
-    expect(houseSurvivors(characters)).toStrictEqual([{ house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, { house: 'Lannister', members: 4 }, { house: 'Targaryen', members: 4 }, { house: 'Tyrell', members: 3 }, { house: 'Greyjoy', members: 1 }, { house: 'Snow', members: 1 }]);
+    expect(houseSurvivors(characters)).toStrictEqual([
+      { house: 'Stark', members: 6 },
+      { house: 'Arryn', members: 2 },
+      { house: 'Lannister', members: 4 },
+      { house: 'Targaryen', members: 4 },
+      { house: 'Tyrell', members: 3 },
+      { house: 'Greyjoy', members: 1 },
+      { house: 'Snow', members: 1 },
+    ]);
   });
 });
-
 
 function createSnippetWithJQuery(html) {
   return cheerio.load(html);

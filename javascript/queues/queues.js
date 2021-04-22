@@ -4,7 +4,6 @@ const Node = require('../linkedList/node.js');
 
 // First in First Out
 class Queues {
-
   constructor() {
     this.front = null;
   }
@@ -12,11 +11,11 @@ class Queues {
   enqueue(value) {
     let node = new Node(value);
 
-    if(!this.front) {
+    if (!this.front) {
       this.front = node;
     } else {
       let current = this.front;
-      while(current.next !== null) {
+      while (current.next !== null) {
         current = current.next;
       }
       current.next = node;
@@ -25,7 +24,7 @@ class Queues {
   }
 
   dequeue() {
-    if(!this.front) {
+    if (!this.front) {
       // console.error('ERROR: THERE IS NOTHING TO DEQUEUE');
       return null;
     } else {
@@ -36,7 +35,7 @@ class Queues {
   }
 
   peek() {
-    if(!this.front) {
+    if (!this.front) {
       // console.error('ERROR: QUEUE IS EMPTY');
       return null;
     } else {

@@ -4,8 +4,7 @@ const Node = require('../linkedList/node.js');
 
 // Last in First Out
 class Stacks {
-
-  constructor () {
+  constructor() {
     this.top = null;
   }
 
@@ -26,7 +25,7 @@ class Stacks {
   }
 
   pop() {
-    if(!this.top) {
+    if (!this.top) {
       // console.error('ERROR: THERE IS NOTHING TO POP');
       return null;
     } else {
@@ -36,8 +35,8 @@ class Stacks {
     }
   }
 
-  peek(){
-    if(!this.top) {
+  peek() {
+    if (!this.top) {
       // console.error('ERROR: STACK IS EMPTY');
       return null;
     } else {
@@ -49,7 +48,5 @@ class Stacks {
     return this.top === null;
   }
 }
-
-
 
 module.exports = Stacks;

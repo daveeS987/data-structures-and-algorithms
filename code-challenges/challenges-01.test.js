@@ -46,7 +46,7 @@ If the item is available, add it to your list. Return the final list.
 const createList = (availableItems) => {
   // Solution code here...
   let list = [];
-  availableItems.forEach(value => {
+  availableItems.forEach((value) => {
     if (value.available === true) {
       list.push(value.name);
     }
@@ -67,11 +67,16 @@ Return the resulting output array.
 const fizzbuzz = (arr) => {
   // Solution code here...
   let arr2 = [];
-  arr.forEach(value => {
-    if ((value % 3 === 0) && (value % 5 === 0)) { arr2.push('Fizz Buzz'); }
-    else if (value % 5 === 0) { arr2.push('Buzz'); }
-    else if (value % 3 === 0) { arr2.push('Fizz'); }
-    else { arr2.push(value); }
+  arr.forEach((value) => {
+    if (value % 3 === 0 && value % 5 === 0) {
+      arr2.push('Fizz Buzz');
+    } else if (value % 5 === 0) {
+      arr2.push('Buzz');
+    } else if (value % 3 === 0) {
+      arr2.push('Fizz');
+    } else {
+      arr2.push(value);
+    }
   });
   return arr2;
 };
@@ -83,7 +88,9 @@ Run your tests from the console: jest challenges-01.test.js
 ------------------------------------------------------------------------------------------------ */
 describe('Testing challenge 1', () => {
   test('It should return the message with all uppercase characters', () => {
-    expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
+    expect(speaker('hello 301 students!', greeting)).toStrictEqual(
+      'HELLO 301 STUDENTS!'
+    );
   });
 });
 describe('Testing challenge 2', () => {
@@ -93,7 +100,13 @@ describe('Testing challenge 2', () => {
   });
 });
 describe('Testing challenge 3', () => {
-  const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
+  const inventory = [
+    { name: 'apples', available: true },
+    { name: 'pears', available: true },
+    { name: 'oranges', available: false },
+    { name: 'bananas', available: true },
+    { name: 'blueberries', available: false },
+  ];
   test('It should only add the available items to the list', () => {
     expect(createList(inventory)).toStrictEqual(['apples', 'pears', 'bananas']);
     expect(createList(inventory).length).toStrictEqual(3);
@@ -102,8 +115,24 @@ describe('Testing challenge 3', () => {
 describe('Testing challenge 4', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   test('It should print out messages or numbers', () => {
-    expect(fizzbuzz(inputs)).toStrictEqual([1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16]);
+    expect(fizzbuzz(inputs)).toStrictEqual([
+      1,
+      2,
+      'Fizz',
+      4,
+      'Buzz',
+      'Fizz',
+      7,
+      8,
+      'Fizz',
+      'Buzz',
+      11,
+      'Fizz',
+      13,
+      14,
+      'Fizz Buzz',
+      16,
+    ]);
     expect(fizzbuzz(inputs).length).toStrictEqual(16);
   });
 });
-

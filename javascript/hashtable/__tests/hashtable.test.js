@@ -9,7 +9,6 @@ describe('Proof of life', () => {
 });
 
 describe('HashTable should work correctly', () => {
-
   let hashtable = new HashTable(10);
   hashtable.add('key1', 'value1');
   hashtable.add('alex', 'johnson');
@@ -28,16 +27,13 @@ describe('HashTable should work correctly', () => {
     expect(hashtable.contains('key1')).toEqual(true);
   });
 
-
   it('Retrieving based on a key returns the value stored', () => {
     expect(hashtable.get('alex')).toEqual('johnson');
   });
 
-
   it('Successfully returns null for a key that does not exist in the hashtable', () => {
     expect(hashtable.get('hello')).toEqual(null);
   });
-
 
   it('Successfully handle a collision within the hashtable', () => {
     expect(hashTable1.contains('key1')).toEqual(true);
@@ -46,15 +42,12 @@ describe('HashTable should work correctly', () => {
     expect(hashTable1.contains('bob')).toEqual(true);
   });
 
-
   it('Successfully retrieve a value from a bucket within the hashtable that has a collision', () => {
     expect(hashTable1.get('ben')).toEqual('hill');
     expect(hashTable1.get('chris')).toEqual('bortel');
   });
 
-
   it('Successfully hash a key to an in-range value', () => {
-
     let hash1 = hashtable.hash('roger');
     let hash2 = hashtable.hash('a;ldkfja;ldfa');
     let hash3 = hashtable.hash('abcde');

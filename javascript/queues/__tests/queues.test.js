@@ -3,7 +3,6 @@
 const Queues = require('../queues.js');
 
 describe('Queues Module should work correctly', () => {
-
   it('Can successfully enqueue into a queue', () => {
     let queue = new Queues();
     queue.enqueue('first');
@@ -42,7 +41,7 @@ describe('Queues Module should work correctly', () => {
     queue.enqueue('first');
     queue.enqueue('second');
     queue.enqueue('third');
-    while(!queue.isEmpty) {
+    while (!queue.isEmpty) {
       queue.dequeue();
     }
     expect('All items dequeued').toBeTruthy();

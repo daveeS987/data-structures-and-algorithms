@@ -12,7 +12,6 @@ describe('Proof of life', () => {
 });
 
 describe('Tree-intersection should work correctlly', () => {
-
   let onefifty = new TreeNode(150);
   let onehundred = new TreeNode(100);
   let twofifty = new TreeNode(250);
@@ -63,10 +62,9 @@ describe('Tree-intersection should work correctlly', () => {
 
   let tree2 = new BinaryTree(fortyTwo);
 
-
   it('Should return similar values from both trees', () => {
     let result = treeIntersection(tree1, tree2);
-    let expected = ['100','160','125','175','200','350','500'];
+    let expected = ['100', '160', '125', '175', '200', '350', '500'];
     expect(result).toEqual(expected);
   });
 });

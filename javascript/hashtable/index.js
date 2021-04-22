@@ -15,16 +15,15 @@ hashtable.add('bob', 'builder');
 console.log(hashtable);
 // printing out
 hashtable.storage.forEach((item, idx) => {
-  if(!this.head) {
+  if (!this.head) {
     return null;
   } else {
-    while(item) {
+    while (item) {
       console.log(item.value);
       item = item.next;
     }
   }
 });
-
 
 hashtable.get('hello');
 let result1 = hashtable.contains('key');
@@ -36,10 +35,10 @@ let result3 = hashtable.get('chris');
 let result4 = hashtable.get('hello');
 let result5 = hashtable.get('alex');
 
-console.log({result1});
-console.log({result2});
-console.log({result3});
-console.log({result4});
-console.log({result5});
-console.log({result11});
-console.log({result21});
+console.log({ result1 });
+console.log({ result2 });
+console.log({ result3 });
+console.log({ result4 });
+console.log({ result5 });
+console.log({ result11 });
+console.log({ result21 });

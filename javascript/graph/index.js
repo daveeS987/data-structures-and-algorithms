@@ -54,19 +54,26 @@ graph.addVertex(monstroplolis);
 graph.addVertex(narnia);
 graph.addVertex(naboo);
 
-graph.addUndirectedEdge(pandora,arendelle);
+graph.addUndirectedEdge(pandora, arendelle);
 
-graph.addUndirectedEdge(arendelle,metroville);
-graph.addUndirectedEdge(arendelle,monstroplolis);
+graph.addUndirectedEdge(arendelle, metroville);
+graph.addUndirectedEdge(arendelle, monstroplolis);
 
-graph.addUndirectedEdge(monstroplolis,naboo);
-graph.addUndirectedEdge(monstroplolis,metroville);
+graph.addUndirectedEdge(monstroplolis, naboo);
+graph.addUndirectedEdge(monstroplolis, metroville);
 
-graph.addUndirectedEdge(metroville,narnia);
-graph.addUndirectedEdge(metroville,naboo);
+graph.addUndirectedEdge(metroville, narnia);
+graph.addUndirectedEdge(metroville, naboo);
 
-graph.addUndirectedEdge(naboo,narnia);
+graph.addUndirectedEdge(naboo, narnia);
 
 let result = graph.bft(pandora);
-let expected = ['Pandora', 'Arendelle', 'Metroville', 'Monstroplolis', 'Narnia', 'Naboo'];
+let expected = [
+  'Pandora',
+  'Arendelle',
+  'Metroville',
+  'Monstroplolis',
+  'Narnia',
+  'Naboo',
+];
 console.log('result:', result);

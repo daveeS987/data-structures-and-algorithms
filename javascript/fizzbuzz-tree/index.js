@@ -30,5 +30,3 @@ console.log('treeList:', treeList);
 
 let converted = fizzBuzzTree(testTree).inOrder();
 console.log('converted:', converted);
-
-
