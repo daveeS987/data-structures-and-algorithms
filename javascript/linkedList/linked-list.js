@@ -109,17 +109,6 @@ class LinkedList {
   }
 
 
-
-  // kthFromEnd(k) {
-  //   let arr = [];
-  //   let current = this.head;
-  //   while(current.next) {
-  //     arr.push(current.value);
-  //     current = current.next;
-  //   }
-  //   return arr[arr.length-1-k];
-  // }
-
   kthFromEnd(k){
     if(k < 0) {
       console.error('K is a negative number');
