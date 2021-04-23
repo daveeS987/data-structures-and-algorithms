@@ -328,9 +328,45 @@ class BinarySearchTree extends BinaryTree {
   }
 
   // containsIteravily
-  // containsIterate;
+  containsIteravily(value) {
+    let current = this.root;
+
+    while (current) {
+      if (current.value === value) {
+        return true;
+      } else if (value > current.value) {
+        current = current.right;
+      } else {
+        current = current.left;
+      }
+    }
+    return false;
+  }
+
   // containsRecursively
-  // findMax
+
+  containsRecursively(value) {
+    if (!this.root) {
+      return null;
+    }
+
+    const walk = (node) => {
+      if (!node) {
+        return false;
+      }
+
+      if (node.value === value) {
+        return true;
+      } else if (value > node.value) {
+        return walk(node.right);
+      } else {
+        return walk(node.left);
+      }
+    };
+
+    return walk(this.root);
+  }
+  // findMax() {}
   // findMaxRecursively
   // breadthFirst
 }
