@@ -366,7 +366,33 @@ class BinarySearchTree extends BinaryTree {
 
     return walk(this.root);
   }
-  // findMax() {}
+
+  findMax() {
+    if (!this.root) {
+      return null;
+    }
+
+    let current = this.root;
+    while (current.value) {
+      current = current.right;
+    }
+    return current.value;
+  }
+
   // findMaxRecursively
+  findMaxRecursively() {
+    if (!this.root) {
+      return null;
+    }
+
+    const walk = (node) => {
+      if (!node.right) {
+        return node.value;
+      } else {
+        return walk(node.right);
+      }
+    };
+    return walk(this.root);
+  }
   // breadthFirst
 }
