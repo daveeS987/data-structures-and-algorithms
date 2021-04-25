@@ -395,4 +395,21 @@ class BinarySearchTree extends BinaryTree {
     return walk(this.root);
   }
   // breadthFirst
+  breadthFirst() {
+    let breadth = new Queue();
+    breadth.enqueue(this.root);
+    let result = [];
+
+    while (breadth.peek()) {
+      let dequed = breadth.dequeue();
+      result.push(dequed.value);
+      if (dequed.left) {
+        breadth.enqueue(dequed.left);
+      }
+      if (dequed.right) {
+        breadth.enqueue(dequed.right);
+      }
+    }
+    return result;
+  }
 }
