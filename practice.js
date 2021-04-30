@@ -45,6 +45,21 @@ class LinkedList {
   }
 
   //includes
+  includes(searchVal) {
+    if (!this.head) {
+      return null;
+    }
+
+    let current = this.head;
+
+    while (current) {
+      if (current.value === searchVal) {
+        return true;
+      }
+      current = current.next;
+    }
+    return false;
+  }
 
   //insertBefore
 
