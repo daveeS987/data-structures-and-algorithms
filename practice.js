@@ -65,3 +65,50 @@ class LinkedList {
 
   //insertAfter
 }
+
+class Stack {
+  constructor(node = null) {
+    this.top = node;
+  }
+
+  //push
+  push(value) {
+    let node = new Node(value);
+    if (!this.top) {
+      this.top = node;
+    } else {
+      node.next = this.top;
+      this.top = node;
+    }
+
+    return this;
+  }
+
+  pop(value) {
+    if (!this.top) {
+      return null;
+    }
+
+    let popped = this.top;
+    this.top = this.top.next;
+    return popped.value;
+  }
+
+  peek() {
+    if (!this.top) {
+      return null;
+    } else {
+      return this.top.value;
+    }
+  }
+
+  isEmpty() {
+    return this.top === null;
+  }
+
+  //pop
+
+  //peek
+
+  //isEmpty
+}
