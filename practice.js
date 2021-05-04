@@ -130,6 +130,15 @@ class Queue {
   }
 
   // Dequeue
+  dequeue() {
+    if (!this.front) {
+      return null;
+    }
+
+    let dequed = this.front;
+    this.front = this.front.next;
+    return dequed.value;
+  }
 
   // peek
 
