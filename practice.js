@@ -105,10 +105,33 @@ class Stack {
   isEmpty() {
     return this.top === null;
   }
+}
 
-  //pop
+class Queue {
+  constructor(node = null) {
+    this.front = node;
+  }
 
-  //peek
+  // Enqueue
+  enqueue(value) {
+    let node = new Node(value);
 
-  //isEmpty
+    if (!this.front) {
+      this.front = node;
+      return this;
+    }
+
+    let current = this.front;
+    while (!current.next) {
+      current = current.next;
+    }
+    current.next = node;
+    return this;
+  }
+
+  // Dequeue
+
+  // peek
+
+  // isEmpty
 }
