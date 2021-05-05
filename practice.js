@@ -62,6 +62,34 @@ class LinkedList {
   }
 
   //insertBefore
+  insertBefore(target, newVal) {
+    let node = new Node(newVal);
+
+    if (!this.head) {
+      this.head = node;
+      return this;
+    }
+
+    if (this.head.value === target) {
+      node.next = this.head;
+      this.head = node;
+      return this;
+    }
+
+    let current = this.head;
+    let next = this.head.next;
+
+    while (current.next) {
+      if (next.value === target) {
+        current.next = node;
+        node.next = next;
+        return this;
+      }
+      current = current.next;
+      next = next.next;
+    }
+    console.error('target is not within the list');
+  }
 
   //insertAfter
 }
