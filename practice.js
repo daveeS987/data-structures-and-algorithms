@@ -92,6 +92,25 @@ class LinkedList {
   }
 
   //insertAfter
+  insertAfter(target, newVal) {
+    let node = new Node(newVal);
+
+    if (!this.head) {
+      this.head = node;
+      return this;
+    }
+
+    let current = this.head;
+    while (current.next !== null) {
+      if (current.next.value === target) {
+        node.next = current.next;
+        current.next = node;
+        return this;
+      }
+      current = current.next;
+    }
+    console.error('Target not within the list');
+  }
 }
 
 class Stack {
