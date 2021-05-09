@@ -188,6 +188,16 @@ class Queue {
   }
 
   // peek
+  peek() {
+    if (!this.front) {
+      return null;
+    }
+
+    return this.front.value;
+  }
 
   // isEmpty
+  isEmpty() {
+    return this.front === null;
+  }
 }
