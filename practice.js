@@ -201,3 +201,39 @@ class Queue {
     return this.front === null;
   }
 }
+
+class TreeNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class BinaryTree {
+  constructor(node = null) {
+    this.root = node;
+  }
+
+  // inOrder
+  inOrder() {
+    let results = [];
+
+    const walk = (node) => {
+      if (node.left) {
+        walk(node.left);
+      }
+      results.push(node.value);
+      if (node.right) {
+        walk(node.right);
+      }
+    };
+
+    walk(this.root);
+    return results;
+  }
+
+  // preOrder
+
+  // postOrder
+}
