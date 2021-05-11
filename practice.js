@@ -233,7 +233,39 @@ class BinaryTree {
     return results;
   }
 
-  // preOrder
+  // preOrder: node, left, right
+  preOrder() {
+    let result = [];
 
-  // postOrder
+    const walk = (node) => {
+      result.push(node.value);
+      if (node.left) {
+        walk(node.left);
+      }
+      if (node.right) {
+        walk(node.right);
+      }
+    };
+
+    walk(this.root);
+    return result;
+  }
+
+  // postOrder: left, right, node;
+  postOrder() {
+    let result = [];
+
+    const walk = (node) => {
+      if (node.left) {
+        walk(node.left);
+      }
+      if (node.right) {
+        walk(node.right);
+      }
+      result.push(node.value);
+    };
+
+    walk(this.root);
+    return result;
+  }
 }
