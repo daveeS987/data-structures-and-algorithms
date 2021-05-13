@@ -300,6 +300,26 @@ class BinarySearchTree extends BinaryTree {
   }
 
   // contains
+  contains(target) {
+    if (!this.root) {
+      return null;
+    }
+
+    let current = this.root;
+
+    while (current) {
+      if (current.value === target) {
+        return true;
+      }
+
+      if (target > current.value) {
+        current = current.right;
+      } else {
+        current = current.left;
+      }
+    }
+    return false;
+  }
 
   // findMax
 
