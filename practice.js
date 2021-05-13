@@ -269,3 +269,41 @@ class BinaryTree {
     return result;
   }
 }
+
+class BinarySearchTree extends BinaryTree {
+  // add
+  add(value) {
+    let treeNode = new TreeNode(value);
+
+    if (!this.root) {
+      this.root = treeNode;
+      return this;
+    }
+
+    let current = this.root;
+
+    while (current) {
+      if (value > current.value) {
+        if (!current.right) {
+          current.right = treeNode;
+          return this;
+        }
+        current = current.right;
+      } else {
+        if (!current.left) {
+          current.left = treeNode;
+          return this;
+        }
+        current = current.left;
+      }
+    }
+  }
+
+  // contains
+
+  // findMax
+
+  // dfs
+
+  // breadth
+}
