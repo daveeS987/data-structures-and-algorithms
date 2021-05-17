@@ -322,6 +322,17 @@ class BinarySearchTree extends BinaryTree {
   }
 
   // findMax
+  findMax() {
+    if (!this.root) {
+      return null;
+    }
+
+    let current = this.root;
+    while (current.right) {
+      current = current.right;
+    }
+    return current.value;
+  }
 
   // dfs
 
