@@ -1,5 +1,7 @@
 'use strict';
 
+const e = require('express');
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -337,4 +339,25 @@ class BinarySearchTree extends BinaryTree {
   // dfs
 
   // breadth
+  breadthFirst() {
+    if (!this.root) {
+      return null;
+    }
+
+    let result = [];
+    let breadth = new Queue(this.root);
+
+    while (breadth.peek()) {
+      let dequed = breadth.dequeue();
+      result.push(dequed.value);
+
+      if (dequed.left) {
+        breadth.enqueue(dequed.left);
+      }
+      if (dequed.right) {
+        breadth.enqueue(dequed.right);
+      }
+    }
+    return result;
+  }
 }
