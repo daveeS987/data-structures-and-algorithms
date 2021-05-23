@@ -301,6 +301,32 @@ class BinarySearchTree extends BinaryTree {
     }
   }
 
+  addRecursively(value) {
+    let treeNode = new TreeNode(value);
+
+    if (!this.root) {
+      this.root = treeNode;
+      return this;
+    }
+
+    const walk = (node) => {
+      if (value > node.value) {
+        if (!node.right) {
+          node.right = treeNode;
+          return this;
+        }
+        return walk(node.right);
+      } else {
+        if (!node.left) {
+          node.left = treeNode;
+          return this;
+        }
+        return walk(node.left);
+      }
+    };
+    return walk(this.root);
+  }
+
   // contains
   contains(target) {
     if (!this.root) {
