@@ -349,6 +349,33 @@ class BinarySearchTree extends BinaryTree {
     return false;
   }
 
+  //// figure out why this fails test
+  containsRecursively(value) {
+    if (!this.root) {
+      return null;
+    }
+
+    const walk = (node) => {
+      if (node.value === value) {
+        return true;
+      }
+
+      if (node.value > value) {
+        if (!node.right) {
+          return false;
+        }
+        return walk(node.right);
+      } else {
+        if (!node.left) {
+          return false;
+        }
+        return walk(node.left);
+      }
+    };
+
+    return walk(this.root);
+  }
+
   // findMax
   findMax() {
     if (!this.root) {
