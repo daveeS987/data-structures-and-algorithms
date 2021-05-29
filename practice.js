@@ -349,7 +349,6 @@ class BinarySearchTree extends BinaryTree {
     return false;
   }
 
-  //// figure out why this fails test
   containsRecursively(value) {
     if (!this.root) {
       return null;
@@ -386,7 +385,21 @@ class BinarySearchTree extends BinaryTree {
     return current.value;
   }
 
-  // dfs
+  findMaxRecursively() {
+    if (!this.root) {
+      return null;
+    }
+
+    const walk = (node) => {
+      if (!node.right) {
+        return node.value;
+      } else {
+        return walk(node.right);
+      }
+    };
+
+    return walk(this.root);
+  }
 
   // breadth
   breadthFirst() {
