@@ -424,3 +424,18 @@ class BinarySearchTree extends BinaryTree {
     return result;
   }
 }
+
+class HashMap {
+  constructor(size) {
+    this.size = size;
+    this.storage = new Array(size);
+  }
+
+  // hash
+
+  // add
+
+  // get
+
+  // contains
+}
