@@ -1,7 +1,5 @@
 'use strict';
 
-const e = require('express');
-
 class Node {
   constructor(value) {
     this.value = value;
