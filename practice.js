@@ -432,10 +432,65 @@ class HashMap {
   }
 
   // hash
+  hash(key) {
+    return (
+      (key.split('').reduce((acc, cur, i) => {
+        return acc + cur.charCodeAt(0);
+      }, 0) *
+        599) %
+      this.size
+    );
+  }
 
   // add
+  add(key, value) {
+    let hashIndex = this.hash(key);
+
+    if (!this.storage[hashIndex]) {
+      let ll = new LinkedList();
+      ll.append([key, value]);
+      this.storage[hashIndex] = ll;
+    } else {
+      this.storage[hashIndex].append([key, value]);
+    }
+  }
 
   // get
+  get(key) {
+    let hashIndex = this.hash(key);
+
+    if (!this.storage[hashIndex]) {
+      return null;
+    }
+
+    let current = this.storage[hashIndex];
+
+    while (current) {
+      if (current.value[0] === key) {
+        return current.value[1];
+      }
+      current = current.next;
+    }
+    return null;
+  }
 
   // contains
+  contains(key) {
+    let hashIndex = this.hash(key);
+
+    if (!this.storage[hashIndex]) {
+      return null;
+    }
+
+    let current = this.storage[hashIndex];
+
+    while (current) {
+      if (current.value[0] === key) {
+        return true;
+      }
+      current = current.next;
+    }
+
+    return false;
+  }
 }
