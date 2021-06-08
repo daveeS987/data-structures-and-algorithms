@@ -2,7 +2,7 @@
 
 ## 401 JavaScript Data Structures, Code Challenges
 
-This is a collection of practice data structure problems in JavaScript. I go through arrays, linked-lists, stacks, queues, trees, and hashmaps. 
+This is a collection of practice data structure problems in JavaScript. I go through arrays, linked-lists, stacks, queues, trees, and hashmaps.
 
 ### Table of Contents
 
