@@ -11,5 +11,5 @@ Write a function called insertShiftArray which takes an array and inserts a valu
 
 The approach I took on this was to get the length of the array. Use that to find the midpoint. Temporarily store the middle value into a prev variable. Assign the current middle value to the new value being added. Then loop to the end of the array moving values one position forward on each iteration. I took this approach because I thought this may be the most efficient during the time constraint I had. I think there's probably a better way, and I did have another approach in mind, but I just went ahead and took this route.
 
-Time O(n)
-Space O(1)
+- Time O(n)
+- Space O(1)
