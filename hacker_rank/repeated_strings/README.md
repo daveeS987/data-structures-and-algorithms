@@ -12,5 +12,5 @@ Find out how many "a's are in the given string. Multiply that number by how many
 
 Big O:
 
-- Space: O(1)
-- Time: 0(1) I think this could be argued of having an O(1) since the algorithm is more of a formula than iterating through the entire data set.
+- Space: O(n)
+- Time: 0(n)

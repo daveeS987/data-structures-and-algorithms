@@ -12,5 +12,5 @@ We utilized the binary search method. Declare a start, mid, and end variable. Re
 
 Big O:
 
-- Space: O(1)
-- Time: O(n)
+- Space: O(n)
+- Time: O(Logn)

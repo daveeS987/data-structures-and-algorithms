@@ -13,4 +13,4 @@ Our approach was to find the midpoint of the array. Use a temporary array contai
 Big O:
 
 - Time: O(n)
-- Space: O(1)
+- Space: O(n)

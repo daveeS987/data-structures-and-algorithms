@@ -12,5 +12,5 @@ Loop through the string. Increment currrent height variable based on if its goin
 
 Big O:
 
-- Space : O(1)
+- Space : O(n)
 - Time : O(n)

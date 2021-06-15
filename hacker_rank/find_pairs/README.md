@@ -13,4 +13,4 @@ The approach I took was to use an object as a container to keep count of the ite
 Big O:
 
 - Time: O(n)
-- Space: O(1)
+- Space: O(n)

@@ -13,4 +13,4 @@ I utilized two variables and a loop. A count variable incrmented when the player
 Big O:
 
 - Time: O(n)
-- Space: O(1)
+- Space: O(n)
