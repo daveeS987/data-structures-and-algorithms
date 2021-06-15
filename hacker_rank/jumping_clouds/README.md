@@ -8,7 +8,7 @@ Given an array of 0 and 1, return the minimum amount of jumps a player would nee
 
 ## Approach and Efficiency
 
-I utilized two variables and a loop. A count variable incrmented when the player moves, and a current index variable to keep track of position. If the position 2 slots ahead is safe, then reassign current to that position and incrment count. Otherwise, increment bot current position and count by 1. Return the count at the end
+I utilized two variables and a loop. A count variable incremented when the player moves, and a current index variable to keep track of position. If the position 2 slots ahead is safe, then reassign current to that position and increment count. Otherwise, increment both current position and count by 1. Return the count at the end
 
 Big O:
 

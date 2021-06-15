@@ -1,6 +1,6 @@
 # Find the Pairs
 
-Given an array of numbers and an integer that represents the length of the array, return the amount of pairs in the array.
+Given an array of numbers and an integer that represents the length of the array, return the amount of matching pairs in the array.
 
 ## Whiteboard Process
 
