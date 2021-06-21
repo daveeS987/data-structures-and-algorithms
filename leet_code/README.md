@@ -4,4 +4,4 @@
 
 ### Table of Contents
 
-1.
+1. [Remove Duplicates from a Linked List](./remove_duplicate/README.md)
