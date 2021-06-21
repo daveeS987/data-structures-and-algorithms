@@ -72,3 +72,24 @@ def test_can_properly_return_a_collection_of_all_values_that_exist_in_list():
     actual = str(ll1)
     expected = "{'d'} -> {'c'} -> {'b'} -> {'a'} ->  None "
     assert actual == expected
+
+
+#######################
+# Fixtures
+#######################
+
+
+@pytest.fixture
+def linked_list_example():
+    ll1 = LinkedList()
+    ll1.insert("a").insert("b").insert("c").insert("d")
+    return ll1
+
+
+@pytest.fixture(autouse=True)
+def clean():
+    """runs before each test automatically
+    There's also a more advanced way to run code after each test as well
+    Check the docs for that. Hint: it uses yield
+    """
+    ll1 = None
