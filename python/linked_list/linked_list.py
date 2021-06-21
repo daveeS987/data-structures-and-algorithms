@@ -24,7 +24,7 @@ class LinkedList:
 
         current = self.head
 
-        while current is not None:
+        while current:
             if current.value == target:
                 return True
             current = current.next
@@ -36,7 +36,7 @@ class LinkedList:
 
         current = self.head
 
-        while current is not None:
+        while current:
             string += f"{ {current.value} } -> "
             current = current.next
 
