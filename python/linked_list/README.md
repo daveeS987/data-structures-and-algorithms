@@ -39,8 +39,6 @@ A collection of methods on a Linked List Class
 
 ### Append
 
-![Append](append.jpg)
-
 - Use a while loop to traverse all the way to the end
 - Make the last node's next property equal to the new node
 - Big O:
@@ -48,8 +46,6 @@ A collection of methods on a Linked List Class
   - Space: O(n)
 
 ### Insert After
-
-![Insert After](insert_after.jpg)
 
 - Use a while loop to traverse the list
 - If the current value equals the target value
@@ -61,8 +57,6 @@ A collection of methods on a Linked List Class
 
 ### Insert Before
 
-![Insert Before](insert_before.jpg)
-
 - Use a while loop to traverse the list
 - If the currents next value equals the target value
 - Point the new Node to whatever current is pointing to
@@ -70,3 +64,7 @@ A collection of methods on a Linked List Class
 - Big O:
   - Time: O(n)
   - Space: O(1)
+
+## Whiteboard
+
+![Linked List](linked_list.jpg)
