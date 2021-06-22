@@ -45,6 +45,8 @@ A collection of methods on a Linked List Class
   - Time: O(n)
   - Space: O(n)
 
+![Append](append.jpg)
+
 ### Insert After
 
 - Use a while loop to traverse the list
@@ -54,6 +56,8 @@ A collection of methods on a Linked List Class
 - Big O:
   - Time: O(n)
   - Space: O(1)
+
+![Insert After](insert_after.jpg)
 
 ### Insert Before
 
@@ -65,4 +69,4 @@ A collection of methods on a Linked List Class
   - Time: O(n)
   - Space: O(1)
 
-![Linked List](linked_list.jpg)
+![Insert Before](insert_before.jpg)
