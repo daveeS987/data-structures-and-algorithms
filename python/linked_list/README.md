@@ -3,6 +3,8 @@
 
 A collection of methods on a Linked List Class
 
+- [Link to the Code](linked_list.py)
+
 ## Linked List Methods
 
 ### Insert
