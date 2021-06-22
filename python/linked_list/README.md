@@ -3,6 +3,8 @@
 
 A collection of methods on a Linked List Class
 
+- [Link to the Code](linked_list.py)
+
 ## Linked List Methods
 
 ### Insert
@@ -34,3 +36,33 @@ A collection of methods on a Linked List Class
 - Big O:
   - Time: O(n)
   - Space: O(1)
+
+### Append
+
+- Use a while loop to traverse all the way to the end
+- Make the last node's next property equal to the new node
+- Big O:
+  - Time: O(n)
+  - Space: O(n)
+
+### Insert After
+
+- Use a while loop to traverse the list
+- If the current value equals the target value
+- Point the new Node to whatever current is pointing to
+- Point the current node to the new node
+- Big O:
+  - Time: O(n)
+  - Space: O(1)
+
+### Insert Before
+
+- Use a while loop to traverse the list
+- If the currents next value equals the target value
+- Point the new Node to whatever current is pointing to
+- Point the current node to the new node
+- Big O:
+  - Time: O(n)
+  - Space: O(1)
+
+![Linked List](linked_list.jpg)
