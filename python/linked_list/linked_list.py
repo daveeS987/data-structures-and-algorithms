@@ -116,4 +116,9 @@ class LinkedList:
 
 if __name__ == "__main__":
 
+    llist = LinkedList()
+    llist.append("a").append("b").append("c").append("d").append("e")
+
+    print(str(llist))
+
     pass
