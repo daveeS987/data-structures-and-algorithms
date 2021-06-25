@@ -74,35 +74,11 @@ def test_can_properly_return_a_collection_of_all_values_that_exist_in_list():
     assert actual == expected
 
 
-#######################
-# Fixtures
-#######################
+def test_can_succesfully_add_a_node_to_the_end_of_the_list(llist):
+    llist.append("Z")
+    expected = ["a", "b", "c", "d", "e", "Z"]
 
-
-# @pytest.fixture
-# def linked_list_example():
-#     ll1 = LinkedList()
-#     ll1.insert("a").insert("b").insert("c").insert("d")
-#     return ll1
-
-
-# @pytest.fixture(autouse=True)
-# def clean():
-#     """runs before each test automatically
-#     There's also a more advanced way to run code after each test as well
-#     Check the docs for that. Hint: it uses yield
-#     """
-#     ll1 = None
-
-
-def test_can_succesfully_add_a_node_to_the_end_of_the_list():
-    ll1 = LinkedList()
-    ll1.insert("a").insert("b").insert("c").insert("d")
-    ll1.append("Z")
-
-    expected = ["d", "c", "b", "a", "Z"]
-
-    current = ll1.head
+    current = llist.head
     index = 0
 
     while current is not None:
@@ -111,13 +87,11 @@ def test_can_succesfully_add_a_node_to_the_end_of_the_list():
         current = current.next
 
 
-def test_can_sucessfully_add_multiple_nodes_to_the_end_of_list():
-    ll1 = LinkedList()
-    ll1.append("a").append("b").append("c").append("d")
+def test_can_sucessfully_add_multiple_nodes_to_the_end_of_list(llist):
+    llist.append("x").append("y")
+    expected = ["a", "b", "c", "d", "e", "x", "y"]
 
-    expected = ["a", "b", "c", "d"]
-
-    current = ll1.head
+    current = llist.head
     index = 0
 
     while current is not None:
@@ -126,14 +100,11 @@ def test_can_sucessfully_add_multiple_nodes_to_the_end_of_list():
         current = current.next
 
 
-def test_can_succesfully_insert_a_node_before_a_node_in_middle_of_list():
-    ll1 = LinkedList()
-    ll1.append("a").append("b").append("c").append("d")
-    ll1.insert_before("c", "Z")
+def test_can_succesfully_insert_a_node_before_a_node_in_middle_of_list(llist):
+    llist.insert_before("c", "Z")
+    expected = ["a", "b", "Z", "c", "d", "e"]
 
-    expected = ["a", "b", "Z", "c", "d"]
-
-    current = ll1.head
+    current = llist.head
     index = 0
 
     while current is not None:
@@ -142,14 +113,11 @@ def test_can_succesfully_insert_a_node_before_a_node_in_middle_of_list():
         current = current.next
 
 
-def test_can_succesfully_insert_a_node_before_the_first_node_of_a_linked_list():
-    ll1 = LinkedList()
-    ll1.append("a").append("b").append("c").append("d")
-    ll1.insert_before("a", "Z")
+def test_can_succesfully_insert_a_node_before_the_first_node_of_a_linked_list(llist):
+    llist.insert_before("a", "Z")
+    expected = ["Z", "a", "b", "c", "d", "e"]
 
-    expected = ["Z", "a", "b", "c", "d"]
-
-    current = ll1.head
+    current = llist.head
     index = 0
 
     while current is not None:
@@ -158,14 +126,11 @@ def test_can_succesfully_insert_a_node_before_the_first_node_of_a_linked_list():
         current = current.next
 
 
-def test_Can_successfully_insert_after_a_node_in_the_middle_of_the_linked_list():
-    ll1 = LinkedList()
-    ll1.append("a").append("b").append("c").append("d")
-    ll1.insert_after("b", "Z")
+def test_Can_successfully_insert_after_a_node_in_the_middle_of_the_linked_list(llist):
+    llist.insert_after("b", "Z")
+    expected = ["a", "b", "Z", "c", "d", "e"]
 
-    expected = ["a", "b", "Z", "c", "d"]
-
-    current = ll1.head
+    current = llist.head
     index = 0
 
     while current is not None:
@@ -174,15 +139,11 @@ def test_Can_successfully_insert_after_a_node_in_the_middle_of_the_linked_list()
         current = current.next
 
 
-def test_Can_successfully_insert_a_node_after_the_last_node_of_the_linked_list():
-    ll1 = LinkedList()
-    ll1.append("a").append("b").append("c").append("d")
+def test_Can_successfully_insert_a_node_after_the_last_node_of_the_linked_list(llist):
+    llist.insert_after("d", "Z")
+    expected = ["a", "b", "c", "d", "Z", "e"]
 
-    ll1.insert_after("d", "Z")
-
-    expected = ["a", "b", "c", "d", "Z"]
-
-    current = ll1.head
+    current = llist.head
     index = 0
 
     while current is not None:
@@ -191,29 +152,20 @@ def test_Can_successfully_insert_a_node_after_the_last_node_of_the_linked_list()
         current = current.next
 
 
-def test_Where_k_is_greater_than_the_length_of_the_linked_list():
-    ll1 = LinkedList()
-    ll1.append("a").append("b").append("c").append("d").append("e")
-
-    actual = ll1.kth_from_the_end(2)
-    expected = "c"
+def test_Where_k_is_greater_than_the_length_of_the_linked_list(llist):
+    actual = llist.kth_from_the_end(7)
+    expected = "K is larger than linked list"
     assert actual == expected
 
 
-def test_Where_k_and_the_length_of_the_list_are_the_same():
-    ll1 = LinkedList()
-    ll1.append("a").append("b").append("c").append("d").append("e")
-
-    actual = ll1.kth_from_the_end(5)
+def test_Where_k_and_the_length_of_the_list_are_the_same(llist):
+    actual = llist.kth_from_the_end(5)
     expected = "a"
     assert actual == expected
 
 
-def test_Where_k_is_not_a_positive_integer():
-    ll1 = LinkedList()
-    ll1.append("a").append("b").append("c").append("d").append("e")
-
-    actual = ll1.kth_from_the_end(-5)
+def test_Where_k_is_not_a_positive_integer(llist):
+    actual = llist.kth_from_the_end(-5)
     expected = "K is negative"
     assert actual == expected
 
@@ -227,10 +179,28 @@ def test_Where_the_linked_list_is_of_a_size_1():
     assert actual == expected
 
 
-def test_Happy_Path_where_k_is_not_at_the_end_but_somewhere_in_the_middle_of_the_linked_list():
-    ll1 = LinkedList()
-    ll1.append("a").append("b").append("c").append("d").append("e")
-
-    actual = ll1.kth_from_the_end(3)
+def test_Happy_Path_where_k_is_not_at_the_end_but_somewhere_in_the_middle_of_the_linked_list(llist):
+    actual = llist.kth_from_the_end(3)
     expected = "b"
     assert actual == expected
+
+
+######################
+# Fixtures
+######################
+
+
+@pytest.fixture
+def llist():
+    llist = LinkedList()
+    llist.append("a").append("b").append("c").append("d").append("e")
+    return llist
+
+
+@pytest.fixture(autouse=True)
+def clean():
+    """runs before each test automatically
+    There's also a more advanced way to run code after each test as well
+    Check the docs for that. Hint: it uses yield
+    """
+    ll1 = None

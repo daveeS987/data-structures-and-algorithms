@@ -102,7 +102,7 @@ class LinkedList:
             current = current.next
 
         if count < k:
-            raise Exception("K is larger than linked list")
+            return "K is larger than linked list"
 
         current = self.head
         count = count - k
