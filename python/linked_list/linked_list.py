@@ -5,7 +5,6 @@ class Node:
 
 
 class LinkedList:
-
     def __init__(self, node=None):
         self.head = node
 
@@ -36,7 +35,6 @@ class LinkedList:
         string += " None "
         return string
 
-
     def append(self, value):
         new_node = Node(value)
         if self.head is None:
@@ -47,7 +45,6 @@ class LinkedList:
             current = current.next
         current.next = new_node
         return self
-
 
     def insert_before(self, target, new_value):
         new_node = Node(new_value)
@@ -71,7 +68,6 @@ class LinkedList:
 
         print("Target not within list")
 
-
     def insert_after(self, target, new_value):
 
         new_node = Node(new_value)
@@ -90,6 +86,8 @@ class LinkedList:
 
         print("Target not within list")
 
+    def kth_from_the_end(self, k):
+        pass
 
 
 if __name__ == "__main__":
