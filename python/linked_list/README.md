@@ -65,6 +65,19 @@ A collection of methods on a Linked List Class
   - Time: O(n)
   - Space: O(1)
 
+### Kth from the end
+
+- use a counter variable and increment on each node traversal
+- subtract the count from the list length and traverse that amount of time through the list again
+- return the value of where the traversal stops
+- Big O:
+  - Time: O(n)
+  - Space: O(1)
+
 ## Whiteboard
 
 ![Linked List](linked_list.jpg)
+
+### Kth from end
+
+![Kth from End](kth_from_end.jpg)

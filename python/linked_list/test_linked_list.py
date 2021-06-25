@@ -197,21 +197,40 @@ def test_Where_k_is_greater_than_the_length_of_the_linked_list():
 
     actual = ll1.kth_from_the_end(2)
     expected = "c"
-
     assert actual == expected
 
 
 def test_Where_k_and_the_length_of_the_list_are_the_same():
-    pass
+    ll1 = LinkedList()
+    ll1.append("a").append("b").append("c").append("d").append("e")
+
+    actual = ll1.kth_from_the_end(5)
+    expected = "a"
+    assert actual == expected
 
 
 def test_Where_k_is_not_a_positive_integer():
-    pass
+    ll1 = LinkedList()
+    ll1.append("a").append("b").append("c").append("d").append("e")
+
+    actual = ll1.kth_from_the_end(-5)
+    expected = "K is negative"
+    assert actual == expected
 
 
 def test_Where_the_linked_list_is_of_a_size_1():
-    pass
+    ll1 = LinkedList()
+    ll1.append("a")
+
+    actual = ll1.kth_from_the_end(1)
+    expected = "a"
+    assert actual == expected
 
 
 def test_Happy_Path_where_k_is_not_at_the_end_but_somewhere_in_the_middle_of_the_linked_list():
-    pass
+    ll1 = LinkedList()
+    ll1.append("a").append("b").append("c").append("d").append("e")
+
+    actual = ll1.kth_from_the_end(3)
+    expected = "b"
+    assert actual == expected

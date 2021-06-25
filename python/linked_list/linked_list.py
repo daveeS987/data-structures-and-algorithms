@@ -87,7 +87,31 @@ class LinkedList:
         print("Target not within list")
 
     def kth_from_the_end(self, k):
-        pass
+
+        if k < 0:
+            return "K is negative"
+
+        if self.head is None:
+            return None
+
+        count = 0
+        current = self.head
+
+        while current:
+            count += 1
+            current = current.next
+
+        if count < k:
+            raise Exception("K is larger than linked list")
+
+        current = self.head
+        count = count - k
+
+        while count > 1:
+            current = current.next
+            count -= 1
+
+        return current.value
 
 
 if __name__ == "__main__":
