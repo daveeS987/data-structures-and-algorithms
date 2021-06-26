@@ -2,6 +2,19 @@ import pytest
 
 from linked_list import LinkedList, Node
 
+# Helper Test Function
+def does_all_values_match(linkedList, expected_array):
+    current = linkedList.head
+    index = 0
+
+    while current is not None:
+        if current.value != expected_array[index]:
+            return False
+        index += 1
+        current = current.next
+
+    return True
+
 
 def test_node_class_can_instantiate():
     node1 = Node("apple")
@@ -68,79 +81,37 @@ def test_can_properly_return_a_collection_of_all_values_that_exist_in_list(llist
 def test_can_succesfully_add_a_node_to_the_end_of_the_list(llist):
     llist.append("Z")
     expected = ["a", "b", "c", "d", "e", "Z"]
-
-    current = llist.head
-    index = 0
-
-    while current is not None:
-        assert current.value == expected[index]
-        index += 1
-        current = current.next
+    assert does_all_values_match(llist, expected)
 
 
 def test_can_sucessfully_add_multiple_nodes_to_the_end_of_list(llist):
     llist.append("x").append("y")
     expected = ["a", "b", "c", "d", "e", "x", "y"]
-
-    current = llist.head
-    index = 0
-
-    while current is not None:
-        assert current.value == expected[index]
-        index += 1
-        current = current.next
+    assert does_all_values_match(llist, expected)
 
 
 def test_can_succesfully_insert_a_node_before_a_node_in_middle_of_list(llist):
     llist.insert_before("c", "Z")
     expected = ["a", "b", "Z", "c", "d", "e"]
-
-    current = llist.head
-    index = 0
-
-    while current is not None:
-        assert current.value == expected[index]
-        index += 1
-        current = current.next
+    assert does_all_values_match(llist, expected)
 
 
 def test_can_succesfully_insert_a_node_before_the_first_node_of_a_linked_list(llist):
     llist.insert_before("a", "Z")
     expected = ["Z", "a", "b", "c", "d", "e"]
-
-    current = llist.head
-    index = 0
-
-    while current is not None:
-        assert current.value == expected[index]
-        index += 1
-        current = current.next
+    assert does_all_values_match(llist, expected)
 
 
 def test_Can_successfully_insert_after_a_node_in_the_middle_of_the_linked_list(llist):
     llist.insert_after("b", "Z")
     expected = ["a", "b", "Z", "c", "d", "e"]
-
-    current = llist.head
-    index = 0
-
-    while current is not None:
-        assert current.value == expected[index]
-        index += 1
-        current = current.next
+    assert does_all_values_match(llist, expected)
 
 
 def test_Can_successfully_insert_a_node_after_the_last_node_of_the_linked_list(llist):
     llist.insert_after("d", "Z")
     expected = ["a", "b", "c", "d", "Z", "e"]
-
-    current = llist.head
-    index = 0
-
-    while current is not None:
-        assert current.value == expected[index]
-        index += 1
-        current = current.next
+    assert does_all_values_match(llist, expected)
 
 
 def test_Where_k_is_greater_than_the_length_of_the_linked_list(llist):
