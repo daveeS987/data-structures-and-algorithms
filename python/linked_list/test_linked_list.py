@@ -152,7 +152,7 @@ def test_Happy_Path_where_k_is_not_at_the_end_but_somewhere_in_the_middle_of_the
     assert actual == expected
 
 
-def linked_list_zip_can_zip_two_list_of_equal_length(llist):
+def test_linked_list_zip_can_zip_two_list_of_equal_length(llist):
     ll2 = LinkedList()
     ll2.append(1).append(2).append(3).append(4).append(5)
     actual = linked_list_zip(llist, ll2)
@@ -160,7 +160,7 @@ def linked_list_zip_can_zip_two_list_of_equal_length(llist):
     assert does_all_values_match(actual, expected)
 
 
-def linked_list_zip_can_zip_two_list_with_first_list_being_longer(llist):
+def test_linked_list_zip_can_zip_two_list_with_first_list_being_longer(llist):
     ll2 = LinkedList()
     ll2.append(1).append(2).append(3)
     actual = linked_list_zip(llist, ll2)
@@ -168,7 +168,7 @@ def linked_list_zip_can_zip_two_list_with_first_list_being_longer(llist):
     assert does_all_values_match(actual, expected)
 
 
-def linked_list_zip_can_zip_two_list_with_second_list_being_longer(llist):
+def test_linked_list_zip_can_zip_two_list_with_second_list_being_longer(llist):
     ll2 = LinkedList()
     ll2.append(1).append(2).append(3).append(4).append(5).append(6).append(7)
     actual = linked_list_zip(llist, ll2)
@@ -176,14 +176,14 @@ def linked_list_zip_can_zip_two_list_with_second_list_being_longer(llist):
     assert does_all_values_match(actual, expected)
 
 
-def linked_list_will_return_first_list_if_second_is_empty(llist):
+def test_linked_list_will_return_first_list_if_second_is_empty(llist):
     ll2 = LinkedList()
     actual = linked_list_zip(llist, ll2)
     expected = ["a", "b", "c", "d", "e"]
     assert does_all_values_match(actual, expected)
 
 
-def linked_list_will_return_second_list_if_first_is_empty(llist):
+def test_linked_list_will_return_second_list_if_first_is_empty(llist):
     ll1 = LinkedList()
     actual = linked_list_zip(ll1, llist)
     expected = ["a", "b", "c", "d", "e"]
