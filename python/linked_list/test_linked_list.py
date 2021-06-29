@@ -12,7 +12,6 @@ def does_all_values_match(linkedList, expected_array):
             return False
         index += 1
         current = current.next
-
     return True
 
 
@@ -80,38 +79,44 @@ def test_can_properly_return_a_collection_of_all_values_that_exist_in_list(llist
 
 def test_can_succesfully_add_a_node_to_the_end_of_the_list(llist):
     llist.append("Z")
+    actual = llist
     expected = ["a", "b", "c", "d", "e", "Z"]
-    assert does_all_values_match(llist, expected)
+    assert does_all_values_match(actual, expected)
 
 
 def test_can_sucessfully_add_multiple_nodes_to_the_end_of_list(llist):
     llist.append("x").append("y")
+    actual = llist
     expected = ["a", "b", "c", "d", "e", "x", "y"]
-    assert does_all_values_match(llist, expected)
+    assert does_all_values_match(actual, expected)
 
 
 def test_can_succesfully_insert_a_node_before_a_node_in_middle_of_list(llist):
     llist.insert_before("c", "Z")
+    actual = llist
     expected = ["a", "b", "Z", "c", "d", "e"]
-    assert does_all_values_match(llist, expected)
+    assert does_all_values_match(actual, expected)
 
 
 def test_can_succesfully_insert_a_node_before_the_first_node_of_a_linked_list(llist):
     llist.insert_before("a", "Z")
+    actual = llist
     expected = ["Z", "a", "b", "c", "d", "e"]
-    assert does_all_values_match(llist, expected)
+    assert does_all_values_match(actual, expected)
 
 
 def test_Can_successfully_insert_after_a_node_in_the_middle_of_the_linked_list(llist):
     llist.insert_after("b", "Z")
+    actual = llist
     expected = ["a", "b", "Z", "c", "d", "e"]
-    assert does_all_values_match(llist, expected)
+    assert does_all_values_match(actual, expected)
 
 
 def test_Can_successfully_insert_a_node_after_the_last_node_of_the_linked_list(llist):
     llist.insert_after("d", "Z")
+    actual = llist
     expected = ["a", "b", "c", "d", "Z", "e"]
-    assert does_all_values_match(llist, expected)
+    assert does_all_values_match(actual, expected)
 
 
 def test_Where_k_is_greater_than_the_length_of_the_linked_list(llist):
