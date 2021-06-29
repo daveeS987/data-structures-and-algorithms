@@ -196,3 +196,42 @@ class Queue{
     return this.front === null;
   }
 }
+
+class TreeNode{
+  constructor(value = null){
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class BinaryTree{
+  constructor(node = null) {
+    this.root = node
+  }
+
+  // inOrder, preOrder, postOrder
+  // inOrder left, node, right
+  inOrder(){
+
+    let result = []
+    const walk = node => {
+      if (node.left) {walk(node.left);}
+      result.push(node.value)
+      if (node.right) {walk(node.right)}
+    }
+    walk(this.root)
+    return result
+  }
+  // root, left, right
+  preOrder(){
+    let result = [];
+    const walk = node => {
+      result.push(node.value)
+      if(node.left) {walk(node.left);}
+      if(node.right) {walk(node.right)}
+    }
+    walk(this.root)
+    return result;
+  }
+}
