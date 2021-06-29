@@ -1,6 +1,6 @@
 import pytest
 
-from linked_list import LinkedList, Node
+from linked_list import LinkedList, Node, linked_list_zip
 
 # Helper Test Function
 def does_all_values_match(linkedList, expected_array):
@@ -152,6 +152,44 @@ def test_Happy_Path_where_k_is_not_at_the_end_but_somewhere_in_the_middle_of_the
     assert actual == expected
 
 
+def linked_list_zip_can_zip_two_list_of_equal_length(llist):
+    ll2 = LinkedList()
+    ll2.append(1).append(2).append(3).append(4).append(5)
+    actual = linked_list_zip(llist, ll2)
+    expected = ["a", 1, "b", 2, "c", 3, "d", 4, "e", 5]
+    assert does_all_values_match(actual, expected)
+
+
+def linked_list_zip_can_zip_two_list_with_first_list_being_longer(llist):
+    ll2 = LinkedList()
+    ll2.append(1).append(2).append(3)
+    actual = linked_list_zip(llist, ll2)
+    expected = ["a", 1, "b", 2, "c", 3, "d", "e"]
+    assert does_all_values_match(actual, expected)
+
+
+def linked_list_zip_can_zip_two_list_with_second_list_being_longer(llist):
+    ll2 = LinkedList()
+    ll2.append(1).append(2).append(3).append(4).append(5).append(6).append(7)
+    actual = linked_list_zip(llist, ll2)
+    expected = ["a", 1, "b", 2, "c", 3, "d", 4, "e", 5, 6, 7]
+    assert does_all_values_match(actual, expected)
+
+
+def linked_list_will_return_first_list_if_second_is_empty(llist):
+    ll2 = LinkedList()
+    actual = linked_list_zip(llist, ll2)
+    expected = ["a", "b", "c", "d", "e"]
+    assert does_all_values_match(actual, expected)
+
+
+def linked_list_will_return_second_list_if_first_is_empty(llist):
+    ll1 = LinkedList()
+    actual = linked_list_zip(ll1, llist)
+    expected = ["a", "b", "c", "d", "e"]
+    assert does_all_values_match(actual, expected)
+
+
 ######################
 # Fixtures
 ######################
@@ -170,4 +208,4 @@ def clean():
     There's also a more advanced way to run code after each test as well
     Check the docs for that. Hint: it uses yield
     """
-    ll1 = None
+    llist = None
