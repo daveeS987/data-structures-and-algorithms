@@ -148,6 +148,31 @@ def linked_list_zip(linklist1, linklist2):
     return linklist1
 
 
+def get_duplicate_count(link1, link2):
+
+    if link1.head is None or link2.head is None:
+        return 0
+
+    storage = {}
+    current1 = link1.head
+
+    while current1 is not None:
+        if storage[current1.value]:
+            storage += 1
+        else:
+            storage[current1.value] = 1
+
+    count = 0
+    current2 = link2.head
+
+    while current2 is not None:
+        if storage[current2.value]:
+            count += 1
+        current2 = current2.next
+
+    return count
+
+
 if __name__ == "__main__":
 
     llist = LinkedList()
