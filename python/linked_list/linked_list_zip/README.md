@@ -2,6 +2,11 @@
 
 Given two linked list, return them zipped together.
 
+## Links
+
+- [See the Code](../linked_list.py)
+- [See the Tests](../test_linked_list.py)
+
 ## Whiteboard Process
 
 ![Linked List](linked_list_zip.jpg)
@@ -14,5 +19,3 @@ Big O:
 
 - Space: O(1)
 - Time: O(n)
-
-[See the Code](../linked_list.py)
