@@ -234,4 +234,15 @@ class BinaryTree{
     walk(this.root)
     return result;
   }
+
+  postOrder() {
+    let result = [];
+    const walk = node => {
+      if (node.left) {walk(node.left)}
+      if (node.right) {walk(node.right)}
+      result.push(node.value)
+    }
+    walk(this.root)
+    return result
+  }
 }
