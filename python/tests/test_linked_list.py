@@ -1,6 +1,6 @@
 import pytest
 
-from linked_list import LinkedList, Node, linked_list_zip
+from linked_list.linked_list import LinkedList, Node, linked_list_zip
 
 # Helper Test Function
 def does_all_values_match(linkedList, expected_array):
