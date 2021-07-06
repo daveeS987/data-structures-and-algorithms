@@ -1,6 +1,6 @@
 import pytest
 
-from stacks.stacks import Node, Stack
+from stacks.stacks import Stack
 
 
 def test_Can_successfully_instantiate_an_empty_stack():
