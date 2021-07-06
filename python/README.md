@@ -12,3 +12,5 @@
 ### Data Structures
 
 1. [Linked List](./linked_list/README.md)
+1. [Stacks](./stacks/README.md)
+1. [Queues](./queues/README.md)
