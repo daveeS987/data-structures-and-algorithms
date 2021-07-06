@@ -1,5 +1,7 @@
 # Leet Code Problems
 
+## Author: Davee Sok
+
 ## Languages: `JavaScript` & `Python`
 
 ### Table of Contents
