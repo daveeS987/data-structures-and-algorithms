@@ -5,7 +5,7 @@ A collection of methods on a Linked List Class
 ## Links and Resources
 
 - [See the Code](linked_list.py)
-- [See the tests](test_linked_list.py)
+- [See the tests](../tests/test_linked_list.py)
 
 ## Linked List Methods
 
