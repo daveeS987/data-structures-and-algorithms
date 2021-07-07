@@ -18,7 +18,6 @@ def test_can_succefully_enqueue_one_value():
     new_pseudo = PseuedoQueue()
     new_pseudo.enqueue("a")
     actual = new_pseudo.stack1.top.value
-    print(actual)
     expected = "a"
     assert actual == expected
 
