@@ -12,3 +12,4 @@
 1. [Count the Valleys](repeated_strings/README.md)
 1. [2d Array, Find Max Hourglass Sum](2d_array/README.md)
 1. [Array Left Rotation](array_left_rotation/README.md)
+1. [Ransom Note](ransom_note/README.md)
