@@ -246,3 +246,31 @@ class BinaryTree{
     return result
   }
 }
+
+
+class HashTable{
+  constructor(size){
+    this.size = size;
+    this.storage = new Array(size)
+  }
+
+  hash(key){
+    return (
+      (key.split('').reduce((acc, cur, i) => {
+        return acc + cur.charCodeAt(0);
+      }, 0) * 599) % this.size
+    )
+  }
+
+  add(key, val) {
+
+  }
+
+  get(key) {
+
+  }
+
+  contains(key) {
+
+  }
+}
