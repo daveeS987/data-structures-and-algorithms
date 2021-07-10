@@ -12,3 +12,4 @@
 1. [Is Linked List Palindrome](./is_palindrome/README.md)
 1. [Merge in Between Linked List](./merge_between_ll/README.md)
 1. [Student Sandwiches(Stacks & Queues)](./student_sandwiches/README.md)
+1. [Remove Adjacent Duplicates(Stacks)](./adjacent_duplicates/README.md)
