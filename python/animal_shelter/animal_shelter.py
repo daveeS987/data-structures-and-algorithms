@@ -27,7 +27,7 @@ class Animal_Shelter:
         else:
             self.rear.next = node
             self.rear = node
-            self.length += 1
+        self.length += 1
 
     def dequeue(self, pref):
 
@@ -58,7 +58,7 @@ class Animal_Shelter:
                 self.rear = dequed_node
                 rotation_count -= 1
 
-        for i in range(rotation_count + 1):
+        for i in range(rotation_count):
             dequed = self.front.value
             dequed_node = Node(dequed)
             self.front = self.front.next
