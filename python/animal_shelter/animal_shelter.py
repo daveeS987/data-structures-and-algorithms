@@ -51,18 +51,16 @@ class Animal_Shelter:
                 rotation_count -= 1
                 break
             else:
-                dequed = self.front.value
-                dequed_node = Node(dequed)
+                dequed = self.front
                 self.front = self.front.next
-                self.rear.next = dequed_node
-                self.rear = dequed_node
+                self.rear.next = dequed
+                self.rear = dequed
                 rotation_count -= 1
 
         for i in range(rotation_count):
-            dequed = self.front.value
-            dequed_node = Node(dequed)
+            dequed = self.front
             self.front = self.front.next
-            self.rear.next = dequed_node
-            self.rear = dequed_node
+            self.rear.next = dequed
+            self.rear = dequed
 
         return answer
