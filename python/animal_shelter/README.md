@@ -25,7 +25,7 @@ Dequeue
 
 ## Approach and Efficiency
 
-In this Animal Shelter class I had to implement a length property to keep count of the queue length. Enqueue method is straightforward. Just add to the end. Dequeue method utilizes a rotation count variable that is initially equal to the queue length. If the first animal is not what we're looking for, we just dequeue that animal and bring it to the end. We'll also decrement our rotation_count. If we do find the animal, well pull that out of the queue. Then fix our queue order. We just pull from the front and bring animal to the rear of the queue "rotation count" amount of times. And that will put everything back in place. Then just return the dequed item.
+In this Animal Shelter class I had to implement a length property to keep count of the queue length. Enqueue method is straightforward. Just add to the end. Dequeue method utilizes a rotation count variable that is initially equal to the queue length. If the first animal is not what we're looking for, we dequeue that animal and bring it to the end. We'll also decrement our rotation_count. If we do find the animal, well pull that out of the queue and then fix our queue order. To do this, we pull from the front and bring that animal to the rear of the queue "rotation count" amount of times. And that will put everything back in place. Then return the dequed item.
 
 ### Big O:
 
