@@ -17,4 +17,5 @@
 1. [Binary Search](./code_challenges/binary_search/README.md)
 1. [Linked List Zip](./linked_list/linked_list_zip/README.md)
 1. [Pseudo Queue](./stack_queue_pseudo/README.md)
+1. [Animal Shelter Queue](./animal_shelter/README.md)
 
