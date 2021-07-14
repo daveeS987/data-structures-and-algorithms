@@ -1,15 +1,7 @@
-class Node:
+class Animal:
     def __init__(self, value=None, next=None):
         self.value = value
         self.next = next
-
-
-"""
-animal object =
-{
-    animal: "dog"
-}
-"""
 
 
 class Animal_Shelter:
@@ -18,15 +10,14 @@ class Animal_Shelter:
         self.rear = None
         self.length = 0
 
-    def enqueue(self, animal_obj):
-        node = Node(animal_obj)
+    def enqueue(self, animal):
 
         if self.front is None:
-            self.front = node
-            self.rear = node
+            self.front = animal
+            self.rear = animal
         else:
-            self.rear.next = node
-            self.rear = node
+            self.rear.next = animal
+            self.rear = animal
         self.length += 1
 
     def dequeue(self, pref):
@@ -34,8 +25,8 @@ class Animal_Shelter:
         if self.front is None:
             raise Exception("Animal Shelter is Empty")
 
-        if self.front.value["animal"] == pref:
-            dequed = self.front.value["animal"]
+        if self.front.value == pref:
+            dequed = self.front.value
             self.front = self.front.next
             self.length -= 1
             return dequed
@@ -44,8 +35,8 @@ class Animal_Shelter:
         answer = None
 
         while rotation_count >= 0:
-            if self.front.value["animal"] == pref:
-                answer = self.front.value["animal"]
+            if self.front.value == pref:
+                answer = self.front.value
                 self.front = self.front.next
                 self.length -= 1
                 rotation_count -= 1
