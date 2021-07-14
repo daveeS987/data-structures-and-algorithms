@@ -10,6 +10,7 @@ class Animal_Shelter:
         self.rear = None
         self.length = 0
 
+    # this will need to take the Animal Node, NOT the string
     def enqueue(self, animal):
 
         if self.front is None:
