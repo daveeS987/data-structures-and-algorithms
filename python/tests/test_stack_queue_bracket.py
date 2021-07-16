@@ -1,7 +1,6 @@
 import pytest
 
 from stack_queue_bracket.stack_queue_bracket import validate_brackets
-from stacks.stacks import Node, Stack
 
 
 def test_case_one():

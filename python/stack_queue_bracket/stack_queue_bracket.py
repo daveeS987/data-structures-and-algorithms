@@ -1,4 +1,4 @@
-from stacks.stacks import Node, Stack
+from stacks.stacks import Stack
 
 
 def validate_brackets(string):
@@ -11,14 +11,7 @@ def validate_brackets(string):
         if char in opening_bracket:
             stack.push(char)
         elif char in brackets:
-            if stack.isEmpty():
-                return False
-            value = stack.pop()
-            if value != brackets[char]:
+            if stack.isEmpty() or stack.pop() != brackets[char]:
                 return False
 
     return stack.isEmpty()
-
-
-if __name__ == "__main__":
-    pass
