@@ -15,3 +15,4 @@
 1. [Queues Implementation](./queues/README.md)
 1. [Pseudo Queue](./stack_queue_pseudo/README.md)
 1. [Animal Shelter Queue](./animal_shelter/README.md)
+1. [Multi Bracket Validation](./stack_queue_bracket/README.md)
