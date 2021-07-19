@@ -247,6 +247,76 @@ class BinaryTree{
   }
 }
 
+class BinarySearchTree extends BinaryTree{
+
+  // add recursively
+  addRecursively(value) {
+
+    let treeNode = new TreeNode(value)
+
+    if (!this.root) {
+      this.root = treeNode;
+      return this;
+    }
+
+    const walk = node => {
+      if (value > node.value) {
+        if (!node.right){
+          node.right = treeNode;
+          return this;
+        }
+        walk(node.right)
+      } else {
+        if(!node.left) {
+          node.left = treeNode;
+          return this;
+        }
+        walk(node.left);
+      }
+    }
+
+    walk(node.root)
+    return this;
+  }
+
+  // add Iteravely
+  addIteravily(value){
+
+    let treeNode = new TreeNode(value);
+
+    if(!this.root) {
+      this.root = treeNode
+      return this;
+    }
+
+    let current = this.root;
+
+    if(current.value < value) {
+      if(!current.right) {
+        current.right = treeNode;
+        return this;
+      }
+      current = current.right;
+    } else {
+      if(!current.left){
+        current = current.left
+        return this;
+      }
+      current = current.left
+    }
+  }
+
+  // contains Recursively
+
+  // contains Iteravily
+
+  // findMax Iteraveily
+
+  // findMax Recursviely
+
+  // breadthfirst
+}
+
 
 class HashTable{
   constructor(size){
