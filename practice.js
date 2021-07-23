@@ -307,6 +307,14 @@ class BinarySearchTree extends BinaryTree{
   }
 
   // contains Recursively
+  contains(target) {
+
+    if(!this.root) {
+      return false;
+    }
+
+
+  }
 
   // contains Iteravily
 
