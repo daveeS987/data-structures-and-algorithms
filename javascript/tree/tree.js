@@ -16,30 +16,56 @@ class BinaryTree {
   }
 
   // left, root, right
+  // inOrder() {
+  //   let results = [];
+  //   const walk = (node) => {
+  //     if (node.left) {
+  //       walk(node.left);
+  //     }
+  //     results.push(node.value);
+  //     if (node.right) {
+  //       walk(node.right);
+  //     }
+  //   };
+  //   walk(this.root);
+  //   return results;
+  // }
+
   inOrder() {
     let results = [];
     const walk = (node) => {
-      if (node.left) {
+      if (node) {
         walk(node.left);
-      }
-      results.push(node.value);
-      if (node.right) {
+        results.push(node.value);
         walk(node.right);
       }
     };
+
     walk(this.root);
     return results;
   }
 
   // root, left, right
+  // preOrder() {
+  //   let results = [];
+  //   const walk = (node) => {
+  //     results.push(node.value);
+  //     if (node.left) {
+  //       walk(node.left);
+  //     }
+  //     if (node.right) {
+  //       walk(node.right);
+  //     }
+  //   };
+  //   walk(this.root);
+  //   return results;
+  // }
   preOrder() {
     let results = [];
     const walk = (node) => {
-      results.push(node.value);
-      if (node.left) {
+      if (node) {
+        results.push(node.value);
         walk(node.left);
-      }
-      if (node.right) {
         walk(node.right);
       }
     };
