@@ -2,5 +2,5 @@
 
 ## Links
 
--   [See the Code](trees.py)
--   [See the Tests](../tests/test_trees.py)
+- [See the Code](trees.py)
+- [See the Tests](../tests/test_trees.py)
