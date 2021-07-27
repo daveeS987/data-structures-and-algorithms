@@ -64,7 +64,6 @@ class BinarySearchTree(BinaryTree):
     """
 
     def addIteravily(self, value):
-
         node = Node(value)
 
         if self.root is None:
@@ -90,7 +89,6 @@ class BinarySearchTree(BinaryTree):
                 current = current.left
 
     def addRecursively(self, value):
-
         new_node = Node(value)
 
         if self.root is None:
@@ -116,7 +114,6 @@ class BinarySearchTree(BinaryTree):
         walk(self.root)
 
     def containsIteravily(self, target):
-
         if self.root is None:
             return None
 
