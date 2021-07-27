@@ -18,7 +18,6 @@ class BinaryTree:
         self.root = node
 
     def pre_order(self):
-        # root >> left >> right
         result = []
 
         def walk(node):
@@ -31,7 +30,6 @@ class BinaryTree:
         return result
 
     def in_order(self):
-        # left >> root >> right
         result = []
 
         def walk(node):
@@ -44,15 +42,13 @@ class BinaryTree:
         return result
 
     def post_order(self):
-        # left >> right >> root
         result = []
 
         def walk(node):
-            if node.left:
+            if node:
                 walk(node.left)
-            if node.right:
                 walk(node.right)
-            result.append(node.value)
+                result.append(node.value)
 
         walk(self.root)
         return result
@@ -134,13 +130,10 @@ class BinarySearchTree(BinaryTree):
             return None
 
         def walk(node):
-
             if node == None:
                 return False
-
             if node.value == target:
                 return True
-
             if target > node.value:
                 return walk(node.right)
             else:
