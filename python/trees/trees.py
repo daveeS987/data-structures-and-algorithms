@@ -1,8 +1,4 @@
 class Node:
-    """
-    Docstring
-    """
-
     def __init__(self, value=None, left=None, right=None):
         self.value = value
         self.left = left
@@ -10,15 +6,10 @@ class Node:
 
 
 class BinaryTree:
-    """
-    Docstring
-    """
-
     def __init__(self, node=None):
         self.root = node
 
     def pre_order(self):
-        # node, left, right
         result = []
 
         def walk(node):
@@ -57,7 +48,6 @@ class BinaryTree:
     def find_max(self):
         if self.root is None:
             return None
-
         global max_value
         max_value = 0
 
@@ -74,19 +64,14 @@ class BinaryTree:
 
 
 class BinarySearchTree(BinaryTree):
-    """
-    Docstring
-    """
-
-    def addIteravily(self, new_value):  # 10
+    def addIteravily(self, new_value):
         node = Node(new_value)
 
         if self.root is None:
             self.root = node
             return self
 
-        current = self.root  # root is 5
-
+        current = self.root
         while current:
 
             if new_value == current.value:
@@ -105,13 +90,11 @@ class BinarySearchTree(BinaryTree):
 
     def addRecursively(self, value):
         new_node = Node(value)
-
         if self.root is None:
             self.root = new_node
             return self
 
         def walk(node):
-
             if value == node.value:
                 raise Exception("Value already exist")
 
@@ -128,12 +111,11 @@ class BinarySearchTree(BinaryTree):
 
         walk(self.root)
 
-    def containsIteravily(self, target):  # 23
+    def containsIteravily(self, target):
         if self.root is None:
             return None
 
         current = self.root
-
         while current:
             if current.value == target:
                 return True
@@ -159,7 +141,3 @@ class BinarySearchTree(BinaryTree):
                 return walk(node.left)
 
         return walk(self.root)
-
-
-if __name__ == "__main__":
-    pass
