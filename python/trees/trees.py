@@ -18,6 +18,7 @@ class BinaryTree:
         self.root = node
 
     def pre_order(self):
+        # node, left, right
         result = []
 
         def walk(node):
@@ -53,27 +54,45 @@ class BinaryTree:
         walk(self.root)
         return result
 
+    def find_max(self):
+        if self.root is None:
+            return None
+
+        global max_value
+        max_value = 0
+
+        def walk(node):
+            if node:
+                global max_value
+                if node.value > max_value:
+                    max_value = node.value
+                walk(node.left)
+                walk(node.right)
+
+        walk(self.root)
+        return max_value
+
 
 class BinarySearchTree(BinaryTree):
     """
     Docstring
     """
 
-    def addIteravily(self, value):
-        node = Node(value)
+    def addIteravily(self, new_value):  # 10
+        node = Node(new_value)
 
         if self.root is None:
             self.root = node
             return self
 
-        current = self.root
+        current = self.root  # root is 5
 
         while current:
 
-            if value == current.value:
+            if new_value == current.value:
                 raise Exception("Value already exist")
 
-            if value > current.value:
+            if new_value > current.value:
                 if current.right is None:
                     current.right = node
                     return self
@@ -109,7 +128,7 @@ class BinarySearchTree(BinaryTree):
 
         walk(self.root)
 
-    def containsIteravily(self, target):
+    def containsIteravily(self, target):  # 23
         if self.root is None:
             return None
 
@@ -140,3 +159,17 @@ class BinarySearchTree(BinaryTree):
                 return walk(node.left)
 
         return walk(self.root)
+
+
+if __name__ == "__main__":
+    new_tree = BinarySearchTree()
+    new_tree.addIteravily(20)
+    new_tree.addIteravily(15)
+    new_tree.addIteravily(25)
+    new_tree.addIteravily(12)
+    new_tree.addIteravily(17)
+    new_tree.addIteravily(23)
+    new_tree.addIteravily(28)
+
+    result = new_tree.find_max()
+    print(result)

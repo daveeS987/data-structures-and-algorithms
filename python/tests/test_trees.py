@@ -103,6 +103,26 @@ def test_containsRecursively_method_will_return_false_for_value_not_present(recu
     assert actual == False
 
 
+def test_can_find_max_value_of_28(new_tree):
+    actual = new_tree.find_max()
+    expected = 28
+    assert actual == expected
+
+
+def test_can_find_max_value_of_99(new_tree):
+    new_tree.addIteravily(99)
+    actual = new_tree.find_max()
+    expected = 99
+    assert actual == expected
+
+
+def test_find_max_will_return_none_for_empty_tree():
+    empty_tree = BinaryTree()
+    actual = empty_tree.find_max()
+    expected = None
+    assert actual == expected
+
+
 ######################
 # Fixtures
 ######################
@@ -123,15 +143,15 @@ def new_tree():
 
 @pytest.fixture
 def recursive_tree():
-    new_tree = BinarySearchTree()
-    new_tree.addRecursively(20)
-    new_tree.addRecursively(15)
-    new_tree.addRecursively(25)
-    new_tree.addRecursively(12)
-    new_tree.addRecursively(17)
-    new_tree.addRecursively(23)
-    new_tree.addRecursively(28)
-    return new_tree
+    r_tree = BinarySearchTree()
+    r_tree.addRecursively(20)
+    r_tree.addRecursively(15)
+    r_tree.addRecursively(25)
+    r_tree.addRecursively(12)
+    r_tree.addRecursively(17)
+    r_tree.addRecursively(23)
+    r_tree.addRecursively(28)
+    return r_tree
 
 
 @pytest.fixture(autouse=True)
@@ -141,3 +161,4 @@ def clean():
     Check the docs for that. Hint: it uses yield
     """
     new_tree = None
+    r_tree = None
