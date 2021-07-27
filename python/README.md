@@ -16,3 +16,4 @@
 1. [Pseudo Queue](./stack_queue_pseudo/README.md)
 1. [Animal Shelter Queue](./animal_shelter/README.md)
 1. [Multi Bracket Validation](./stack_queue_bracket/README.md)
+1. [Binary & Binary Search Trees](./trees/README.md)
