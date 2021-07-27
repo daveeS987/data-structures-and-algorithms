@@ -162,14 +162,4 @@ class BinarySearchTree(BinaryTree):
 
 
 if __name__ == "__main__":
-    new_tree = BinarySearchTree()
-    new_tree.addIteravily(20)
-    new_tree.addIteravily(15)
-    new_tree.addIteravily(25)
-    new_tree.addIteravily(12)
-    new_tree.addIteravily(17)
-    new_tree.addIteravily(23)
-    new_tree.addIteravily(28)
-
-    result = new_tree.find_max()
-    print(result)
+    pass
