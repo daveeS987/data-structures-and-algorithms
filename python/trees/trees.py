@@ -48,12 +48,12 @@ class BinaryTree:
     def find_max(self):
         if self.root is None:
             return None
-        global max_value
-        max_value = 0
+        # global max_value
+        max_value = self.root.value
 
         def walk(node):
             if node:
-                global max_value
+                nonlocal max_value
                 if node.value > max_value:
                     max_value = node.value
                 walk(node.left)
