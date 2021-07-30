@@ -20,6 +20,6 @@ Big O:
 - Time: O(n)
 - Space: O(1)
 
-### Collaborators:
+### Collaborators
 
-Daniel Dills, Prabin Singh, Michael Ryan, Wondwosen
+Daniel Dills, Wondwosen Tsige, Prabin Singh, Michael Ryan

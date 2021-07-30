@@ -18,7 +18,6 @@ Dequeue
 - [See The Code](animal_shelter.py)
 - [See The Tests](../tests/test_animal_shelter.py)
 
-
 ## White Board Process
 
 ![Animal Queue](animal_queue.jpg)
@@ -38,3 +37,7 @@ Dequeue
 
 - Time: O(n)
 - Space: O(1)
+
+### Collaborators
+
+Daniel Dills, Wondwosen Tsige, Prabin Singh, Michael Ryan

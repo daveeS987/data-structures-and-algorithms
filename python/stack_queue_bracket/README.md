@@ -19,3 +19,7 @@ Big O:
 
 - Time: O(n)
 - Space: O(n)
+
+### Collaborators
+
+Daniel Dills, Wondwosen Tsige, Prabin Singh, Michael Ryan
