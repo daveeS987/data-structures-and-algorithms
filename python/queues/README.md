@@ -40,3 +40,7 @@ Implement a queue data structure using linked list
 - return boolean whether front is None
 - Big O:
   - Time: O(1)
+
+### Collaborators
+
+Daniel Dills, Wondwosen Tsige, Prabin Singh, Michael Ryan
