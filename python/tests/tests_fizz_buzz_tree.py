@@ -48,8 +48,8 @@ def test_fizz_buzz_tree_raises_error_on_empty_tree():
 
 
 def test_fizz_buzz_tree_return_corrrect_values(new_tree):
-    modified = fizz_buzz_tree(new_tree)
-    actual = modified.breadth_first()
+    fizz_buzz_tree(new_tree)
+    actual = new_tree.breadth_first()
     expected = ["1", "2", "Fizz", "4", "Buzz", "11", "Fizz", "7", "Buzz", "8", "Fizz"]
     assert actual == expected
 
