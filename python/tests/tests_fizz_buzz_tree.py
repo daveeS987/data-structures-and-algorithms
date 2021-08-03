@@ -46,7 +46,7 @@ def test_fizz_buzz_helper_returns_string():
 def test_fizz_buzz_tree_raises_error_on_empty_tree():
     empty_tree = K_Tree()
     with pytest.raises(Exception):
-        fizz_buzz_helper(empty_tree)
+        fizz_buzz_tree(empty_tree)
 
 
 def test_fizz_buzz_tree_return_corrrect_values(new_tree):
