@@ -1,13 +1,13 @@
 from queues.queues import Queue
 
 
-class KNodes:
+class K_node:
     def __init__(self, value=None, children=[]):
         self.value = value
         self.children = children
 
 
-class KaryTree:
+class K_Tree:
     def __init__(self, node=None):
         self.root = node
 
@@ -54,20 +54,4 @@ def fizz_buzz_tree(tree):
 
 
 if __name__ == "__main__":
-
-    node5 = KNodes(5, [])
-    node6 = KNodes(6, [])
-    node7 = KNodes(7, [])
-    node8 = KNodes(8, [])
-    node9 = KNodes(9, [])
-    node10 = KNodes(10, [])
-    node11 = KNodes(11, [])
-    node4 = KNodes(4, [node8, node9])
-    node2 = KNodes(2, [node4, node5, node11])
-    node3 = KNodes(3, [node6, node7, node10])
-    node1 = KNodes(1, [node2, node3])
-    new_tree = KaryTree(node1)
-
-    new_tree.breadth_first()
-    expected = [1, 2, 3, 4, 5, 11, 6, 7, 10, 8, 9]
-    print(new_tree.breadth_first())
+    pass
