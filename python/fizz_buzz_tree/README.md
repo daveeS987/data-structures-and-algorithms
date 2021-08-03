@@ -5,7 +5,7 @@ Given a k-ary Tree, transform the tree according to FizzBuzz rules.
 ## Links
 
 - [See The Code](./fizz_buzz_tree.py)
-- [See The Test](../tests/tests_fizz_buzz_tree.py)
+- [See The Test](../tests/test_fizz_buzz_tree.py)
 
 ## WhiteBoard Process
 
