@@ -63,13 +63,13 @@ def test_fizz_buzz_tree_return_corrrect_values(new_tree):
 
 @pytest.fixture
 def new_tree():
-    node5 = K_node(5, [])
-    node6 = K_node(6, [])
-    node7 = K_node(7, [])
-    node8 = K_node(8, [])
-    node9 = K_node(9, [])
-    node10 = K_node(10, [])
-    node11 = K_node(11, [])
+    node5 = K_node(5)
+    node6 = K_node(6)
+    node7 = K_node(7)
+    node8 = K_node(8)
+    node9 = K_node(9)
+    node10 = K_node(10)
+    node11 = K_node(11)
     node4 = K_node(4, [node8, node9])
     node2 = K_node(2, [node4, node5, node11])
     node3 = K_node(3, [node6, node7, node10])
