@@ -10,3 +10,7 @@
 ## Blog
 
 work in progress...
+
+### Collaborators
+
+Daniel Dills, Prabin Singh, Wondwosen Tsige, Michael Ryan
