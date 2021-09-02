@@ -1,6 +1,6 @@
-def quick_sort(arr, left=0, right=-10):
+def quick_sort(arr, left=0, right=None):
 
-    if right == -10:
+    if right == None:
         right = len(arr) - 1
 
     if left < right:
