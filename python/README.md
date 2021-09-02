@@ -19,3 +19,4 @@
 1. [Binary & Binary Search Trees](./trees/README.md)
 1. [Breadth First Traversal](./breadth_first/README.md)
 1. [Fizz Buzz K-Ary Tree](./fizz_buzz_tree/README.md)
+1. [Sort Method - Insertion](./sort_insertion/README.md)
