@@ -21,3 +21,4 @@
 1. [Fizz Buzz K-Ary Tree](./fizz_buzz_tree/README.md)
 1. [Sort Method - Insertion](./sort_insertion/README.md)
 1. [Sort Method - Merge](./sort_merge/README.md)
+1. [Sort Method - Quick](./sort_quick/README.md)
