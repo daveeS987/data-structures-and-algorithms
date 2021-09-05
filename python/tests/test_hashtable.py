@@ -4,14 +4,15 @@ from hashtable.hashtable import HashTable
 def test_can_instantiate_hashtable():
     new_hashtable = HashTable()
     assert new_hashtable
+    assert new_hashtable.size == 1024
+    assert len(new_hashtable.bucket) == 1024
 
 
 def test_hash_function_returns_valid_index():
     hashtable = HashTable()
-    key = "apple"
-    index = hashtable.hash(key)
-    actual = hashtable.hash(key)
-    assert actual == index
+    actual_index = hashtable.hash("app")
+    expected = 791
+    assert actual_index == expected
 
 
 def test_hash_function_will_return_a_value_within_range():
