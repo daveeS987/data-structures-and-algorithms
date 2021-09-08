@@ -23,3 +23,4 @@
 1. [Sort Method - Merge](./sort_merge/README.md)
 1. [Sort Method - Quick](./sort_quick/README.md)
 1. [Hash Table Implementation](./hashtable/README.md)
+1. [Find First Repeated Word - Hashmap](./repeated_word/README.md)
