@@ -12,7 +12,9 @@ class HashTable:
         Return: Index for key
         """
         hash_index = 0
-        for char in key:
+        check = str(key)
+
+        for char in check:
             hash_index += ord(char)
 
         hash_index *= 599
