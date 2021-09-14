@@ -1,6 +1,6 @@
 import pytest
 
-from left_join.left_join import left_join
+from left_join.left_join import left_join, left_join_hash
 
 
 def test_function_will_account_for_empty_left():
@@ -46,3 +46,8 @@ def test_function_will_account_for_right_side_larger():
     actual = left_join(obj1, obj2)
     expected = [["c", "cc", "cc"], ["v", "vv", None], ["e", "ee", "ee"]]
     assert actual == expected
+
+
+# ------------------------------------------------------------------------------
+# Left Join using our custom hashmap
+# wip
