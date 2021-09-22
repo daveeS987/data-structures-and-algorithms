@@ -25,4 +25,5 @@
 1. [Hash Table Implementation](./hashtable/README.md)
 1. [Find First Repeated Word - Hashmap](./repeated_word/README.md)
 1. [Find Common Values in 2 Binary Trees](./challenge32/README.md)
+1. [Left Join with 2 Hashmaps](./left_join/README.md)
 
