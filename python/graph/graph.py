@@ -61,36 +61,8 @@ class Vertex:
     def __init__(self, value=None):
         self.value = value
 
-<<<<<<< HEAD
-=======
-    # def __str__(self):
-    #     return self.value
-
->>>>>>> e44322883fde8b388811779b1137ba4723fb84c3
 
 class Edge:
     def __init__(self, vertex, weight=0):
         self.vertex = vertex
         self.weight = weight
-<<<<<<< HEAD
-=======
-
-
-# if __name__ == "__main__":
-#     graph = Graph()
-#     vertex1 = Vertex(1)
-#     vertex2 = Vertex(2)
-#     vertex3 = Vertex(3)
-#     graph.add_node(vertex1)
-#     graph.add_node(vertex2)
-#     graph.add_node(vertex3)
-#     list = graph.get_nodes()
-#     expected = [1, 2, 3]
-
-#     test_list = []
-#     for x in list:
-#         print(x.value)
-#         test_list.append(x.value)
-
-#     print(test_list)
->>>>>>> e44322883fde8b388811779b1137ba4723fb84c3

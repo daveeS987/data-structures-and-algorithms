@@ -88,9 +88,9 @@ def test_size_returns_correct_size():
     assert actual == 3
 
 
-# def test_a_graph_with_only_one_node_and_edge_can_be_returned():
-#     pass
+def test_a_graph_with_only_one_node_and_edge_can_be_returned():
+    pass
 
 
-# def test_an_empty_graph_properly_returns_null():
-#     pass
+def test_an_empty_graph_properly_returns_null():
+    pass
