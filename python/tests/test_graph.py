@@ -53,10 +53,8 @@ def test_a_collection_of_all_nodes_can_be_retrieved_from_graph():
     graph.add_node(vertex3)
     list = graph.get_nodes()
     expected = [1, 2, 3]
-    actual = []
-    for x in list:
-        actual.append(x.value)
-    assert actual == expected
+    for i, obj in enumerate(list):
+        assert obj.value == expected[i]
 
 
 def test_neighbors_are_returned_with_weights_between_nodes_included():
