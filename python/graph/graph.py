@@ -56,6 +56,9 @@ class Graph:
         """
         return len(self._adjacency_list)
 
+    def breadth_first(self):
+        pass
+
 
 class Vertex:
     def __init__(self, value=None):
