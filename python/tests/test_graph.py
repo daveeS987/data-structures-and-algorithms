@@ -88,9 +88,82 @@ def test_size_returns_correct_size():
     assert actual == 3
 
 
-def test_a_graph_with_only_one_node_and_edge_can_be_returned():
-    pass
+# def test_a_graph_with_only_one_node_and_edge_can_be_returned():
+#     pass
 
 
-def test_an_empty_graph_properly_returns_null():
-    pass
+# def test_an_empty_graph_properly_returns_null():
+#     pass
+
+
+# -------------------------------------------------------------------
+# Breadth First Search
+# -------------------------------------------------------------------
+
+
+def test_breadth_first_will_return_correct_ouput_given_pandora(example):
+    graph = example[0]
+    pandora = example[1]
+    actual = graph.breadth_first(pandora)
+    expected = ["pandora", "arendelle", "metroville", "monstropolis", "narnia", "naboo"]
+    assert pandora.value == "pandora"
+    assert actual == expected
+
+
+def test_breadth_first_will_return_correct_ouput_given_arendelle(example):
+    graph = example[0]
+    arendelle = example[2]
+    actual = graph.breadth_first(arendelle)
+    expected = ["arendelle", "pandora", "metroville", "monstropolis", "narnia", "naboo"]
+    assert arendelle.value == "arendelle"
+    assert actual == expected
+
+
+def test_breadth_first_will_return_correct_ouput_given_narnia(example):
+    graph = example[0]
+    narnia = example[5]
+    actual = graph.breadth_first(narnia)
+    expected = ["narnia", "metroville", "naboo", "monstropolis", "arendelle", "pandora"]
+    assert narnia.value == "narnia"
+    assert actual == expected
+
+
+@pytest.fixture
+def example():
+    graph1 = Graph()
+    pandora = Vertex("pandora")
+    arendelle = Vertex("arendelle")
+    metroville = Vertex("metroville")
+    monstropolis = Vertex("monstropolis")
+    narnia = Vertex("narnia")
+    naboo = Vertex("naboo")
+
+    graph1.add_node(pandora)
+    graph1.add_node(arendelle)
+    graph1.add_node(metroville)
+    graph1.add_node(monstropolis)
+    graph1.add_node(narnia)
+    graph1.add_node(naboo)
+
+    graph1.add_edge(pandora, arendelle)
+
+    graph1.add_edge(arendelle, pandora)
+    graph1.add_edge(arendelle, metroville)
+    graph1.add_edge(arendelle, monstropolis)
+
+    graph1.add_edge(metroville, narnia)
+    graph1.add_edge(metroville, naboo)
+    graph1.add_edge(metroville, monstropolis)
+    graph1.add_edge(metroville, arendelle)
+
+    graph1.add_edge(monstropolis, arendelle)
+    graph1.add_edge(monstropolis, metroville)
+    graph1.add_edge(monstropolis, naboo)
+
+    graph1.add_edge(narnia, metroville)
+    graph1.add_edge(narnia, naboo)
+
+    graph1.add_edge(naboo, narnia)
+    graph1.add_edge(naboo, metroville)
+    graph1.add_edge(naboo, monstropolis)
+    return graph1, pandora, arendelle, metroville, monstropolis, narnia, naboo

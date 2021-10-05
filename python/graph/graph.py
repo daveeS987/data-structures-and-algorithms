@@ -1,3 +1,6 @@
+from queues.queues import Queue
+
+
 class Graph:
     def __init__(self):
         self._adjacency_list = {}
@@ -56,8 +59,24 @@ class Graph:
         """
         return len(self._adjacency_list)
 
-    def breadth_first(self):
-        pass
+    def breadth_first(self, vertex):
+        nodes = []
+        breadth = Queue()
+        visited = set()
+
+        breadth.enqueue(vertex)
+        visited.add(vertex)
+
+        while not breadth.isEmpty():
+            front = breadth.dequeue()
+            nodes.append(front.value)
+
+            for child in [e.vertex for e in self.get_neighbors(front)]:
+                if child not in visited:
+                    visited.add(child)
+                    breadth.enqueue(child)
+
+        return nodes
 
 
 class Vertex:
