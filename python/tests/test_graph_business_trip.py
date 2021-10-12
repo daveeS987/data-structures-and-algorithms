@@ -1,6 +1,6 @@
 import pytest
 
-from graph.graph import Graph, Vertex, Edge
+from graphs.graph import Graph, Vertex, Edge
 from graph_business_trip.graph_business_trip import business_trip
 
 
@@ -27,6 +27,11 @@ def test_input_metroville_pandora_returns_true(example):
     graph = example[0]
     metroville = example[3]
     pandora = example[1]
+    assert metroville.value == "metroville"
+    assert pandora.value == "pandora"
+    actual = business_trip(graph, [metroville, pandora])
+    expected = "True, $82"
+    assert actual == expected
 
 
 def test_happy_path_multiple_cities_returns_true(example):
@@ -34,14 +39,36 @@ def test_happy_path_multiple_cities_returns_true(example):
     arendelle = example[2]
     monstropolis = example[4]
     naboo = example[6]
+    assert arendelle.value == "arendelle"
+    assert monstropolis.value == "monstropolis"
+    assert naboo.value == "naboo"
+    actual = business_trip(graph, [arendelle, monstropolis, naboo])
+    expected = "True, $115"
+    assert actual == expected
 
 
 def test_unhappy_path_returns_fales(example):
-    pass
+    graph = example[0]
+    naboo = example[6]
+    pandora = example[1]
+    assert naboo.value == "naboo"
+    assert pandora.value == "pandora"
+    actual = business_trip(graph, [naboo, pandora])
+    expected = "False, $0"
+    assert actual == expected
 
 
 def test_unhappy_path_with_multiple_cities_return_false(example):
-    pass
+    graph = example[0]
+    narnia = example[5]
+    arendelle = example[2]
+    naboo = example[6]
+    assert narnia.value == "narnia"
+    assert arendelle.value == "arendelle"
+    assert naboo.value == "naboo"
+    actual = business_trip(graph, [narnia, arendelle, naboo])
+    expected = "False, $0"
+    assert actual == expected
 
 
 @pytest.fixture
@@ -68,6 +95,7 @@ def example():
     graph1.add_edge(arendelle, metroville, 99)
     graph1.add_edge(arendelle, monstropolis, 42)
 
+    graph1.add_edge(metroville, pandora, 82)
     graph1.add_edge(metroville, narnia, 37)
     graph1.add_edge(metroville, naboo, 26)
     graph1.add_edge(metroville, monstropolis, 105)
