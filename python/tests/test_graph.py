@@ -1,6 +1,6 @@
 import pytest
 
-from graph.graph import Graph, Vertex, Edge
+from graphs.graph import Graph, Vertex, Edge
 
 
 def test_can_instantiate_Graph():
