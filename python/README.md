@@ -26,5 +26,5 @@
 1. [Find First Repeated Word - Hashmap](./repeated_word/README.md)
 1. [Find Common Values in 2 Binary Trees](./challenge32/README.md)
 1. [Left Join with 2 Hashmaps](./left_join/README.md)
-1. [Graphs](./graph/README.md)
+1. [Graphs](./graphs/README.md)
 1. [Business Trips- Graph](./graph_business_trip/README.md)
